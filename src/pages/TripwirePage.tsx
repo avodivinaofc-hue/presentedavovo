@@ -23,15 +23,8 @@ const TripwirePage = () => {
   }, []);
 
   const handlePurchase = () => {
-    toast({
-      title: "Processando pagamento... ✨",
-      description: "Você será redirecionada em instantes!"
-    });
-
-    // Simular processamento de pagamento
-    setTimeout(() => {
-      navigate("/espelho-da-alma", { state: { name, isPaid: true } });
-    }, 2000);
+    // Redirecionar para o checkout da Disrupty
+    window.open("https://global.disruptybr.com.br/exycdib4b8", "_blank");
   };
 
   const skipOffer = () => {
