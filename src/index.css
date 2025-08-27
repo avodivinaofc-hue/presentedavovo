@@ -8,33 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Mystical Design System - Avó Divina */
+    --background: 15 25% 5%;
+    --foreground: 45 15% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 15 20% 8%;
+    --card-foreground: 45 15% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 15 20% 8%;
+    --popover-foreground: 45 15% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 270 50% 25%;
+    --primary-foreground: 45 100% 85%;
+    --primary-glow: 270 70% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 30% 15%;
+    --secondary-foreground: 45 15% 92%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 20% 12%;
+    --muted-foreground: 45 10% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 270 60% 35%;
+    --accent-foreground: 45 100% 85%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 45 15% 92%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 15% 20%;
+    --input: 240 15% 20%;
+    --ring: 270 70% 45%;
+
+    /* Mystical colors */
+    --mystic-purple: 270 50% 25%;
+    --mystic-purple-light: 270 70% 45%;
+    --mystic-blue: 240 60% 20%;
+    --mystic-gold: 45 100% 65%;
+    --mystic-gold-bright: 45 100% 85%;
+    --cream: 45 20% 95%;
+    
+    /* Gradients */
+    --gradient-mystical: linear-gradient(135deg, hsl(var(--mystic-purple)), hsl(var(--mystic-blue)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--mystic-gold)), hsl(var(--mystic-gold-bright)));
+    --gradient-ethereal: linear-gradient(180deg, hsl(var(--background)), hsl(var(--mystic-purple) / 0.1));
+    
+    /* Shadows */
+    --shadow-mystical: 0 10px 40px hsl(var(--mystic-purple) / 0.3);
+    --shadow-gold: 0 0 30px hsl(var(--mystic-gold) / 0.4);
+    --shadow-ethereal: 0 5px 20px hsl(var(--mystic-blue) / 0.2);
+
+    /* Animations */
+    --transition-mystical: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.3s ease-in-out;
 
     --radius: 0.5rem;
 
@@ -101,5 +125,71 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .text-mystical-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-mystical-gradient {
+    background: var(--gradient-mystical);
+  }
+
+  .bg-gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  .shadow-mystical {
+    box-shadow: var(--shadow-mystical);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .transition-mystical {
+    transition: var(--transition-mystical);
+  }
+
+  .glow-effect {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--mystic-gold) / 0.3);
+    }
+    to {
+      box-shadow: 0 0 40px hsl(var(--mystic-gold) / 0.6);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .mystical-card {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--mystic-purple) / 0.1) 100%);
+    border: 1px solid hsl(var(--mystic-purple) / 0.3);
+    backdrop-filter: blur(10px);
   }
 }
