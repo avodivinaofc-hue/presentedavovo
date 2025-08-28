@@ -3,7 +3,6 @@ import { MysticalCard } from "@/components/MysticalCard";
 import { MysticalButton } from "@/components/MysticalButton";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { ChevronLeft, ChevronRight, BookOpen, Star } from "lucide-react";
-import ebookCover from "@/assets/ebook-cover.jpg";
 import tarotSpread from "@/assets/tarot-spread.jpg";
 import avoPortrait from "@/assets/avo-divina-portrait.jpg";
 
@@ -16,7 +15,7 @@ const EbookPage = () => {
       title: "Capa",
       content: (
         <div className="text-center space-y-8">
-          <img src={ebookCover} alt="O Oráculo Interior" className="mx-auto w-64 md:w-96 shadow-mystical rounded-lg" />
+          <img src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" alt="O Oráculo Interior" className="mx-auto w-64 md:w-96 shadow-mystical rounded-lg" />
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold text-mystical-gradient">O Oráculo Interior</h1>
             <p className="text-xl md:text-2xl text-mystic-gold">Um Guia da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô</p>

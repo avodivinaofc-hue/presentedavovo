@@ -6,35 +6,76 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import mysticalHandHero from "@/assets/mystical-hand-hero.jpg";
-import ebookCover from "@/assets/ebook-cover.jpg";
 
 const LandingPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email) {
+    
+    if (!name.trim() || !email.trim()) {
       toast({
         title: "Campos obrigatórios",
-        description: "Por favor, preencha seu nome e e-mail.",
+        description: "Por favor, preencha seu nome e email.",
         variant: "destructive"
       });
       return;
     }
 
-    // Simular captura de lead
-    toast({
-      title: "Sucesso! ✨",
-      description: "Seu guia está sendo preparado..."
-    });
+    setIsLoading(true);
 
-    // Redirecionar para a página de oferta tripwire
-    setTimeout(() => {
-      navigate("/tripwire", { state: { name, email } });
-    }, 2000);
+    try {
+      // Capturar parâmetros UTM da URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const captureData = {
+        email: email.trim(),
+        name: name.trim(),
+        source: "landing_page",
+        utm_source: urlParams.get('utm_source'),
+        utm_medium: urlParams.get('utm_medium'),
+        utm_campaign: urlParams.get('utm_campaign')
+      };
+
+      // Chamar edge function para capturar email
+      const { data, error } = await supabase.functions.invoke('capture-email', {
+        body: captureData
+      });
+
+      if (error) {
+        console.error('Error capturing email:', error);
+        toast({
+          title: "Erro ao processar",
+          description: "Houve um problema. Tente novamente.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Sucesso - redirecionar para página tripwire
+      toast({
+        title: "Sucesso! ✨",
+        description: "Redirecionando para sua oferta especial..."
+      });
+      
+      setTimeout(() => {
+        navigate("/tripwire", { state: { name } });
+      }, 1500);
+
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Erro inesperado",
+        description: "Tente novamente em alguns instantes.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -87,7 +128,7 @@ const LandingPage = () => {
               <div className="flex flex-col items-center space-y-8">
                 <div className="float-animation">
                   <img 
-                    src={ebookCover} 
+                    src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" 
                     alt="Capa do E-book O Oráculo Interior" 
                     className="w-64 md:w-80 shadow-mystical rounded-lg"
                   />
@@ -114,7 +155,7 @@ const LandingPage = () => {
                           onChange={(e) => setName(e.target.value)}
                           className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream placeholder:text-mystic-cream/50"
                           placeholder="Como posso te chamar?"
-                          required
+                          disabled={isLoading}
                         />
                       </div>
                       
@@ -127,7 +168,7 @@ const LandingPage = () => {
                           onChange={(e) => setEmail(e.target.value)}
                           className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream placeholder:text-mystic-cream/50"
                           placeholder="seu@email.com"
-                          required
+                  disabled={isLoading}
                         />
                       </div>
                     </div>
@@ -137,8 +178,18 @@ const LandingPage = () => {
                       variant="gold" 
                       size="lg" 
                       className="w-full text-xl font-bold"
+                      disabled={isLoading}
                     >
-                      🔮 QUERO MEU GUIA GRATUITO!
+                      {isLoading ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          PROCESSANDO...
+                        </>
+                      ) : (
+                        <>
+                          🔮 QUERO MEU GUIA GRATUITO!
+                        </>
+                      )}
                     </MysticalButton>
 
                     <p className="text-xs text-mystic-cream/60 text-center">

@@ -24,7 +24,7 @@ const TripwirePage = () => {
 
   const handlePurchase = () => {
     // Redirecionar para o checkout da Disrupty
-    window.open("https://global.disruptybr.com.br/exycdib4b8", "_blank");
+    window.open("https://global.disruptybr.com.br/mmbk5", "_blank");
   };
 
   const skipOffer = () => {
