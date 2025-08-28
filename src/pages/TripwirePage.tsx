@@ -23,8 +23,8 @@ const TripwirePage = () => {
   }, []);
 
   const handlePurchase = () => {
-    // Redirecionar para o checkout da Disrupty
-    window.open("https://global.disruptybr.com.br/mmbk5", "_blank");
+    // Redirecionar para o checkout
+    window.open("https://avo-divina.netlify.app/", "_blank");
   };
 
   const skipOffer = () => {
