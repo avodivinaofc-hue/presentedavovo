@@ -143,7 +143,19 @@ All colors MUST be HSL.
   }
 
   /* Mobile-first responsive typography */
+  @media (min-width: 640px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
   @media (min-width: 768px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1024px) {
     html {
       font-size: 18px;
     }
@@ -158,6 +170,18 @@ All colors MUST be HSL.
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Melhorar legibilidade em mobile */
+  @media (max-width: 640px) {
+    body {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    h1, h2, h3 {
+      line-height: 1.1;
+    }
   }
 }
 
@@ -221,9 +245,15 @@ All colors MUST be HSL.
     backdrop-filter: blur(10px);
   }
 
-  /* Responsive spacing */
+  /* Responsive spacing - Mobile-first approach */
   .spacing-section {
-    @apply px-4 py-8;
+    @apply px-4 py-6;
+  }
+
+  @media (min-width: 640px) {
+    .spacing-section {
+      @apply px-6 py-8;
+    }
   }
 
   @media (min-width: 768px) {
@@ -238,6 +268,12 @@ All colors MUST be HSL.
     }
   }
 
+  @media (min-width: 1280px) {
+    .spacing-section {
+      @apply px-16 py-20;
+    }
+  }
+
   /* Responsive images */
   .responsive-img {
     max-width: 100%;
@@ -245,12 +281,77 @@ All colors MUST be HSL.
     object-fit: cover;
   }
 
-  /* Mobile navigation helpers */
-  .mobile-nav-container {
-    @apply fixed inset-x-0 top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border;
+  /* Mobile-specific utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12;
   }
 
-  .mobile-menu-toggle {
-    @apply md:hidden relative z-50 w-10 h-10 flex items-center justify-center;
+  .mobile-margin {
+    @apply mx-2 sm:mx-4 md:mx-6 lg:mx-8;
+  }
+
+  .mobile-text {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+
+  .mobile-heading {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+  }
+
+  /* Melhorar espaçamento em mobile */
+  .mobile-space-y {
+    @apply space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8;
+  }
+
+  .mobile-gap {
+    @apply gap-3 sm:gap-4 md:gap-6 lg:gap-8;
+  }
+
+  /* Otimizar botões para mobile */
+  .mobile-button {
+    @apply h-10 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg;
+  }
+
+  /* Otimizar inputs para mobile */
+  .mobile-input {
+    @apply h-10 sm:h-12 text-sm sm:text-base;
+  }
+
+  /* Melhorar cards para mobile */
+  .mobile-card {
+    @apply p-3 sm:p-4 md:p-6 lg:p-8;
+  }
+
+  /* Grid responsivo melhorado */
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  /* Container responsivo */
+  .mobile-container {
+    @apply w-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 lg:py-16;
+  }
+
+  /* Melhorar navegação mobile */
+  .mobile-nav {
+    @apply flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0;
+  }
+
+  /* Otimizar formulários para mobile */
+  .mobile-form {
+    @apply space-y-3 sm:space-y-4 md:space-y-6;
+  }
+
+  .mobile-form-group {
+    @apply space-y-2 sm:space-y-3;
+  }
+
+  /* Melhorar legibilidade em mobile */
+  .mobile-text-readable {
+    @apply text-sm sm:text-base md:text-lg leading-relaxed;
+  }
+
+  .mobile-text-compact {
+    @apply text-xs sm:text-sm md:text-base leading-tight;
   }
 }

@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { MysticalButton } from "@/components/MysticalButton";
 import { MysticalCard } from "@/components/MysticalCard";
 import { FloatingParticles } from "@/components/FloatingParticles";
-import { MobileNavigation } from "@/components/MobileNavigation";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -76,15 +75,14 @@ const EspelhoAlmaPage = () => {
 
   if (!isPaid) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center px-4">
         <FloatingParticles />
-        <MobileNavigation />
-        <MysticalCard variant="glowing" className="p-6 sm:p-8 text-center max-w-md mx-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-mystical-gradient mb-4">Acesso Restrito</h2>
-          <p className="text-foreground/90 mb-6 text-sm sm:text-base">
+        <MysticalCard variant="glowing" className="p-4 sm:p-6 lg:p-8 text-center max-w-sm sm:max-w-md mx-2 sm:mx-4">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-mystical-gradient mb-3 sm:mb-4">Acesso Restrito</h2>
+          <p className="text-foreground/90 mb-4 sm:mb-6 text-xs sm:text-sm lg:text-base">
             Esta ferramenta é exclusiva para membros que adquiriram o acesso.
           </p>
-          <MysticalButton variant="gold" onClick={() => window.history.back()}>
+          <MysticalButton variant="gold" onClick={() => window.history.back()} className="h-10 sm:h-12 text-sm sm:text-base">
             Voltar
           </MysticalButton>
         </MysticalCard>
@@ -95,221 +93,223 @@ const EspelhoAlmaPage = () => {
   return (
     <div className="min-h-screen relative">
       <FloatingParticles />
-      <MobileNavigation />
       
-      <div className="container mx-auto spacing-section pt-16 md:pt-8">
-        {/* Header */}
-        <div className="text-center mb-6 sm:mb-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-mystical-gradient mb-4">
-            🔮 O Espelho da Alma
-          </h1>
-          <p className="text-lg sm:text-xl text-foreground/90 px-4">
-            Bem-vinda, {name}! Vamos revelar as energias que cercam sua jornada atual.
-          </p>
-        </div>
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 lg:py-20 pt-20 sm:pt-16 md:pt-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-mystical-gradient mb-3 sm:mb-4 px-2">
+              🔮 O Espelho da Alma
+            </h1>
+            <p className="text-base sm:text-lg lg:text-xl text-foreground/90 px-2 sm:px-4 leading-relaxed">
+              Bem-vinda, {name}! Vamos revelar as energias que cercam sua jornada atual.
+            </p>
+          </div>
 
-        {!analysis ? (
-          /* Formulário */
-          <MysticalCard variant="ethereal" className="max-w-2xl mx-auto p-6 sm:p-8 mx-4">
-            <div className="space-y-6">
-              <div className="text-center mb-8">
-                <div className="inline-block p-4 bg-mystic-gold/20 rounded-full mb-4">
-                  <Eye className="w-8 h-8 text-mystic-gold" />
-                </div>
-                <h2 className="text-2xl font-bold text-mystical-gradient mb-2">
-                  Prepare-se para Sua Revelação
-                </h2>
-                <p className="text-mystic-cream/80">
-                  Preencha os dados abaixo para receber sua análise personalizada
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="name" className="text-mystic-gold">Seu Nome Completo</Label>
-                  <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => handleInputChange("name", e.target.value)}
-                    className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream"
-                    placeholder="Como você gostaria de ser chamada?"
-                  />
+          {!analysis ? (
+            /* Formulário */
+            <MysticalCard variant="ethereal" className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8 mx-2 sm:mx-4">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="text-center mb-6 sm:mb-8">
+                  <div className="inline-block p-3 sm:p-4 bg-mystic-gold/20 rounded-full mb-3 sm:mb-4">
+                    <Eye className="w-6 h-6 sm:w-8 sm:h-8 text-mystic-gold" />
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-mystical-gradient mb-2">
+                    Prepare-se para Sua Revelação
+                  </h2>
+                  <p className="text-mystic-cream/80 text-sm sm:text-base">
+                    Preencha os dados abaixo para receber sua análise personalizada
+                  </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div>
-                    <Label htmlFor="birthDate" className="text-mystic-gold">Data de Nascimento *</Label>
+                    <Label htmlFor="name" className="text-mystic-gold text-sm sm:text-base">Seu Nome Completo</Label>
                     <Input
-                      id="birthDate"
-                      type="date"
-                      value={formData.birthDate}
-                      onChange={(e) => handleInputChange("birthDate", e.target.value)}
-                      className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream"
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange("name", e.target.value)}
+                      className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream h-10 sm:h-12 text-sm sm:text-base"
+                      placeholder="Como você gostaria de ser chamada?"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div>
+                      <Label htmlFor="birthDate" className="text-mystic-gold text-sm sm:text-base">Data de Nascimento *</Label>
+                      <Input
+                        id="birthDate"
+                        type="date"
+                        value={formData.birthDate}
+                        onChange={(e) => handleInputChange("birthDate", e.target.value)}
+                        className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream h-10 sm:h-12 text-sm sm:text-base"
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label htmlFor="birthTime" className="text-mystic-gold text-sm sm:text-base">Horário de Nascimento (opcional)</Label>
+                      <Input
+                        id="birthTime"
+                        type="time"
+                        value={formData.birthTime}
+                        onChange={(e) => handleInputChange("birthTime", e.target.value)}
+                        className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream h-10 sm:h-12 text-sm sm:text-base"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="focus" className="text-mystic-gold text-sm sm:text-base">Área de Foco</Label>
+                    <Select onValueChange={(value) => handleInputChange("focus", value)}>
+                      <SelectTrigger className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream h-10 sm:h-12 text-sm sm:text-base">
+                        <SelectValue placeholder="Selecione a área que mais te preocupa" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-mystic-blue border-mystic-purple-light">
+                        <SelectItem value="amor">Amor e Relacionamentos</SelectItem>
+                        <SelectItem value="carreira">Carreira e Trabalho</SelectItem>
+                        <SelectItem value="financas">Finanças e Prosperidade</SelectItem>
+                        <SelectItem value="saude">Saúde e Bem-estar</SelectItem>
+                        <SelectItem value="familia">Família</SelectItem>
+                        <SelectItem value="espiritualidade">Espiritualidade</SelectItem>
+                        <SelectItem value="proposito">Propósito de Vida</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="question" className="text-mystic-gold text-sm sm:text-base">Sua Pergunta *</Label>
+                    <Textarea
+                      id="question"
+                      value={formData.question}
+                      onChange={(e) => handleInputChange("question", e.target.value)}
+                      className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream min-h-[80px] sm:min-h-[100px] text-sm sm:text-base"
+                      placeholder="Descreva o que mais te inquieta ou o que você gostaria de compreender melhor neste momento da sua vida..."
                       required
                     />
                   </div>
-                  
-                  <div>
-                    <Label htmlFor="birthTime" className="text-mystic-gold">Horário de Nascimento (opcional)</Label>
-                    <Input
-                      id="birthTime"
-                      type="time"
-                      value={formData.birthTime}
-                      onChange={(e) => handleInputChange("birthTime", e.target.value)}
-                      className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream"
-                    />
-                  </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="focus" className="text-mystic-gold">Área de Foco</Label>
-                  <Select onValueChange={(value) => handleInputChange("focus", value)}>
-                    <SelectTrigger className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream">
-                      <SelectValue placeholder="Selecione a área que mais te preocupa" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-mystic-blue border-mystic-purple-light">
-                      <SelectItem value="amor">Amor e Relacionamentos</SelectItem>
-                      <SelectItem value="carreira">Carreira e Trabalho</SelectItem>
-                      <SelectItem value="financas">Finanças e Prosperidade</SelectItem>
-                      <SelectItem value="saude">Saúde e Bem-estar</SelectItem>
-                      <SelectItem value="familia">Família</SelectItem>
-                      <SelectItem value="espiritualidade">Espiritualidade</SelectItem>
-                      <SelectItem value="proposito">Propósito de Vida</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                <MysticalButton
+                  variant="gold"
+                  size="lg"
+                  onClick={generateAnalysis}
+                  disabled={isAnalyzing}
+                  className="w-full h-12 sm:h-14 text-lg sm:text-xl font-bold"
+                >
+                  {isAnalyzing ? (
+                    <>
+                      <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-spin" />
+                      <span className="text-sm sm:text-base">Consultando o Oráculo...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                      <span className="text-sm sm:text-base">Revelar Minha Análise</span>
+                    </>
+                  )}
+                </MysticalButton>
 
-                <div>
-                  <Label htmlFor="question" className="text-mystic-gold">Sua Pergunta *</Label>
-                  <Textarea
-                    id="question"
-                    value={formData.question}
-                    onChange={(e) => handleInputChange("question", e.target.value)}
-                    className="bg-mystic-blue/30 border-mystic-purple-light text-mystic-cream min-h-[100px]"
-                    placeholder="Descreva o que mais te inquieta ou o que você gostaria de compreender melhor neste momento da sua vida..."
-                    required
-                  />
-                </div>
+                <p className="text-xs text-mystic-cream/60 text-center px-2">
+                  Sua análise será gerada com base nas energias astrológicas e simbólicas do momento
+                </p>
+              </div>
+            </MysticalCard>
+          ) : (
+            /* Resultado da Análise */
+            <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+              <div className="text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold text-mystical-gradient mb-3 sm:mb-4 px-2">
+                  ✨ Sua Análise Está Pronta, {formData.name}!
+                </h2>
+                <p className="text-mystic-cream/90 text-sm sm:text-base">
+                  As energias foram consultadas. Aqui está o que o Oráculo revelou sobre sua jornada:
+                </p>
               </div>
 
-              <MysticalButton
-                variant="gold"
-                size="lg"
-                onClick={generateAnalysis}
-                disabled={isAnalyzing}
-                className="w-full text-xl font-bold"
-              >
-                {isAnalyzing ? (
-                  <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                    Consultando o Oráculo...
-                  </>
-                ) : (
-                  <>
-                    <Sparkles className="w-5 h-5 mr-2" />
-                    Revelar Minha Análise
-                  </>
-                )}
-              </MysticalButton>
+              {/* Análise do Passado */}
+              <MysticalCard variant="glowing" className="p-4 sm:p-6 lg:p-8">
+                <div className="flex items-center mb-4 sm:mb-6">
+                  <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-mystic-gold mr-2 sm:mr-3" />
+                  <h3 className="text-xl sm:text-2xl font-bold text-mystical-gradient">{analysis.passado.titulo}</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="text-center">
+                    <div className="bg-mystic-purple/30 p-4 sm:p-6 rounded-lg mb-3 sm:mb-4">
+                      <h4 className="font-bold text-mystic-gold text-base sm:text-lg">{analysis.passado.carta}</h4>
+                    </div>
+                  </div>
+                  <div className="md:col-span-2">
+                    <p className="text-mystic-cream/90 leading-relaxed text-sm sm:text-base">{analysis.passado.significado}</p>
+                  </div>
+                </div>
+              </MysticalCard>
 
-              <p className="text-xs text-mystic-cream/60 text-center">
-                Sua análise será gerada com base nas energias astrológicas e simbólicas do momento
-              </p>
+              {/* Análise do Presente */}
+              <MysticalCard variant="glowing" className="p-4 sm:p-6 lg:p-8">
+                <div className="flex items-center mb-4 sm:mb-6">
+                  <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-mystic-gold mr-2 sm:mr-3" />
+                  <h3 className="text-xl sm:text-2xl font-bold text-mystical-gradient">{analysis.presente.titulo}</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="text-center">
+                    <div className="bg-mystic-purple/30 p-4 sm:p-6 rounded-lg mb-3 sm:mb-4">
+                      <h4 className="font-bold text-mystic-gold text-base sm:text-lg">{analysis.presente.carta}</h4>
+                    </div>
+                  </div>
+                  <div className="md:col-span-2">
+                    <p className="text-mystic-cream/90 leading-relaxed text-sm sm:text-base">{analysis.presente.significado}</p>
+                  </div>
+                </div>
+              </MysticalCard>
+
+              {/* Análise do Futuro */}
+              <MysticalCard variant="glowing" className="p-4 sm:p-6 lg:p-8">
+                <div className="flex items-center mb-4 sm:mb-6">
+                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-mystic-gold mr-2 sm:mr-3" />
+                  <h3 className="text-xl sm:text-2xl font-bold text-mystical-gradient">{analysis.futuro.titulo}</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="text-center">
+                    <div className="bg-mystic-purple/30 p-4 sm:p-6 rounded-lg mb-3 sm:mb-4">
+                      <h4 className="font-bold text-mystic-gold text-base sm:text-lg">{analysis.futuro.carta}</h4>
+                    </div>
+                  </div>
+                  <div className="md:col-span-2">
+                    <p className="text-mystic-cream/90 leading-relaxed text-sm sm:text-base">{analysis.futuro.significado}</p>
+                  </div>
+                </div>
+              </MysticalCard>
+
+              {/* Conselho Final */}
+              <MysticalCard variant="ethereal" className="p-4 sm:p-6 lg:p-8 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-mystical-gradient mb-3 sm:mb-4">💫 Conselho do Oráculo</h3>
+                <p className="text-base sm:text-lg text-mystic-cream/90 leading-relaxed italic px-2">
+                  "{analysis.conselho}"
+                </p>
+              </MysticalCard>
+
+              {/* Call to Action */}
+              <div className="text-center space-y-3 sm:space-y-4">
+                <MysticalButton 
+                  variant="gold" 
+                  size="lg"
+                  onClick={() => window.print()}
+                  className="mr-2 sm:mr-4 h-10 sm:h-12 text-sm sm:text-base"
+                >
+                  📄 Salvar Análise
+                </MysticalButton>
+                <MysticalButton 
+                  variant="ethereal"
+                  onClick={() => setAnalysis(null)}
+                  className="h-10 sm:h-12 text-sm sm:text-base"
+                >
+                  🔮 Nova Consulta
+                </MysticalButton>
+              </div>
             </div>
-          </MysticalCard>
-        ) : (
-          /* Resultado da Análise */
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-mystical-gradient mb-4">
-                ✨ Sua Análise Está Pronta, {formData.name}!
-              </h2>
-              <p className="text-mystic-cream/90">
-                As energias foram consultadas. Aqui está o que o Oráculo revelou sobre sua jornada:
-              </p>
-            </div>
-
-            {/* Análise do Passado */}
-            <MysticalCard variant="glowing" className="p-8">
-              <div className="flex items-center mb-6">
-                <Clock className="w-8 h-8 text-mystic-gold mr-3" />
-                <h3 className="text-2xl font-bold text-mystical-gradient">{analysis.passado.titulo}</h3>
-              </div>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="bg-mystic-purple/30 p-6 rounded-lg mb-4">
-                    <h4 className="font-bold text-mystic-gold text-lg">{analysis.passado.carta}</h4>
-                  </div>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-mystic-cream/90 leading-relaxed">{analysis.passado.significado}</p>
-                </div>
-              </div>
-            </MysticalCard>
-
-            {/* Análise do Presente */}
-            <MysticalCard variant="glowing" className="p-8">
-              <div className="flex items-center mb-6">
-                <Zap className="w-8 h-8 text-mystic-gold mr-3" />
-                <h3 className="text-2xl font-bold text-mystical-gradient">{analysis.presente.titulo}</h3>
-              </div>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="bg-mystic-purple/30 p-6 rounded-lg mb-4">
-                    <h4 className="font-bold text-mystic-gold text-lg">{analysis.presente.carta}</h4>
-                  </div>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-mystic-cream/90 leading-relaxed">{analysis.presente.significado}</p>
-                </div>
-              </div>
-            </MysticalCard>
-
-            {/* Análise do Futuro */}
-            <MysticalCard variant="glowing" className="p-8">
-              <div className="flex items-center mb-6">
-                <Sparkles className="w-8 h-8 text-mystic-gold mr-3" />
-                <h3 className="text-2xl font-bold text-mystical-gradient">{analysis.futuro.titulo}</h3>
-              </div>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="bg-mystic-purple/30 p-6 rounded-lg mb-4">
-                    <h4 className="font-bold text-mystic-gold text-lg">{analysis.futuro.carta}</h4>
-                  </div>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-mystic-cream/90 leading-relaxed">{analysis.futuro.significado}</p>
-                </div>
-              </div>
-            </MysticalCard>
-
-            {/* Conselho Final */}
-            <MysticalCard variant="ethereal" className="p-8 text-center">
-              <h3 className="text-2xl font-bold text-mystical-gradient mb-4">💫 Conselho do Oráculo</h3>
-              <p className="text-lg text-mystic-cream/90 leading-relaxed italic">
-                "{analysis.conselho}"
-              </p>
-            </MysticalCard>
-
-            {/* Call to Action */}
-            <div className="text-center">
-              <MysticalButton 
-                variant="gold" 
-                size="lg"
-                onClick={() => window.print()}
-                className="mr-4"
-              >
-                📄 Salvar Análise
-              </MysticalButton>
-              <MysticalButton 
-                variant="ethereal"
-                onClick={() => setAnalysis(null)}
-              >
-                🔮 Nova Consulta
-              </MysticalButton>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

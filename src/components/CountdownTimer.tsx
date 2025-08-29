@@ -22,10 +22,10 @@ export const CountdownTimer = ({ initialMinutes = 15 }: CountdownTimerProps) => 
 
   return (
     <div className="text-center">
-      <div className="text-2xl md:text-3xl font-bold text-mystical-gradient mb-2">
+      <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-mystical-gradient mb-1 sm:mb-2">
         {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
       </div>
-      <p className="text-mystic-gold text-sm">Esta oferta especial desaparece em:</p>
+      <p className="text-mystic-gold text-xs sm:text-sm">Esta oferta especial desaparece em:</p>
     </div>
   );
 };

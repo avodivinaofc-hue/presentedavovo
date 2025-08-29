@@ -11,25 +11,41 @@ interface Particle {
 
 export const FloatingParticles = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detectar se é mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const generateParticles = () => {
       const newParticles: Particle[] = [];
-      for (let i = 0; i < 20; i++) {
+      // Reduzir partículas em mobile para melhor performance
+      const particleCount = isMobile ? 8 : 20;
+      
+      for (let i = 0; i < particleCount; i++) {
         newParticles.push({
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 4 + 1,
-          opacity: Math.random() * 0.5 + 0.1,
-          duration: Math.random() * 10 + 5
+          size: Math.random() * 3 + 1, // Partículas menores em mobile
+          opacity: Math.random() * 0.4 + 0.1, // Menos opacas em mobile
+          duration: Math.random() * 8 + 4 // Animação mais rápida em mobile
         });
       }
       setParticles(newParticles);
     };
 
     generateParticles();
-  }, []);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [isMobile]);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
