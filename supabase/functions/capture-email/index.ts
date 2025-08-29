@@ -14,7 +14,7 @@ serve(async (req) => {
   }
 
   try {
-    const { email, name, phone, source, utm_source, utm_medium, utm_campaign } = await req.json();
+    const { email, name, source, utm_source, utm_medium, utm_campaign } = await req.json();
     
     console.log('Capturing email:', { email, name, source });
 
@@ -50,7 +50,6 @@ serve(async (req) => {
         .from('user_accounts')
         .update({
           full_name: name,
-          ...(phone && { phone }),
           source: source || 'landing_page',
           utm_source: utm_source || null,
           utm_medium: utm_medium || null,
@@ -70,7 +69,6 @@ serve(async (req) => {
         .insert({
           email,
           full_name: name,
-          ...(phone && { phone }),
           source: source || 'landing_page',
           utm_source: utm_source || null,
           utm_medium: utm_medium || null,
