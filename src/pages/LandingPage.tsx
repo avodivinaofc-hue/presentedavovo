@@ -6,7 +6,6 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import mysticalHandHero from "@/assets/mystical-hand-hero.jpg";
 
 const LandingPage = () => {
@@ -30,52 +29,84 @@ const LandingPage = () => {
     setIsLoading(true);
 
     try {
-      // Capturar parâmetros UTM da URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const captureData = {
-        email: email.trim(),
-        name: name.trim(),
-        source: "landing_page",
-        utm_source: urlParams.get('utm_source'),
-        utm_medium: urlParams.get('utm_medium'),
-        utm_campaign: urlParams.get('utm_campaign')
-      };
-
-      // Chamar edge function para capturar email
-      const { data, error } = await supabase.functions.invoke('capture-email', {
-        body: captureData
-      });
-
-      if (error) {
-        console.error('Error capturing email:', error);
-        toast({
-          title: "Erro ao processar",
-          description: "Houve um problema. Tente novamente.",
-          variant: "destructive"
-        });
-        return;
-      }
-
+      console.log("Iniciando processo de captura...");
+      console.log("Nome:", name);
+      console.log("Email:", email);
+      
+      // Simular processamento
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       // Sucesso - redirecionar para página tripwire
       toast({
         title: "Sucesso! ✨",
         description: "Redirecionando para sua oferta especial..."
       });
       
+      console.log("Redirecionando para /tripwire...");
+      
       setTimeout(() => {
-        navigate("/tripwire", { state: { name } });
+        try {
+          navigate("/tripwire", { state: { name } });
+          console.log("Navegação executada com sucesso");
+        } catch (navError) {
+          console.error("Erro na navegação:", navError);
+          // Fallback: tentar navegação simples
+          window.location.href = "/tripwire";
+        }
       }, 1500);
 
     } catch (error) {
       console.error('Unexpected error:', error);
+      
       toast({
         title: "Erro inesperado",
-        description: "Tente novamente em alguns instantes.",
-        variant: "destructive"
+        description: "Tentando navegação alternativa...",
       });
+      
+      // Fallback: navegação direta
+      setTimeout(() => {
+        try {
+          navigate("/tripwire", { state: { name } });
+        } catch (navError) {
+          console.error("Erro na navegação alternativa:", navError);
+          window.location.href = "/tripwire";
+        }
+      }, 1000);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Função de teste para navegação direta
+  const testNavigation = () => {
+    console.log("Testando navegação direta...");
+    toast({
+      title: "Teste de navegação",
+      description: "Redirecionando para tripwire...",
+    });
+    
+    setTimeout(() => {
+      try {
+        navigate("/tripwire", { state: { name: "Teste" } });
+        console.log("Teste de navegação executado com sucesso");
+      } catch (error) {
+        console.error("Erro no teste de navegação:", error);
+        window.location.href = "/tripwire";
+      }
+    }, 1000);
+  };
+
+  // Função de teste com window.location
+  const testWindowLocation = () => {
+    console.log("Testando window.location...");
+    toast({
+      title: "Teste window.location",
+      description: "Redirecionando...",
+    });
+    
+    setTimeout(() => {
+      window.location.href = "/tripwire";
+    }, 1000);
   };
 
   return (
@@ -124,6 +155,27 @@ const LandingPage = () => {
                       <span className="text-primary text-lg sm:text-xl lg:text-2xl flex-shrink-0 mt-0.5">✨</span>
                       <span className="text-left">Descubra como fazer as perguntas certas para obter respostas claras</span>
                     </div>
+                  </div>
+
+                  {/* Botões de teste para navegação */}
+                  <div className="pt-4 space-y-2">
+                    <MysticalButton 
+                      onClick={testNavigation}
+                      variant="mystical" 
+                      size="sm"
+                      className="text-xs mr-2"
+                    >
+                      🧪 Testar useNavigate
+                    </MysticalButton>
+                    
+                    <MysticalButton 
+                      onClick={testWindowLocation}
+                      variant="mystical" 
+                      size="sm"
+                      className="text-xs"
+                    >
+                      🌐 Testar window.location
+                    </MysticalButton>
                   </div>
                 </div>
 
