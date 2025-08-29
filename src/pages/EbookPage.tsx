@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MysticalCard } from "@/components/MysticalCard";
 import { MysticalButton } from "@/components/MysticalButton";
 import { FloatingParticles } from "@/components/FloatingParticles";
+import { MobileNavigation } from "@/components/MobileNavigation";
 import { ChevronLeft, ChevronRight, BookOpen, Star } from "lucide-react";
 import tarotSpread from "@/assets/tarot-spread.jpg";
 import avoPortrait from "@/assets/avo-divina-portrait.jpg";
@@ -14,12 +15,12 @@ const EbookPage = () => {
       id: "cover",
       title: "Capa",
       content: (
-        <div className="text-center space-y-8">
-          <img src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" alt="O Oráculo Interior" className="mx-auto w-64 md:w-96 shadow-mystical rounded-lg" />
+        <div className="text-center space-y-6 sm:space-y-8">
+          <img src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" alt="O Oráculo Interior" className="responsive-img mx-auto w-48 sm:w-64 md:w-96 shadow-mystical rounded-lg" />
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl font-bold text-mystical-gradient">O Oráculo Interior</h1>
-            <p className="text-xl md:text-2xl text-mystic-gold">Um Guia da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô</p>
-            <p className="text-lg text-mystic-cream/80">por Avó Divina</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-mystical-gradient">O Oráculo Interior</h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-primary">Um Guia da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô</p>
+            <p className="text-base sm:text-lg text-muted-foreground">por Avó Divina</p>
           </div>
         </div>
       )
@@ -305,21 +306,22 @@ const EbookPage = () => {
   return (
     <div className="min-h-screen relative">
       <FloatingParticles />
+      <MobileNavigation />
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto spacing-section pt-16 md:pt-8">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-mystical-gradient mb-4">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-mystical-gradient mb-4">
             O Oráculo Interior
           </h1>
-          <div className="flex items-center justify-center space-x-2 text-mystic-gold">
-            <BookOpen className="w-5 h-5" />
+          <div className="flex items-center justify-center space-x-2 text-primary text-sm sm:text-base">
+            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>Página {currentPage + 1} de {pages.length}</span>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full bg-mystic-blue/30 rounded-full h-2 mb-8">
+        <div className="w-full bg-secondary/30 rounded-full h-2 mb-6 sm:mb-8 mx-4">
           <div 
             className="bg-gold-gradient h-2 rounded-full transition-all duration-500"
             style={{ width: `${((currentPage + 1) / pages.length) * 100}%` }}
@@ -327,31 +329,32 @@ const EbookPage = () => {
         </div>
 
         {/* Page Content */}
-        <MysticalCard variant="ethereal" className="max-w-4xl mx-auto p-8 md:p-12 min-h-[600px]">
+        <MysticalCard variant="ethereal" className="max-w-4xl mx-auto p-6 sm:p-8 md:p-12 min-h-[500px] sm:min-h-[600px] mx-4">
           {pages[currentPage].content}
         </MysticalCard>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center mt-8 max-w-4xl mx-auto">
+        <div className="flex justify-between items-center mt-6 sm:mt-8 max-w-4xl mx-auto px-4">
           <MysticalButton 
             variant="ethereal" 
             onClick={prevPage} 
             disabled={currentPage === 0}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 text-sm sm:text-base"
           >
             <ChevronLeft className="w-4 h-4" />
-            <span>Anterior</span>
+            <span className="hidden sm:inline">Anterior</span>
+            <span className="sm:hidden">Ant.</span>
           </MysticalButton>
 
-          <div className="flex space-x-2">
+          <div className="flex space-x-1 sm:space-x-2">
             {pages.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentPage(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
+                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
                   index === currentPage 
-                    ? 'bg-mystic-gold shadow-gold' 
-                    : 'bg-mystic-purple/30 hover:bg-mystic-gold/50'
+                    ? 'bg-primary shadow-gold' 
+                    : 'bg-secondary/50 hover:bg-primary/50'
                 }`}
               />
             ))}
@@ -361,19 +364,21 @@ const EbookPage = () => {
             variant="ethereal" 
             onClick={nextPage} 
             disabled={currentPage === pages.length - 1}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 text-sm sm:text-base"
           >
-            <span>Próxima</span>
+            <span className="hidden sm:inline">Próxima</span>
+            <span className="sm:hidden">Próx.</span>
             <ChevronRight className="w-4 h-4" />
           </MysticalButton>
         </div>
 
         {/* Floating Action */}
         {currentPage === pages.length - 1 && (
-          <div className="fixed bottom-8 right-8">
-            <MysticalButton variant="gold" className="shadow-mystical">
+          <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8">
+            <MysticalButton variant="gold" className="shadow-mystical text-sm sm:text-base">
               <Star className="w-4 h-4 mr-2" />
-              Explorar Mais
+              <span className="hidden sm:inline">Explorar Mais</span>
+              <span className="sm:hidden">Mais</span>
             </MysticalButton>
           </div>
         )}

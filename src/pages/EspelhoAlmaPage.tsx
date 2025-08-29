@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { MysticalButton } from "@/components/MysticalButton";
 import { MysticalCard } from "@/components/MysticalCard";
 import { FloatingParticles } from "@/components/FloatingParticles";
+import { MobileNavigation } from "@/components/MobileNavigation";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -77,9 +78,10 @@ const EspelhoAlmaPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <FloatingParticles />
-        <MysticalCard variant="glowing" className="p-8 text-center max-w-md">
-          <h2 className="text-2xl font-bold text-mystical-gradient mb-4">Acesso Restrito</h2>
-          <p className="text-mystic-cream/90 mb-6">
+        <MobileNavigation />
+        <MysticalCard variant="glowing" className="p-6 sm:p-8 text-center max-w-md mx-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-mystical-gradient mb-4">Acesso Restrito</h2>
+          <p className="text-foreground/90 mb-6 text-sm sm:text-base">
             Esta ferramenta é exclusiva para membros que adquiriram o acesso.
           </p>
           <MysticalButton variant="gold" onClick={() => window.history.back()}>
@@ -93,21 +95,22 @@ const EspelhoAlmaPage = () => {
   return (
     <div className="min-h-screen relative">
       <FloatingParticles />
+      <MobileNavigation />
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto spacing-section pt-16 md:pt-8">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-mystical-gradient mb-4">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-mystical-gradient mb-4">
             🔮 O Espelho da Alma
           </h1>
-          <p className="text-xl text-mystic-cream/90">
+          <p className="text-lg sm:text-xl text-foreground/90 px-4">
             Bem-vinda, {name}! Vamos revelar as energias que cercam sua jornada atual.
           </p>
         </div>
 
         {!analysis ? (
           /* Formulário */
-          <MysticalCard variant="ethereal" className="max-w-2xl mx-auto p-8">
+          <MysticalCard variant="ethereal" className="max-w-2xl mx-auto p-6 sm:p-8 mx-4">
             <div className="space-y-6">
               <div className="text-center mb-8">
                 <div className="inline-block p-4 bg-mystic-gold/20 rounded-full mb-4">
