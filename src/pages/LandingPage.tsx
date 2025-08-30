@@ -84,7 +84,7 @@ const LandingPage = () => {
       {/* Imagem de fundo hero */}
       <div className="absolute inset-0">
         <img 
-          src="/src/assets/mystical-hand-hero.jpg" 
+          src="src/assets/mystical-hand-hero.jpg" 
           alt="Mão mística com cartas de tarô"
           className="w-full h-full object-cover opacity-30"
         />
@@ -139,9 +139,9 @@ const LandingPage = () => {
                   {/* Capa do E-book */}
                   <div className="animate-bounce">
                     <img 
-                      src="/src/assets/ebook-cover.jpg" 
+                      src="src/assets/ebook-cover.jpg" 
                       alt="Capa do E-book O Oráculo Interior"
-                      className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72 h-48 object-cover rounded-lg shadow-2xl"
+                      className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72 h-auto object-cover rounded-lg shadow-2xl"
                     />
                   </div>
 
