@@ -1,6 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { MysticalButton } from "@/components/MysticalButton";
+import { MysticalCard } from "@/components/MysticalCard";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -170,14 +171,17 @@ const LandingPage = () => {
 
   const ebookCover = useMemo(() => (
     <div className="animate-bounce">
-      <div className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72 h-48 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg shadow-2xl flex items-center justify-center">
-        <span className="text-white text-2xl font-bold">📚</span>
-      </div>
+      <img 
+        src="/src/assets/ebook-cover.jpg" 
+        alt="Capa do E-book O Oráculo Interior"
+        className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72 h-48 object-cover rounded-lg shadow-2xl"
+        loading="lazy"
+      />
     </div>
   ), []);
 
   const formContent = useMemo(() => (
-    <div className="w-full bg-gray-800 p-4 sm:p-6 lg:p-8 rounded-lg border border-gray-600">
+    <MysticalCard className="w-full p-4 sm:p-6 lg:p-8">
       <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 lg:space-y-6">
         <div className="text-center mb-4 sm:mb-6">
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-yellow-400 mb-2">
@@ -239,20 +243,30 @@ const LandingPage = () => {
           Seus dados estão seguros. Não enviamos spam.
         </p>
       </form>
-    </div>
+    </MysticalCard>
   ), [name, email, isLoading, handleSubmit, handleNameChange, handleEmailChange]);
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gray-900">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Background místico original */}
+      <div className="absolute inset-0 bg-mystical-gradient opacity-90"></div>
+      
+      {/* Imagem de fundo hero */}
+      <div className="absolute inset-0">
+        <img 
+          src="/src/assets/mystical-hand-hero.jpg" 
+          alt="Mão mística com cartas de tarô"
+          className="w-full h-full object-cover opacity-30"
+          loading="lazy"
+        />
+      </div>
+      
       {/* FloatingParticles - Otimizado */}
       <FloatingParticles />
       
       {/* Hero Section */}
       <section className="relative">
         <div className="min-h-screen flex items-center justify-center pt-20 sm:pt-16 md:pt-0">
-          {/* Background místico simplificado */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-purple-900 opacity-80"></div>
-          
           <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 lg:py-20">
             <div className="max-w-7xl mx-auto">
               {/* Layout Mobile-First: Empilhado em mobile, lado a lado em desktop */}
