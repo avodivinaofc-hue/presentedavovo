@@ -308,7 +308,7 @@ All colors MUST be HSL.
   }
 
   .mobile-gap {
-    @apply gap-3 sm:gap-4 md:gap-6 md:gap-8;
+    @apply gap-3 sm:gap-4 md:gap-6 lg:gap-8;
   }
 
   /* Otimizar botões para mobile */

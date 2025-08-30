@@ -139,7 +139,7 @@ const LandingPage = () => {
                   {/* Capa do E-book */}
                   <div className="animate-bounce">
                     <img 
-                      src="src/assets/oraculo-interior-cover.png" 
+                      src="/lovable-uploads/a005281f-af52-4503-b064-f3249ed27e88.png" 
                       alt="Capa do E-book O Oráculo Interior"
                       className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72 h-auto object-cover rounded-lg shadow-2xl"
                     />
