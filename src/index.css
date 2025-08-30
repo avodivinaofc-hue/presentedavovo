@@ -54,19 +54,19 @@ All colors MUST be HSL.
     --text-3xl: 1.875rem;
     --text-4xl: 2.25rem;
     
-    /* Gradients */
+    /* Gradients - Otimizados para performance */
     --gradient-mystical: linear-gradient(135deg, hsl(var(--mystic-purple)), hsl(var(--mystic-blue)));
     --gradient-gold: linear-gradient(135deg, hsl(var(--mystic-gold)), hsl(var(--mystic-gold-bright)));
     --gradient-ethereal: linear-gradient(180deg, hsl(var(--background)), hsl(var(--mystic-purple) / 0.1));
     
-    /* Shadows */
+    /* Shadows - Otimizados para performance */
     --shadow-mystical: 0 10px 40px hsl(var(--mystic-purple) / 0.3);
     --shadow-gold: 0 0 30px hsl(var(--mystic-gold) / 0.4);
     --shadow-ethereal: 0 5px 20px hsl(var(--mystic-blue) / 0.2);
 
-    /* Animations */
-    --transition-mystical: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-glow: all 0.3s ease-in-out;
+    /* Animations - Otimizadas para performance */
+    --transition-mystical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.2s ease-in-out;
 
     --radius: 0.5rem;
 
@@ -98,7 +98,7 @@ All colors MUST be HSL.
     --popover-foreground: 210 40% 98%;
 
     --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-foreground: 222.2 84% 4.9%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -115,14 +115,6 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -130,19 +122,17 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    line-height: 1.2;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   /* Mobile-first responsive typography */
+  html {
+    font-size: 16px;
+  }
+
   @media (min-width: 640px) {
     html {
       font-size: 16px;
@@ -151,98 +141,96 @@ All colors MUST be HSL.
 
   @media (min-width: 768px) {
     html {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
   @media (min-width: 1024px) {
     html {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
-  /* Touch targets - mínimo 44px para mobile */
-  button, input, select, textarea, a {
-    min-height: 44px;
-    touch-action: manipulation;
-  }
-
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Melhorar legibilidade em mobile */
+  /* Otimizações para mobile */
   @media (max-width: 640px) {
     body {
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.4;
     }
-    
+
     h1, h2, h3 {
-      line-height: 1.1;
+      line-height: 1.2;
     }
   }
 }
 
 @layer components {
-  .text-mystical-gradient {
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
+  /* Gradients otimizados */
   .bg-mystical-gradient {
     background: var(--gradient-mystical);
+    background-attachment: fixed; /* Melhora performance */
   }
 
   .bg-gold-gradient {
     background: var(--gradient-gold);
+    background-attachment: fixed;
   }
 
+  /* Shadows otimizados */
   .shadow-mystical {
     box-shadow: var(--shadow-mystical);
+    will-change: box-shadow; /* Otimização de GPU */
   }
 
   .shadow-gold {
     box-shadow: var(--shadow-gold);
+    will-change: box-shadow;
   }
 
+  /* Transições otimizadas */
   .transition-mystical {
     transition: var(--transition-mystical);
+    will-change: transform, opacity; /* Otimização de GPU */
   }
 
+  /* Efeito de brilho otimizado */
   .glow-effect {
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
+    will-change: box-shadow;
   }
 
+  /* Animações otimizadas para performance */
   @keyframes glow {
     from {
-      box-shadow: 0 0 20px hsl(var(--mystic-gold) / 0.3);
+      box-shadow: 0 0 15px hsl(var(--mystic-gold) / 0.2);
     }
     to {
-      box-shadow: 0 0 40px hsl(var(--mystic-gold) / 0.6);
+      box-shadow: 0 0 30px hsl(var(--mystic-gold) / 0.4);
     }
   }
 
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translateY(0px) translateZ(0);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-8px) translateZ(0);
     }
   }
 
+  /* Animação de flutuação otimizada */
   .float-animation {
-    animation: float 6s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0); /* Force hardware acceleration */
   }
 
+  /* Card místico otimizado */
   .mystical-card {
     background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--mystic-purple) / 0.1) 100%);
     border: 1px solid hsl(var(--mystic-purple) / 0.3);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    will-change: transform, backdrop-filter;
   }
 
   /* Responsive spacing - Mobile-first approach */
@@ -274,20 +262,21 @@ All colors MUST be HSL.
     }
   }
 
-  /* Responsive images */
+  /* Responsive images otimizadas */
   .responsive-img {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+    will-change: transform;
   }
 
-  /* Mobile-specific utilities */
+  /* Mobile-specific utilities otimizadas */
   .mobile-padding {
     @apply px-4 sm:px-6 md:px-8 lg:px-12;
   }
 
   .mobile-margin {
-    @apply mx-2 sm:mx-4 md:mx-6 lg:mx-8;
+    @apply my-4 sm:my-6 md:my-8 lg:my-12;
   }
 
   .mobile-text {
@@ -295,63 +284,84 @@ All colors MUST be HSL.
   }
 
   .mobile-heading {
-    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
   }
 
-  /* Melhorar espaçamento em mobile */
   .mobile-space-y {
     @apply space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8;
   }
 
   .mobile-gap {
-    @apply gap-3 sm:gap-4 md:gap-6 lg:gap-8;
+    @apply gap-4 sm:gap-6 md:gap-8 lg:gap-12;
   }
 
-  /* Otimizar botões para mobile */
   .mobile-button {
     @apply h-10 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg;
   }
 
-  /* Otimizar inputs para mobile */
   .mobile-input {
-    @apply h-10 sm:h-12 text-sm sm:text-base;
+    @apply h-10 sm:h-12 md:h-14 text-sm sm:text-base;
   }
 
-  /* Melhorar cards para mobile */
   .mobile-card {
-    @apply p-3 sm:p-4 md:p-6 lg:p-8;
+    @apply p-4 sm:p-6 md:p-8 lg:p-12;
   }
 
-  /* Grid responsivo melhorado */
   .mobile-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
   }
 
-  /* Container responsivo */
   .mobile-container {
-    @apply w-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 lg:py-16;
+    @apply max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl;
   }
 
-  /* Melhorar navegação mobile */
   .mobile-nav {
-    @apply flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0;
+    @apply space-y-2 sm:space-y-4;
   }
 
-  /* Otimizar formulários para mobile */
   .mobile-form {
-    @apply space-y-3 sm:space-y-4 md:space-y-6;
+    @apply space-y-4 sm:space-y-6;
   }
 
   .mobile-form-group {
     @apply space-y-2 sm:space-y-3;
   }
 
-  /* Melhorar legibilidade em mobile */
+  /* Texto otimizado para leitura em mobile */
   .mobile-text-readable {
-    @apply text-sm sm:text-base md:text-lg leading-relaxed;
+    @apply text-base sm:text-lg leading-relaxed;
   }
 
   .mobile-text-compact {
-    @apply text-xs sm:text-sm md:text-base leading-tight;
+    @apply text-sm sm:text-base leading-tight;
+  }
+
+  /* Otimizações de performance para animações */
+  .performance-optimized {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Lazy loading para imagens */
+  .lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .lazy-image.loaded {
+    opacity: 1;
+  }
+
+  /* Otimizações para scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Otimizações para touch */
+  .touch-optimized {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 }
