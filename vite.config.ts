@@ -1,82 +1,135 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { componentTagger } from "lovable-tagger";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-    // Otimizações para desenvolvimento
-    hmr: {
-      overlay: false, // Desabilita overlay de erro para melhor performance
-    },
-  },
+export default defineConfig({
   plugins: [
-    react({
-      // Otimizações do SWC para melhor performance
-      jsxImportSource: "react",
-    }),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,avif}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 ano
+              }
+            }
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'gstatic-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 ano
+              }
+            }
+          },
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|avif)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 dias
+              }
+            }
+          }
+        ]
+      },
+      includeAssets: ['favicon.png', 'apple-touch-icon.png', 'masked-icon.svg'],
+      manifest: {
+        name: 'Avó Divina - Oráculo Divino',
+        short_name: 'Avó Divina',
+        description: 'Descubra os segredos do tarô e conecte-se com sua intuição através da sabedoria ancestral da Avó Divina',
+        theme_color: '#fbbf24',
+        background_color: '#0f0f23',
+        display: 'standalone',
+        orientation: 'portrait-primary',
+        scope: '/',
+        start_url: '/',
+        icons: [
+          {
+            src: 'favicon.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any maskable'
+          },
+          {
+            src: 'favicon.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          }
+        ]
+      }
+    })
+  ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': resolve(__dirname, './src'),
     },
   },
   build: {
-    // Otimizações de build para melhor performance
-    target: "esnext",
-    minify: "esbuild", // Usar esbuild que já está incluído
+    target: 'es2015',
+    minify: 'esbuild',
+    cssCodeSplit: true,
+    cssMinify: true,
+    assetsInlineLimit: 4096,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        // Code splitting para melhor performance
         manualChunks: {
-          vendor: ["react", "react-dom"],
-          ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu"],
-          utils: ["clsx", "class-variance-authority"],
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          animations: ['framer-motion'],
+          utils: ['@tanstack/react-query']
         },
-        // Otimizações de assets
         assetFileNames: (assetInfo) => {
-          const name = assetInfo.name || "asset";
-          const info = name.split(".");
+          const info = assetInfo.name?.split('.') || [];
           const ext = info[info.length - 1];
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|avif/i.test(ext || '')) {
             return `assets/images/[name]-[hash][extname]`;
           }
-          if (/css/i.test(ext)) {
-            return `assets/css/[name]-[hash][extname]`;
+          if (/woff2?|eot|ttf|otf/i.test(ext || '')) {
+            return `assets/fonts/[name]-[hash][extname]`;
           }
           return `assets/[name]-[hash][extname]`;
         },
-        chunkFileNames: "assets/js/[name]-[hash].js",
-        entryFileNames: "assets/js/[name]-[hash].js",
-      },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+      }
     },
-    // Otimizações de CSS
-    cssCodeSplit: true,
-    cssMinify: true,
-    // Otimizações de assets
-    assetsInlineLimit: 4096, // 4kb
-    chunkSizeWarningLimit: 1000,
+    sourcemap: false,
+    reportCompressedSize: false
   },
   optimizeDeps: {
-    // Pré-bundle de dependências para melhor performance
     include: [
-      "react",
-      "react-dom",
-      "react-router-dom",
-      "@supabase/supabase-js",
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'framer-motion',
+      '@tanstack/react-query'
     ],
+    exclude: ['@vite/client', '@vite/env']
   },
-  // Otimizações para PWA
-  define: {
-    __DEV__: mode === "development",
+  server: {
+    port: 3000,
+    host: true,
+    open: true
   },
-  // Otimizações de CSS
-  css: {
-    devSourcemap: mode === "development",
-  },
-}));
+  preview: {
+    port: 4173,
+    host: true
+  }
+})
