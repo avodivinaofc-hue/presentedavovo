@@ -16,61 +16,115 @@ const LandingPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!name.trim() || !email.trim()) {
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name.trim()) {
       toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha seu nome e email.",
-        variant: "destructive"
+        title: "Nome obrigatório",
+        description: "Por favor, digite seu nome.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!email.trim()) {
+      toast({
+        title: "Email obrigatório", 
+        description: "Por favor, digite seu email.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!emailRegex.test(email.trim())) {
+      toast({
+        title: "Email inválido",
+        description: "Por favor, digite um email válido.",
+        variant: "destructive",
       });
       return;
     }
 
     setIsLoading(true);
-
+    
     try {
-      console.log("Iniciando processo de captura...");
-      console.log("Nome:", name);
-      console.log("Email:", email);
+      console.log("🚀 Starting form submission...");
       
-      // Simular processamento
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Capture UTM parameters from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmData = {
+        utm_source: urlParams.get('utm_source'),
+        utm_medium: urlParams.get('utm_medium'),
+        utm_campaign: urlParams.get('utm_campaign'),
+        utm_term: urlParams.get('utm_term'),
+        utm_content: urlParams.get('utm_content')
+      };
       
-      // Sucesso - redirecionar para página tripwire
+      // Call capture-email function
+      const response = await fetch('https://eywqybkwinmbpxkmdfkj.supabase.co/functions/v1/capture-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5d3F5Ymt3aW5tYnB4a21kZmtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExNzA3MTQsImV4cCI6MjA2Njc0NjcxNH0.IzloGBQNXbb1bjvaarF8OcT9QKmpt-m9GXFoIS4rez0`
+        },
+        body: JSON.stringify({
+          email: email.trim(),
+          name: name.trim(),
+          source: 'landing_page',
+          ...utmData
+        })
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        console.log("✅ Email captured successfully");
+        
+        toast({
+          title: "Sucesso! ✨",
+          description: "Redirecionando para sua oferta especial...",
+        });
+        
+        // Navigate to tripwire page
+        console.log("🧭 Navigating to /tripwire...");
+        
+        setTimeout(() => {
+          try {
+            navigate('/tripwire', { 
+              state: { name: name.trim() },
+              replace: true 
+            });
+            console.log("✅ Navigation successful");
+          } catch (navError) {
+            console.error("❌ Navigation failed, trying fallback:", navError);
+            window.location.href = '/tripwire';
+          }
+        }, 1500);
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
+      
+    } catch (error) {
+      console.error("❌ Error during submission:", error);
+      
+      // Show error but still redirect (offline mode)
       toast({
-        title: "Sucesso! ✨",
-        description: "Redirecionando para sua oferta especial..."
+        title: "Processando...",
+        description: "Redirecionando você para a próxima etapa.",
       });
       
-      console.log("Redirecionando para /tripwire...");
-      
+      // Navigate anyway to not block user flow
       setTimeout(() => {
         try {
-          navigate("/tripwire", { state: { name } });
-          console.log("Navegação executada com sucesso");
+          navigate('/tripwire', { 
+            state: { name: name.trim() },
+            replace: true 
+          });
         } catch (navError) {
-          console.error("Erro na navegação:", navError);
-          // Fallback: tentar navegação simples
-          window.location.href = "/tripwire";
+          window.location.href = '/tripwire';
         }
       }, 1500);
-
-    } catch (error) {
-      console.error('Unexpected error:', error);
       
-      toast({
-        title: "Erro inesperado",
-        description: "Tentando navegação alternativa...",
-      });
-      
-      // Fallback: navegação direta
-      setTimeout(() => {
-        try {
-          navigate("/tripwire", { state: { name } });
-        } catch (navError) {
-          console.error("Erro na navegação alternativa:", navError);
-          window.location.href = "/tripwire";
-        }
-      }, 1000);
     } finally {
       setIsLoading(false);
     }
