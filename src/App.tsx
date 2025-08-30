@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import { ThemeController } from "@/components/ThemeController";
-import { AdvancedMobileNavigation } from "@/components/AdvancedMobileNavigation";
+
 
 // Lazy loading das páginas
 const LandingPage = lazy(() => import("./pages/LandingPage"));
@@ -55,10 +55,9 @@ const App = () => (
             </Routes>
           </Suspense>
           
-          {/* Componentes PWA, Temas e Navegação Mobile */}
+          {/* Componentes PWA e Temas */}
           <PWAInstallPrompt />
           <ThemeController />
-          <AdvancedMobileNavigation />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
