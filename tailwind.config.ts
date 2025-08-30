@@ -59,7 +59,7 @@ export default {
 					blue: 'hsl(var(--mystic-blue))',
 					gold: 'hsl(var(--mystic-gold))',
 					'gold-bright': 'hsl(var(--mystic-gold-bright))',
-					cream: 'hsl(var(--cream))'
+					cream: 'hsl(var(--mystic-cream))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

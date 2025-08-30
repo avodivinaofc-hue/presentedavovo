@@ -142,6 +142,51 @@ export type Database = {
         }
         Relationships: []
       }
+      magical_portal_submissions: {
+        Row: {
+          birth_date: string
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          payment_method: string | null
+          payment_status: string | null
+          state: string
+          status: string | null
+          submitted_at: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          birth_date: string
+          created_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          payment_method?: string | null
+          payment_status?: string | null
+          state: string
+          status?: string | null
+          submitted_at?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          birth_date?: string
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          payment_method?: string | null
+          payment_status?: string | null
+          state?: string
+          status?: string | null
+          submitted_at?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       marketing_campaigns: {
         Row: {
           created_at: string | null
@@ -184,6 +229,7 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          birth_date: string | null
           created_at: string | null
           email: string
           full_name: string | null
@@ -191,10 +237,12 @@ export type Database = {
           is_premium: boolean | null
           premium_activated_at: string | null
           premium_expires_at: string | null
+          state: string | null
           updated_at: string | null
         }
         Insert: {
           avatar_url?: string | null
+          birth_date?: string | null
           created_at?: string | null
           email: string
           full_name?: string | null
@@ -202,10 +250,12 @@ export type Database = {
           is_premium?: boolean | null
           premium_activated_at?: string | null
           premium_expires_at?: string | null
+          state?: string | null
           updated_at?: string | null
         }
         Update: {
           avatar_url?: string | null
+          birth_date?: string | null
           created_at?: string | null
           email?: string
           full_name?: string | null
@@ -213,6 +263,7 @@ export type Database = {
           is_premium?: boolean | null
           premium_activated_at?: string | null
           premium_expires_at?: string | null
+          state?: string | null
           updated_at?: string | null
         }
         Relationships: []
@@ -299,6 +350,7 @@ export type Database = {
           favorite_spread: string | null
           full_name: string
           id: string
+          is_admin: boolean | null
           is_premium: boolean | null
           kiwify_customer_id: string | null
           kiwify_sale_id: string | null
@@ -319,6 +371,11 @@ export type Database = {
           total_readings: number | null
           total_spent: number | null
           updated_at: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
         }
         Insert: {
           admin_notes?: Json | null
@@ -333,6 +390,7 @@ export type Database = {
           favorite_spread?: string | null
           full_name: string
           id?: string
+          is_admin?: boolean | null
           is_premium?: boolean | null
           kiwify_customer_id?: string | null
           kiwify_sale_id?: string | null
@@ -353,6 +411,11 @@ export type Database = {
           total_readings?: number | null
           total_spent?: number | null
           updated_at?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Update: {
           admin_notes?: Json | null
@@ -367,6 +430,7 @@ export type Database = {
           favorite_spread?: string | null
           full_name?: string
           id?: string
+          is_admin?: boolean | null
           is_premium?: boolean | null
           kiwify_customer_id?: string | null
           kiwify_sale_id?: string | null
@@ -387,6 +451,11 @@ export type Database = {
           total_readings?: number | null
           total_spent?: number | null
           updated_at?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Relationships: []
       }
@@ -522,6 +591,10 @@ export type Database = {
         }
         Returns: Json
       }
+      admin_action_log: {
+        Args: { action_type: string; details?: Json; target_id: string }
+        Returns: undefined
+      }
       admin_create_user: {
         Args: {
           is_premium?: boolean
@@ -555,6 +628,7 @@ export type Database = {
           energy_regen_rate: number
           full_name: string
           id: string
+          is_admin: boolean
           is_premium: boolean
           last_energy_regen: string
           last_login: string
@@ -586,6 +660,10 @@ export type Database = {
       increment_reading_counters: {
         Args: { user_uuid: string }
         Returns: undefined
+      }
+      is_admin_user: {
+        Args: { user_id: string }
+        Returns: boolean
       }
       process_disrupty_purchase: {
         Args: {
@@ -635,6 +713,15 @@ export type Database = {
       }
       update_user_activity: {
         Args: { user_email: string }
+        Returns: undefined
+      }
+      update_user_from_magical_portal: {
+        Args: {
+          p_birth_date: string
+          p_full_name: string
+          p_state: string
+          p_user_id: string
+        }
         Returns: undefined
       }
       update_user_status: {

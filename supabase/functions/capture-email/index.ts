@@ -1,6 +1,5 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.0';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.56.0';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -20,9 +19,22 @@ serve(async (req) => {
     const body = await req.json();
     console.log('Request body received:', body);
     
-    const { email, name, source, utm_source, utm_medium, utm_campaign } = body;
+    const { email, name, source, utm_source, utm_medium, utm_campaign, utm_term, utm_content } = body;
     
-    console.log('Extracted data:', { email, name, source, utm_source, utm_medium, utm_campaign });
+    console.log('Extracted data:', { email, name, source, utm_source, utm_medium, utm_campaign, utm_term, utm_content });
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      console.error('Invalid email format:', email);
+      return new Response(
+        JSON.stringify({ error: 'Formato de email inválido' }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    }
 
     // Validar dados obrigatórios
     if (!email || !name) {
@@ -123,6 +135,8 @@ serve(async (req) => {
           utm_source: utm_source || null,
           utm_medium: utm_medium || null,
           utm_campaign: utm_campaign || null,
+          utm_term: utm_term || null,
+          utm_content: utm_content || null,
           updated_at: new Date().toISOString()
         })
         .eq('email', email)
@@ -157,7 +171,10 @@ serve(async (req) => {
           utm_source: utm_source || null,
           utm_medium: utm_medium || null,
           utm_campaign: utm_campaign || null,
-          is_premium: false,
+          utm_term: utm_term || null,
+          utm_content: utm_content || null,
+          is_premium: true,
+          premium_activated_at: new Date().toISOString(),
           cosmic_energy: 100,
           max_cosmic_energy: 100,
           last_energy_regen: new Date().toISOString(),
@@ -194,6 +211,8 @@ serve(async (req) => {
           utm_source,
           utm_medium,
           utm_campaign,
+          utm_term,
+          utm_content,
           email,
           name
         },

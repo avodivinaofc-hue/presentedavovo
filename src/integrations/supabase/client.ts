@@ -27,17 +27,19 @@ export const supabase = createClient<Database>(config.supabase.url, config.supab
 });
 
 // Testar conexão na inicialização
-supabase
-  .from('user_accounts')
-  .select('count')
-  .limit(1)
-  .then(({ data, error }) => {
+(async () => {
+  try {
+    const { data, error } = await supabase
+      .from('user_accounts')
+      .select('count')
+      .limit(1);
+    
     if (error) {
       console.error('Supabase connection test failed:', error);
     } else {
       console.log('Supabase connection test successful');
     }
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error('Supabase connection test error:', error);
-  });
+  }
+})();
