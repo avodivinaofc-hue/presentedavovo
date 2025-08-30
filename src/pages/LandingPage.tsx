@@ -84,7 +84,7 @@ const LandingPage = () => {
       {/* Imagem de fundo hero */}
       <div className="absolute inset-0">
         <img 
-          src="/src/assets/mystical-hand-hero.jpg" 
+          src="/mystical-hand-hero.jpg" 
           alt="Mão mística com cartas de tarô"
           className="w-full h-full object-cover opacity-30"
         />

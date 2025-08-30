@@ -3,8 +3,6 @@ import { MysticalCard } from "@/components/MysticalCard";
 import { MysticalButton } from "@/components/MysticalButton";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { ChevronLeft, ChevronRight, BookOpen, Star } from "lucide-react";
-import tarotSpread from "@/assets/tarot-spread.jpg";
-import avoPortrait from "@/assets/avo-divina-portrait.jpg";
 
 const EbookPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -56,7 +54,7 @@ const EbookPage = () => {
       content: (
         <div className="space-y-4 sm:space-y-6">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-mystical-gradient mb-4 sm:mb-6 font-['Arial_Black']">O Tarô Não é o que te Contaram</h2>
-          <img src={tarotSpread} alt="Cartas de Tarô" className="w-full rounded-lg shadow-ethereal" />
+          <img src="/tarot-spread.jpg" alt="Cartas de Tarô" className="w-full rounded-lg shadow-ethereal" />
           <div className="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed text-mystic-cream/90">
             <p className="font-['Arial_Black']">
               Esqueça as bolas de cristal e as videntes de feira. O verdadeiro poder do Tarô não está em adivinhar 

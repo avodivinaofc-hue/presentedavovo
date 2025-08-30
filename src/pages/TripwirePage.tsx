@@ -14,16 +14,25 @@ const TripwirePage = () => {
   const [showOffer, setShowOffer] = useState(false);
 
   useEffect(() => {
+    console.log("TripwirePage: Componente montado");
+    console.log("TripwirePage: Location state:", location.state);
+    console.log("TripwirePage: Nome recebido:", name);
+    
     // Mostrar a oferta após um breve delay para criar antecipação
     const timer = setTimeout(() => {
+      console.log("TripwirePage: Mostrando oferta");
       setShowOffer(true);
     }, 1000);
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      console.log("TripwirePage: Componente desmontando");
+      clearTimeout(timer);
+    };
+  }, [location.state, name]);
 
   const handlePurchase = () => {
     try {
+      console.log("TripwirePage: Tentando abrir checkout...");
       // Redirecionar para o checkout
       window.open("https://avo-divina.netlify.app/", "_blank");
     } catch (error) {
@@ -35,6 +44,7 @@ const TripwirePage = () => {
 
   const skipOffer = () => {
     try {
+      console.log("TripwirePage: Tentando navegar para /ebook...");
       navigate("/ebook");
     } catch (error) {
       console.error("Erro na navegação:", error);
@@ -44,6 +54,7 @@ const TripwirePage = () => {
   };
 
   if (!showOffer) {
+    console.log("TripwirePage: Renderizando tela de carregamento");
     return (
       <div className="min-h-screen flex items-center justify-center px-4">
         <FloatingParticles />
@@ -57,6 +68,7 @@ const TripwirePage = () => {
     );
   }
 
+  console.log("TripwirePage: Renderizando oferta principal");
   return (
     <div className="min-h-screen relative overflow-hidden">
       <FloatingParticles />
