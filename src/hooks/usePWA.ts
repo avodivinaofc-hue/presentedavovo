@@ -178,10 +178,13 @@ export const usePWA = () => {
 
   // Sincroniza em background
   const syncInBackground = useCallback(async (tag: string) => {
-    if ('serviceWorker' in navigator && 'sync' in window.ServiceWorkerRegistration.prototype) {
+    if ('serviceWorker' in navigator) {
       try {
         const registration = await navigator.serviceWorker.ready;
-        await registration.sync.register(tag);
+        // Check if sync is supported
+        if ('sync' in registration) {
+          await (registration as any).sync.register(tag);
+        }
         return true;
       } catch (error) {
         console.error('Erro ao registrar sincronização:', error);
