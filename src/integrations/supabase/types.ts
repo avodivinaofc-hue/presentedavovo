@@ -57,88 +57,46 @@ export type Database = {
           amount: number
           created_at: string | null
           customer_email: string
-          customer_id: string
           customer_name: string | null
+          expires_at: string | null
           id: string
-          next_billing_date: string | null
-          processed: boolean | null
-          product_name: string | null
-          purchase_date: string | null
-          status: string | null
+          paid_at: string | null
+          payment_status: string
+          pix_code: string | null
+          pix_qr_code: string | null
+          transaction_id: string
           updated_at: string | null
+          user_id: string | null
         }
         Insert: {
           amount: number
           created_at?: string | null
           customer_email: string
-          customer_id: string
           customer_name?: string | null
+          expires_at?: string | null
           id?: string
-          next_billing_date?: string | null
-          processed?: boolean | null
-          product_name?: string | null
-          purchase_date?: string | null
-          status?: string | null
+          paid_at?: string | null
+          payment_status?: string
+          pix_code?: string | null
+          pix_qr_code?: string | null
+          transaction_id: string
           updated_at?: string | null
+          user_id?: string | null
         }
         Update: {
           amount?: number
           created_at?: string | null
           customer_email?: string
-          customer_id?: string
           customer_name?: string | null
+          expires_at?: string | null
           id?: string
-          next_billing_date?: string | null
-          processed?: boolean | null
-          product_name?: string | null
-          purchase_date?: string | null
-          status?: string | null
+          paid_at?: string | null
+          payment_status?: string
+          pix_code?: string | null
+          pix_qr_code?: string | null
+          transaction_id?: string
           updated_at?: string | null
-        }
-        Relationships: []
-      }
-      kiwify_purchases: {
-        Row: {
-          amount: number
-          created_at: string | null
-          customer_email: string
-          customer_id: string
-          customer_name: string | null
-          id: string
-          next_billing_date: string | null
-          processed: boolean | null
-          product_name: string | null
-          purchase_date: string | null
-          status: string | null
-          updated_at: string | null
-        }
-        Insert: {
-          amount: number
-          created_at?: string | null
-          customer_email: string
-          customer_id: string
-          customer_name?: string | null
-          id?: string
-          next_billing_date?: string | null
-          processed?: boolean | null
-          product_name?: string | null
-          purchase_date?: string | null
-          status?: string | null
-          updated_at?: string | null
-        }
-        Update: {
-          amount?: number
-          created_at?: string | null
-          customer_email?: string
-          customer_id?: string
-          customer_name?: string | null
-          id?: string
-          next_billing_date?: string | null
-          processed?: boolean | null
-          product_name?: string | null
-          purchase_date?: string | null
-          status?: string | null
-          updated_at?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -352,8 +310,6 @@ export type Database = {
           id: string
           is_admin: boolean | null
           is_premium: boolean | null
-          kiwify_customer_id: string | null
-          kiwify_sale_id: string | null
           last_activity: string | null
           last_energy_regen: string | null
           last_payment_date: string | null
@@ -392,8 +348,6 @@ export type Database = {
           id?: string
           is_admin?: boolean | null
           is_premium?: boolean | null
-          kiwify_customer_id?: string | null
-          kiwify_sale_id?: string | null
           last_activity?: string | null
           last_energy_regen?: string | null
           last_payment_date?: string | null
@@ -432,8 +386,6 @@ export type Database = {
           id?: string
           is_admin?: boolean | null
           is_premium?: boolean | null
-          kiwify_customer_id?: string | null
-          kiwify_sale_id?: string | null
           last_activity?: string | null
           last_energy_regen?: string | null
           last_payment_date?: string | null
@@ -672,16 +624,6 @@ export type Database = {
           p_customer_id: string
           p_customer_name: string
           p_webhook_data?: Json
-        }
-        Returns: Json
-      }
-      process_kiwify_purchase: {
-        Args: {
-          p_amount: number
-          p_customer_email: string
-          p_customer_id: string
-          p_customer_name: string
-          p_webhook_data: Json
         }
         Returns: Json
       }
