@@ -106,7 +106,7 @@ const LandingPage = () => {
                 
                 {/* Texto Principal */}
                 <div className="text-center lg:text-left space-y-6 sm:space-y-8 lg:space-y-10 order-2 lg:order-1">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight text-white font-['Arial_Black'] px-2 sm:px-0">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-normal text-white font-['Arial_Black'] px-2 sm:px-0">
                     <span className="text-yellow-400">Sua intuição</span>
                     <br className="hidden sm:block" />
                     <span className="text-white">está sussurrando.</span>
@@ -124,15 +124,15 @@ const LandingPage = () => {
                   <div className="space-y-4 sm:space-y-5 lg:space-y-6 text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 px-4 sm:px-0 font-['Arial_Black']">
                     <div className="flex items-start space-x-4">
                       <span className="text-yellow-400 text-xl sm:text-2xl lg:text-3xl xl:text-4xl flex-shrink-0 mt-1">✨</span>
-                      <span className="text-left leading-tight">Desvende os mitos e descubra o verdadeiro poder do Tarô</span>
+                      <span className="text-left leading-relaxed">Desvende os mitos e descubra o verdadeiro poder do Tarô</span>
                     </div>
                     <div className="flex items-start space-x-4">
                       <span className="text-yellow-400 text-xl sm:text-2xl lg:text-3xl xl:text-4xl flex-shrink-0 mt-1">✨</span>
-                      <span className="text-left leading-tight">Aprenda uma tiragem simples de 3 cartas que você pode usar hoje mesmo</span>
+                      <span className="text-left leading-relaxed">Aprenda uma tiragem simples de 3 cartas que você pode usar hoje mesmo</span>
                     </div>
                     <div className="flex items-start space-x-4">
                       <span className="text-yellow-400 text-xl sm:text-2xl lg:text-3xl xl:text-4xl flex-shrink-0 mt-1">✨</span>
-                      <span className="text-left leading-tight">Descubra como fazer as perguntas certas para obter respostas claras</span>
+                      <span className="text-left leading-relaxed">Descubra como fazer as perguntas certas para obter respostas claras</span>
                     </div>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ const LandingPage = () => {
                         type="submit" 
                         variant="gold" 
                         size="lg" 
-                        className="w-full h-14 sm:h-16 text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-['Arial_Black'] mt-6"
+                        className="w-full h-14 sm:h-16 text-base sm:text-lg md:text-xl lg:text-2xl font-bold font-['Arial_Black'] mt-6 leading-relaxed"
                         disabled={isLoading}
                       >
                         {isLoading ? (
