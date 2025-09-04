@@ -132,11 +132,11 @@ const TripwirePage = () => {
               {/* Preço */}
               <div className="space-y-3 sm:space-y-4">
                 <div className="text-center px-2 sm:px-3 md:px-4">
-                  <p className="text-muted-foreground line-through text-base sm:text-lg lg:text-xl font-['Arial_Black']">De R$ 30,90</p>
+                  <p className="text-muted-foreground line-through text-base sm:text-lg lg:text-xl font-['Arial_Black']">De R$ 29,90</p>
                   <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-mystical-gradient font-['Arial_Black'] leading-tight">
-                    por apenas R$ 19,90
+                    por apenas R$ 9,90
                   </p>
-                  <p className="text-green-400 text-sm sm:text-base font-bold font-['Arial_Black']">Economia de R$ 11,00!</p>
+                  <p className="text-green-400 text-sm sm:text-base font-bold font-['Arial_Black']">Economia de R$ 20,00!</p>
                   <p className="text-primary text-xs sm:text-sm lg:text-base font-['Arial_Black']">Oferta especial por tempo limitado</p>
                 </div>
               </div>

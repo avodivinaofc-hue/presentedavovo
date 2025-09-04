@@ -160,13 +160,13 @@ const LandingPage = () => {
                         </p>
                         <div className="mt-4 space-y-2">
                           <div className="text-lg sm:text-xl text-gray-400 line-through font-['Arial_Black']">
-                            De R$ 30,90
+                            De R$ 29,90
                           </div>
                           <div className="text-2xl sm:text-3xl font-bold text-yellow-400 font-['Arial_Black']">
-                            Por apenas R$ 19,90
+                            Por apenas R$ 9,90
                           </div>
                           <div className="text-sm text-green-400 font-bold font-['Arial_Black']">
-                            Economia de R$ 11,00!
+                            Economia de R$ 20,00!
                           </div>
                         </div>
                       </div>
@@ -236,7 +236,7 @@ const LandingPage = () => {
         onClose={handleCheckoutClose}
         onPaymentComplete={handlePaymentComplete}
         productName="O Oráculo Interior"
-        productPrice={19.90}
+        productPrice={9.90}
         customerName={name}
         customerEmail={email}
         productImage="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png"

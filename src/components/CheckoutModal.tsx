@@ -32,7 +32,7 @@ export const CheckoutModal = ({
 
     try {
       // Redirecionar para o Disrupty
-      const disruptyUrl = "https://global.disruptybr.com.br/exycdib4b8";
+      const disruptyUrl = "https://global.disruptybr.com.br/mmbk5";
       
       toast({
         title: "Redirecionando para pagamento...",
@@ -88,13 +88,13 @@ export const CheckoutModal = ({
             </h3>
             <div className="space-y-1">
               <div className="text-sm text-mystic-cream/60 line-through font-['Arial_Black']">
-                De R$ 30,90
+                De R$ 29,90
               </div>
               <div className="text-2xl font-bold text-mystic-gold font-['Arial_Black']">
                 Por R$ {productPrice.toFixed(2).replace('.', ',')}
               </div>
               <div className="text-xs text-green-400 font-bold font-['Arial_Black']">
-                Economia de R$ 11,00!
+                Economia de R$ 20,00!
               </div>
             </div>
           </div>
