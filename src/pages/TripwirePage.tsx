@@ -81,7 +81,7 @@ const TripwirePage = () => {
               ESPERE, {name}! 
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 mb-4 sm:mb-6 px-3 sm:px-4 leading-relaxed font-['Arial_Black']">
-              Seu Guia está a caminho, mas sua <span className="text-primary font-bold">Clareza pode chegar em 60 segundos...</span>
+              Sua <span className="text-primary font-bold">oferta especial está disponível por tempo limitado...</span>
             </p>
             
             <MysticalCard variant="glowing" className="inline-block p-3 sm:p-4 lg:p-6">
@@ -102,7 +102,7 @@ const TripwirePage = () => {
                   O Espelho da Alma
                 </h2>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/90 leading-relaxed px-2 sm:px-3 md:px-4 font-['Arial_Black']">
-                  Por ter confiado na Avó Divina e baixado nosso guia, você desbloqueou um acesso único 
+                  Por ter confiado na Avó Divina, você desbloqueou um acesso único 
                   à ferramenta mais poderosa para <span className="text-primary font-bold">análise instantânea</span> 
                   da sua energia atual.
                 </p>
@@ -132,10 +132,11 @@ const TripwirePage = () => {
               {/* Preço */}
               <div className="space-y-3 sm:space-y-4">
                 <div className="text-center px-2 sm:px-3 md:px-4">
-                  <p className="text-muted-foreground line-through text-base sm:text-lg lg:text-xl font-['Arial_Black']">De R$ 29,90</p>
+                  <p className="text-muted-foreground line-through text-base sm:text-lg lg:text-xl font-['Arial_Black']">De R$ 30,90</p>
                   <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-mystical-gradient font-['Arial_Black'] leading-tight">
-                    por apenas R$ 9,90
+                    por apenas R$ 19,90
                   </p>
+                  <p className="text-green-400 text-sm sm:text-base font-bold font-['Arial_Black']">Economia de R$ 11,00!</p>
                   <p className="text-primary text-xs sm:text-sm lg:text-base font-['Arial_Black']">Oferta especial por tempo limitado</p>
                 </div>
               </div>
@@ -165,7 +166,7 @@ const TripwirePage = () => {
                     onClick={skipOffer}
                     className="text-muted-foreground hover:text-foreground transition-colors underline text-xs sm:text-sm px-2 py-2 font-['Arial_Black']"
                   >
-                    Não, obrigada. Apenas quero ler o e-book.
+                    Não, obrigada. Vou pensar melhor.
                   </button>
                 </div>
               </div>

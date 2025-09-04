@@ -16,7 +16,7 @@ const EbookPage = () => {
           <img src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" alt="O Oráculo Interior" className="mx-auto w-32 sm:w-40 md:w-48 lg:w-64 xl:w-80 h-auto shadow-mystical rounded-lg" />
           <div className="space-y-3 sm:space-y-4">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-mystical-gradient font-['Arial_Black']">O Oráculo Interior</h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-primary px-2 font-['Arial_Black']">Um Guia da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô</p>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-primary px-2 font-['Arial_Black']">Um Guia Completo da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô</p>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground font-['Arial_Black']">por Avó Divina</p>
           </div>
         </div>

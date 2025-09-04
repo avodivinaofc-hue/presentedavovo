@@ -5,12 +5,15 @@ import { MysticalCard } from "@/components/MysticalCard";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { CheckoutModal } from "@/components/CheckoutModal";
 import { toast } from "@/hooks/use-toast";
 
 const LandingPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [isPaymentComplete, setIsPaymentComplete] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,52 +31,52 @@ const LandingPage = () => {
     setIsLoading(true);
 
     try {
-      console.log("Iniciando processo de captura...");
+      console.log("Iniciando processo de compra...");
       console.log("Nome:", name);
       console.log("Email:", email);
       
       // Simular processamento
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Sucesso - redirecionar para página tripwire
+      // Sucesso - abrir checkout
       toast({
         title: "Sucesso! ✨",
-        description: "Redirecionando para sua oferta especial..."
+        description: "Abrindo checkout para finalizar sua compra..."
       });
       
-      console.log("Redirecionando para /tripwire...");
-      
-      setTimeout(() => {
-        try {
-          navigate("/tripwire", { state: { name } });
-          console.log("Navegação executada com sucesso");
-        } catch (navError) {
-          console.error("Erro na navegação:", navError);
-          // Fallback: tentar navegação simples
-          window.location.href = "/tripwire";
-        }
-      }, 1500);
+      console.log("Abrindo checkout...");
+      setShowCheckout(true);
 
     } catch (error) {
       console.error('Unexpected error:', error);
       
       toast({
         title: "Erro inesperado",
-        description: "Tentando navegação alternativa...",
+        description: "Tente novamente em alguns instantes.",
+        variant: "destructive"
       });
-      
-      // Fallback: navegação direta
-      setTimeout(() => {
-        try {
-          navigate("/tripwire", { state: { name } });
-        } catch (navError) {
-          console.error("Erro na navegação alternativa:", navError);
-          window.location.href = "/tripwire";
-        }
-      }, 1000);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handlePaymentComplete = () => {
+    setIsPaymentComplete(true);
+    setShowCheckout(false);
+    
+    toast({
+      title: "Pagamento realizado! 🎉",
+      description: "Redirecionando para seu e-book..."
+    });
+    
+    // Redirecionar para o e-book após 2 segundos
+    setTimeout(() => {
+      navigate("/ebook", { state: { name } });
+    }, 2000);
+  };
+
+  const handleCheckoutClose = () => {
+    setShowCheckout(false);
   };
 
   return (
@@ -114,7 +117,7 @@ const LandingPage = () => {
                   </h1>
                   
                   <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-200 leading-relaxed px-4 sm:px-0 font-['Arial_Black']">
-                    Leia o presente guia gratuito <strong className="text-yellow-400">"O Oráculo Interior"</strong> e descubra como usar o Tarô para iluminar suas decisões e encontrar a direção que você busca.
+                    Adquira o guia completo <strong className="text-yellow-400">"O Oráculo Interior"</strong> e descubra como usar o Tarô para iluminar suas decisões e encontrar a direção que você busca.
                   </p>
 
                   {/* Benefícios */}
@@ -150,11 +153,22 @@ const LandingPage = () => {
                     <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6 lg:space-y-8">
                       <div className="text-center mb-6 sm:mb-8">
                         <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-yellow-400 mb-3 font-['Arial_Black']">
-                          Receba seu Guia GRATUITO
+                          Adquira seu Guia Completo
                         </h3>
                         <p className="text-sm sm:text-base lg:text-lg text-gray-400 font-['Arial_Black']">
                           E inicie sua jornada de clareza agora mesmo
                         </p>
+                        <div className="mt-4 space-y-2">
+                          <div className="text-lg sm:text-xl text-gray-400 line-through font-['Arial_Black']">
+                            De R$ 30,90
+                          </div>
+                          <div className="text-2xl sm:text-3xl font-bold text-yellow-400 font-['Arial_Black']">
+                            Por apenas R$ 19,90
+                          </div>
+                          <div className="text-sm text-green-400 font-bold font-['Arial_Black']">
+                            Economia de R$ 11,00!
+                          </div>
+                        </div>
                       </div>
 
                       <div className="space-y-5">
@@ -199,7 +213,7 @@ const LandingPage = () => {
                           </>
                         ) : (
                           <>
-                            🔮 QUERO MEU GUIA GRATUITO!
+                            🔮 COMPRAR MEU GUIA AGORA!
                           </>
                         )}
                       </MysticalButton>
@@ -215,6 +229,18 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal de Checkout */}
+      <CheckoutModal
+        isOpen={showCheckout}
+        onClose={handleCheckoutClose}
+        onPaymentComplete={handlePaymentComplete}
+        productName="O Oráculo Interior"
+        productPrice={19.90}
+        customerName={name}
+        customerEmail={email}
+        productImage="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png"
+      />
     </div>
   );
 };
