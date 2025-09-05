@@ -6,6 +6,7 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckoutModal } from "@/components/CheckoutModal";
+import { UrgencyCountdown } from "@/components/UrgencyCountdown";
 import { toast } from "@/hooks/use-toast";
 
 const LandingPage = () => {
@@ -119,6 +120,11 @@ const LandingPage = () => {
                   <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-200 leading-relaxed px-4 sm:px-0 font-['Arial_Black']">
                     Adquira o guia completo <strong className="text-yellow-400">"O Oráculo Interior"</strong> e descubra como usar o Tarô para iluminar suas decisões e encontrar a direção que você busca.
                   </p>
+
+                  {/* Elemento de Urgência */}
+                  <div className="px-4 sm:px-0">
+                    <UrgencyCountdown />
+                  </div>
 
                   {/* Benefícios */}
                   <div className="space-y-4 sm:space-y-5 lg:space-y-6 text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 px-4 sm:px-0 font-['Arial_Black']">
