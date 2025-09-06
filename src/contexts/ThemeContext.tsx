@@ -23,7 +23,7 @@ interface ThemeContextType {
 }
 
 const defaultPreferences: ThemePreferences = {
-  mode: 'auto',
+  mode: 'dark', // Forçar modo escuro sempre
   colorScheme: 'mystical',
   seasonalTheme: 'default',
   reducedMotion: false,
@@ -66,13 +66,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     return () => mediaQuery.removeEventListener('change', updateSystemTheme);
   }, []);
 
-  // Aplica tema atual
+  // Aplica tema atual - sempre forçar modo escuro
   const currentTheme = useMemo(() => {
-    if (preferences.mode === 'auto') {
-      return systemTheme;
-    }
-    return preferences.mode;
-  }, [preferences.mode, systemTheme]);
+    return 'dark'; // Sempre modo escuro, independente das preferências
+  }, []);
 
   // Aplica preferências ao DOM
   useEffect(() => {
