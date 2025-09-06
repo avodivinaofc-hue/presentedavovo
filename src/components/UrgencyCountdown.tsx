@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { Clock } from "lucide-react";
 
 interface UrgencyCountdownProps {
-  initialDays?: number;
+  initialHours?: number;
 }
 
-export const UrgencyCountdown = ({ initialDays = 6 }: UrgencyCountdownProps) => {
-  const [timeLeft, setTimeLeft] = useState(initialDays * 24 * 60 * 60); // Converter dias para segundos
+export const UrgencyCountdown = ({ initialHours = 2 }: UrgencyCountdownProps) => {
+  const [timeLeft, setTimeLeft] = useState(initialHours * 60 * 60); // Converter horas para segundos
 
   useEffect(() => {
     if (timeLeft <= 0) return;
@@ -28,7 +28,7 @@ export const UrgencyCountdown = ({ initialDays = 6 }: UrgencyCountdownProps) => 
       {/* Texto de Urgência */}
       <div className="bg-red-600 text-white px-4 py-2 rounded-full inline-block animate-pulse">
         <span className="text-sm sm:text-base md:text-lg font-bold font-['Arial_Black']">
-          🔥 PREÇO DE LANÇAMENTO POR TEMPO LIMITADO! 🔥
+          🔥 ÚLTIMAS 2 HORAS! PREÇO ESPECIAL! 🔥
         </span>
       </div>
       
@@ -84,7 +84,7 @@ export const UrgencyCountdown = ({ initialDays = 6 }: UrgencyCountdownProps) => 
         </div>
         
         <div className="mt-3 text-red-500 text-xs sm:text-sm font-bold font-['Arial_Black']">
-          ⚠️ Após este período, o preço volta ao valor normal de R$ 29,90
+          ⚠️ Após 2 horas, o preço volta ao valor normal de R$ 29,90
         </div>
       </div>
     </div>
