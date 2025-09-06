@@ -4,11 +4,9 @@ Uma landing page mística e responsiva para captura de leads e conversão de ven
 
 ## ✨ Características Principais
 
-### 🎯 **Funnel de Vendas Completo**
+### 🎯 **Funnel de Vendas Simplificado**
 - **Landing Page** (`/`) - Captura emails com oferta gratuita
-- **Tripwire Page** (`/tripwire`) - Oferta especial com countdown timer
 - **Ebook Page** (`/ebook`) - Entrega do produto gratuito
-- **Espelho da Alma** (`/espelho-da-alma`) - Ferramenta premium paga
 
 ### 📱 **Design Mobile-First**
 - **100% Responsivo** - Otimizado para todos os dispositivos
@@ -95,9 +93,7 @@ src/
 │   └── FloatingParticles.tsx
 ├── pages/              # Páginas da aplicação
 │   ├── LandingPage.tsx
-│   ├── TripwirePage.tsx
-│   ├── EbookPage.tsx
-│   └── EspelhoAlmaPage.tsx
+│   └── EbookPage.tsx
 ├── integrations/       # Integrações externas
 │   └── supabase/      # Cliente Supabase
 ├── hooks/             # Hooks customizados

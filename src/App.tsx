@@ -12,8 +12,6 @@ import { ThemeController } from "@/components/ThemeController";
 // Lazy loading das páginas
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const EbookPage = lazy(() => import("./pages/EbookPage"));
-const TripwirePage = lazy(() => import("./pages/TripwirePage"));
-const EspelhoAlmaPage = lazy(() => import("./pages/EspelhoAlmaPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component
@@ -48,8 +46,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/ebook" element={<EbookPage />} />
-              <Route path="/tripwire" element={<TripwirePage />} />
-              <Route path="/espelho-da-alma" element={<EspelhoAlmaPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

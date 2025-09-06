@@ -7,12 +7,12 @@ O botão "QUERO MEU GUIA GRATUITO!" não está redirecionando para a próxima p�
 
 ### 1. **Teste de Navegação Direta**
 - Clique no botão **"🧪 Testar useNavigate"** 
-- Deve redirecionar para `/tripwire` usando React Router
+- Deve redirecionar para `/ebook` usando React Router
 - Verifique o console do navegador para logs
 
 ### 2. **Teste com window.location**
 - Clique no botão **"🌐 Testar window.location"**
-- Deve redirecionar para `/tripwire` usando navegação nativa
+- Deve redirecionar para `/ebook` usando navegação nativa
 - Verifique se funciona
 
 ### 3. **Teste do Formulário Principal**
