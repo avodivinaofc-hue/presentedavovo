@@ -84,7 +84,7 @@ export const UrgencyCountdown = ({ initialHours = 2 }: UrgencyCountdownProps) =>
         </div>
         
         <div className="mt-3 text-red-500 text-xs sm:text-sm font-bold font-['Arial_Black']">
-          ⚠️ Após 2 horas, o preço volta ao valor normal de R$ 29,90
+          ⚠️ Após 2 horas, o preço volta ao valor normal de R$ 39,90
         </div>
       </div>
     </div>
