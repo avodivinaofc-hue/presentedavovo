@@ -242,7 +242,7 @@ const LandingPage = () => {
         onClose={handleCheckoutClose}
         onPaymentComplete={handlePaymentComplete}
         productName="O Oráculo Interior"
-        productPrice={9.90}
+        productPrice={19.90}
         customerName={name}
         customerEmail={email}
         productImage="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png"
