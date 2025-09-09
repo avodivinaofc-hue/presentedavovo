@@ -26,7 +26,7 @@ export const CheckoutModal = ({
 }: CheckoutModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
   
-  const disruptyUrl = "https://global.disruptybr.com.br/exycdib4b8";
+  const disruptyUrl = "https://global.disruptybr.com.br/mmbk5";
 
   // Simular carregamento do iframe
   useEffect(() => {
