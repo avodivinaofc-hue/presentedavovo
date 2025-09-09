@@ -228,7 +228,7 @@ const EbookPage = () => {
               variant="gold" 
               size="lg" 
               className="animate-pulse h-12 sm:h-14 text-base sm:text-lg font-['Arial_Black']"
-              onClick={() => window.open('https://wa.me/5563981550581', '_blank')}
+              onClick={() => window.open('https://wa.me/5519981765316', '_blank')}
             >
               🌟 Fazer Minha Leitura Premium
             </MysticalButton>
@@ -325,7 +325,7 @@ const EbookPage = () => {
               <MysticalButton 
                 variant="gold" 
                 className="shadow-mystical text-xs sm:text-sm lg:text-base h-10 sm:h-12 font-['Arial_Black']"
-                onClick={() => window.open('https://wa.me/5563981550581', '_blank')}
+                onClick={() => window.open('https://wa.me/5519981765316', '_blank')}
               >
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 <span className="hidden sm:inline">Explorar Mais</span>
