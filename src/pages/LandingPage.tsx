@@ -166,10 +166,10 @@ const LandingPage = () => {
                         </p>
                         <div className="mt-4 space-y-2">
                           <div className="text-lg sm:text-xl text-gray-400 line-through font-['Arial_Black']">
-                            De R$ 39,90
+                            De R$ 29,90
                           </div>
                           <div className="text-2xl sm:text-3xl font-bold text-yellow-400 font-['Arial_Black']">
-                            Por apenas R$ 19,90
+                            Por apenas R$ 9,90
                           </div>
                           <div className="text-sm text-green-400 font-bold font-['Arial_Black']">
                             Economia de R$ 20,00!
