@@ -26,7 +26,7 @@ export const CheckoutModal = ({
 }: CheckoutModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
   
-  const disruptyUrl = "https://global.disruptybr.com.br/mmbk5";
+  const disruptyUrl = "https://global.disruptybr.com.br/exycdib4b8";
 
   // Simular carregamento do iframe
   useEffect(() => {
@@ -100,7 +100,7 @@ export const CheckoutModal = ({
                 </h3>
                 <div className="space-y-1">
                   <div className="text-xs sm:text-sm text-mystic-cream/60 line-through font-['Arial_Black']">
-                    De R$ 29,90
+                    De R$ 39,90
                   </div>
                   <div className="text-lg sm:text-2xl font-bold text-mystic-gold font-['Arial_Black']">
                     Por R$ {productPrice.toFixed(2).replace(".", ",")}
