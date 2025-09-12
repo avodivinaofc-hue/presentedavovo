@@ -26,7 +26,8 @@ export const CheckoutModal = ({
 }: CheckoutModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
   
-  const disruptyUrl = "https://global.disruptybr.com.br/mmbk5";
+  // Construir URL do Disrupty com email preenchido
+  const disruptyUrl = `https://global.disruptybr.com.br/mmbk5?email=${encodeURIComponent(customerEmail)}`;
 
   // Simular carregamento do iframe
   useEffect(() => {
