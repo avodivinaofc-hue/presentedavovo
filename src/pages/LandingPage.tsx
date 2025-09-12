@@ -109,21 +109,21 @@ const LandingPage = () => {
 
             {/* Texto Principal - Segundo no mobile */}
             <div className="text-center space-y-6 w-full">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white font-['Playfair_Display'] px-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white font-['Playfair_Display'] px-4">
                 Pare de andar no escuro.{" "}
                 <span className="text-yellow-400">Descubra seu destino</span>{" "}
                 e tenha clareza nas decisões com o guia completo da{" "}
                 <span className="text-pink-300">Vovó Divina</span>.
-                  </h1>
-                  
-              <p className="text-lg sm:text-xl text-gray-200 leading-relaxed font-['Poppins'] px-4">
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-gray-200 leading-relaxed font-['Poppins'] px-6">
                 O e-book que já ajudou mais de{" "}
                 <span className="text-yellow-400 font-bold">29 mil pessoas</span>{" "}
                 a desvendarem os segredos do tarot e a encontrarem o próprio caminho.
               </p>
 
-              {/* Botão CTA Principal - Verde pulsante */}
-              <div className="pt-4 px-4 w-full">
+              {/* Botão CTA Principal - Verde pulsante com mais espaçamento */}
+              <div className="pt-6 px-6 w-full">
                 <MysticalButton 
                   onClick={() => {
                     const form = document.getElementById('main-form');
@@ -131,7 +131,7 @@ const LandingPage = () => {
                   }}
                   variant="green-pulse" 
                   size="lg" 
-                  className="w-full text-lg sm:text-xl font-bold py-4 px-6 font-['Poppins'] min-h-[60px]"
+                  className="w-full text-lg sm:text-xl font-bold py-5 px-8 font-['Poppins'] min-h-[70px] mx-auto max-w-md"
                 >
                   QUERO MEU PRESENTE AGORA! (R$ 9,90)
                 </MysticalButton>
@@ -145,27 +145,27 @@ const LandingPage = () => {
       <section className="py-12 bg-white/5 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-4">
               Você se sente perdido(a), sem saber qual caminho seguir?
             </h2>
-                  </div>
+          </div>
 
           <div className="space-y-8">
             {/* Problemas - Stack vertical no mobile */}
-            <div className="space-y-6">
-                    <div className="flex items-start space-x-4">
+            <div className="space-y-6 px-4">
+              <div className="flex items-start space-x-4">
                 <Heart className="text-pink-400 text-2xl mt-1 flex-shrink-0" />
                 <p className="text-base sm:text-lg text-gray-300 font-['Poppins']">
                   Você já se sentiu sem rumo, com dúvidas sobre trabalho, amor ou finanças?
                 </p>
-                    </div>
-                    <div className="flex items-start space-x-4">
+              </div>
+              <div className="flex items-start space-x-4">
                 <Shield className="text-blue-400 text-2xl mt-1 flex-shrink-0" />
                 <p className="text-base sm:text-lg text-gray-300 font-['Poppins']">
                   Já desejou ter um guia confiável para tomar as melhores decisões?
                 </p>
-                    </div>
-                    <div className="flex items-start space-x-4">
+              </div>
+              <div className="flex items-start space-x-4">
                 <Sparkles className="text-purple-400 text-2xl mt-1 flex-shrink-0" />
                 <p className="text-base sm:text-lg text-gray-300 font-['Poppins']">
                   Acha que a vida é mais do que apenas o que vemos, e quer se conectar com sua intuição?
@@ -174,7 +174,7 @@ const LandingPage = () => {
             </div>
 
             {/* Solução */}
-            <div className="bg-gradient-to-br from-purple-800/30 to-pink-800/30 p-6 rounded-2xl border border-purple-400/20">
+            <div className="bg-gradient-to-br from-purple-800/30 to-pink-800/30 p-6 mx-4 rounded-2xl border border-purple-400/20">
               <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-4 font-['Playfair_Display']">
                 A Solução Está Aqui
               </h3>
@@ -192,12 +192,12 @@ const LandingPage = () => {
       <section className="py-12 bg-gradient-to-r from-purple-900/50 to-indigo-900/50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-4">
               O que você vai encontrar no seu E-book:
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4">
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-400/20 hover:border-yellow-400/50 transition-all duration-300">
               <BookOpen className="text-yellow-400 text-3xl mb-4" />
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3 font-['Poppins']">
@@ -255,12 +255,12 @@ const LandingPage = () => {
       <section className="py-12 bg-white/5 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-4">
               Mais de 6.000 pessoas já transformaram suas vidas!
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 px-4">
             <div className="bg-gradient-to-br from-purple-800/30 to-pink-800/30 p-6 rounded-xl border border-purple-400/20">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-purple-900 font-bold text-lg">
@@ -325,7 +325,7 @@ const LandingPage = () => {
       <section className="py-12 bg-gradient-to-r from-purple-900/50 to-indigo-900/50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-4">
               Quem é a Vovó Divina?
             </h2>
           </div>
@@ -334,18 +334,18 @@ const LandingPage = () => {
             <div className="flex justify-center">
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/a005281f-af52-4503-b064-f3249ed27e88.png" 
+                  src="/lovable-uploads/vovo-divina-nova.jpg" 
                   alt="Vovó Divina - Guardiã do conhecimento milenar"
                   className="w-48 h-48 object-cover rounded-full border-4 border-yellow-400 shadow-2xl"
                 />
                 <div className="absolute -bottom-2 -right-2 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold text-sm">
                    Mestra
-                    </div>
-                  </div>
                 </div>
+              </div>
+            </div>
 
-            <div className="space-y-6 text-center">
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed font-['Poppins'] px-4">
+            <div className="space-y-6 text-center px-4">
+              <p className="text-base sm:text-lg text-gray-200 leading-relaxed font-['Poppins']">
                 A <strong className="text-pink-300">Vovó Divina</strong> é a guardiã de um conhecimento milenar sobre o tarot. 
                 Por décadas, ela usou sua sabedoria para guiar pessoas através das encruzilhadas da vida. 
                 Agora, ela compartilha seus segredos neste guia para que você também possa encontrar o seu caminho.
@@ -373,10 +373,10 @@ const LandingPage = () => {
       <section id="main-form" className="py-12 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 font-['Playfair_Display'] px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 font-['Playfair_Display'] px-4">
               Garante seu Presente da Vovó Divina
             </h2>
-            <p className="text-lg sm:text-xl text-gray-200 font-['Poppins'] px-4">
+            <p className="text-lg sm:text-xl text-gray-200 font-['Poppins'] px-6">
               Comece sua jornada de autoconhecimento hoje mesmo
             </p>
           </div>
@@ -385,64 +385,64 @@ const LandingPage = () => {
             {/* Capa do E-book */}
             <div className="flex justify-center">
               <div className="relative">
-                    <img 
-                      src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" 
+                <img 
+                  src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" 
                   alt="Capa do E-book O Presente da Vovó Divina"
                   className="w-56 h-auto object-contain rounded-lg shadow-2xl"
-                    />
+                />
                 <div className="absolute -top-3 -right-3 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold text-lg animate-pulse">
                   R$ 9,90
                 </div>
               </div>
-                  </div>
+            </div>
 
-                  {/* Formulário */}
-            <MysticalCard className="p-6">
+            {/* Formulário */}
+            <MysticalCard className="p-6 mx-4">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="text-center mb-6">
                   <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-4 font-['Playfair_Display']">
-                          Adquira seu Guia Completo
-                        </h3>
+                    Adquira seu Guia Completo
+                  </h3>
                   <div className="space-y-2">
                     <div className="text-base sm:text-lg text-gray-400 line-through font-['Poppins']">
-                            De R$ 39,90
-                          </div>
+                      De R$ 39,90
+                    </div>
                     <div className="text-2xl sm:text-3xl font-bold text-yellow-400 font-['Poppins']">
-                            Por apenas R$ 9,90
-                          </div>
+                      Por apenas R$ 9,90
+                    </div>
                     <div className="text-sm sm:text-base text-green-400 font-bold font-['Poppins']">
                       Economia de R$ 30,00!
-                          </div>
-                        </div>
-                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="space-y-4">
-                        <div>
+                  <div>
                     <Label htmlFor="name" className="text-yellow-400 text-base sm:text-lg font-['Poppins']">Seu Nome</Label>
-                          <Input
-                            id="name"
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                    <Input
+                      id="name"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       className="bg-gray-700 border-gray-600 text-white placeholder:text-gray-400 h-12 sm:h-14 text-base font-['Poppins'] mt-2"
-                            placeholder="Como posso te chamar?"
-                            disabled={isLoading}
-                          />
-                        </div>
-                        
-                        <div>
+                      placeholder="Como posso te chamar?"
+                      disabled={isLoading}
+                    />
+                  </div>
+                  
+                  <div>
                     <Label htmlFor="email" className="text-yellow-400 text-base sm:text-lg font-['Poppins']">Seu E-mail</Label>
-                          <Input
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                    <Input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="bg-gray-700 border-gray-600 text-white placeholder:text-gray-400 h-12 sm:h-14 text-base font-['Poppins'] mt-2"
-                            placeholder="seu@email.com"
-                            disabled={isLoading}
-                          />
-                        </div>
-                      </div>
+                      placeholder="seu@email.com"
+                      disabled={isLoading}
+                    />
+                  </div>
+                </div>
 
                 {/* Order Bump - Otimizado para mobile */}
                 <div className="bg-gradient-to-r from-yellow-400/20 to-pink-400/20 p-4 rounded-lg border border-yellow-400/30">
@@ -469,30 +469,30 @@ const LandingPage = () => {
                   </div>
                 </div>
 
-                      <MysticalButton 
-                        type="submit" 
+                <MysticalButton 
+                  type="submit" 
                   variant="green-pulse" 
-                        size="lg" 
-                  className="w-full text-lg sm:text-xl font-bold font-['Poppins'] mt-6"
-                        disabled={isLoading}
-                      >
-                        {isLoading ? (
-                          <>
+                  size="lg" 
+                  className="w-full text-lg sm:text-xl font-bold font-['Poppins'] mt-6 py-5 px-8 min-h-[70px]"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
                       <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
                       PROCESSANDO...
-                          </>
-                        ) : (
-                          <>
+                    </>
+                  ) : (
+                    <>
                        QUERO MEU PRESENTE AGORA! (R$ 9,90)
-                          </>
-                        )}
-                      </MysticalButton>
+                    </>
+                  )}
+                </MysticalButton>
 
                 <p className="text-xs sm:text-sm text-gray-400 text-center font-['Poppins']">
-                        Seus dados estão seguros. Não enviamos spam.
-                      </p>
-                    </form>
-                  </MysticalCard>
+                  Seus dados estão seguros. Não enviamos spam.
+                </p>
+              </form>
+            </MysticalCard>
           </div>
         </div>
       </section>

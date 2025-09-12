@@ -17,9 +17,9 @@ const MysticalButton = forwardRef<HTMLButtonElement, MysticalButtonProps>(
     };
 
     const sizes = {
-      sm: "px-3 sm:px-4 md:px-6 py-2 text-xs sm:text-sm h-8 sm:h-10",
-      default: "px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base h-10 sm:h-12",
-      lg: "px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-base sm:text-lg h-12 sm:h-14 md:h-16"
+      sm: "px-4 sm:px-6 md:px-8 py-3 text-xs sm:text-sm h-10 sm:h-12",
+      default: "px-6 sm:px-8 md:px-10 py-4 text-sm sm:text-base h-12 sm:h-14",
+      lg: "px-8 sm:px-10 md:px-12 py-5 text-base sm:text-lg h-14 sm:h-16 md:h-18"
     };
 
     return (
