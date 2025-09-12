@@ -114,24 +114,24 @@ const LandingPage = () => {
                 <span className="text-yellow-400">Descubra seu destino</span>{" "}
                 e tenha clareza nas decisões com o guia completo da{" "}
                 <span className="text-pink-300">Vovó Divina</span>.
-              </h1>
-              
+                  </h1>
+                  
               <p className="text-lg sm:text-xl text-gray-200 leading-relaxed font-['Poppins'] px-4">
                 O e-book que já ajudou mais de{" "}
                 <span className="text-yellow-400 font-bold">29 mil pessoas</span>{" "}
                 a desvendarem os segredos do tarot e a encontrarem o próprio caminho.
               </p>
 
-              {/* Botão CTA Principal - Maior e mais visível */}
+              {/* Botão CTA Principal - Verde pulsante */}
               <div className="pt-4 px-4 w-full">
                 <MysticalButton 
                   onClick={() => {
                     const form = document.getElementById('main-form');
                     if (form) form.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  variant="gold" 
+                  variant="green-pulse" 
                   size="lg" 
-                  className="w-full text-xl font-bold py-4 px-6 font-['Poppins'] min-h-[60px]"
+                  className="w-full text-lg sm:text-xl font-bold py-4 px-6 font-['Poppins'] min-h-[60px]"
                 >
                   QUERO MEU PRESENTE AGORA! (R$ 9,90)
                 </MysticalButton>
@@ -148,24 +148,24 @@ const LandingPage = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 font-['Playfair_Display'] px-2">
               Você se sente perdido(a), sem saber qual caminho seguir?
             </h2>
-          </div>
+                  </div>
 
           <div className="space-y-8">
             {/* Problemas - Stack vertical no mobile */}
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
+                    <div className="flex items-start space-x-4">
                 <Heart className="text-pink-400 text-2xl mt-1 flex-shrink-0" />
                 <p className="text-base sm:text-lg text-gray-300 font-['Poppins']">
                   Você já se sentiu sem rumo, com dúvidas sobre trabalho, amor ou finanças?
                 </p>
-              </div>
-              <div className="flex items-start space-x-4">
+                    </div>
+                    <div className="flex items-start space-x-4">
                 <Shield className="text-blue-400 text-2xl mt-1 flex-shrink-0" />
                 <p className="text-base sm:text-lg text-gray-300 font-['Poppins']">
                   Já desejou ter um guia confiável para tomar as melhores decisões?
                 </p>
-              </div>
-              <div className="flex items-start space-x-4">
+                    </div>
+                    <div className="flex items-start space-x-4">
                 <Sparkles className="text-purple-400 text-2xl mt-1 flex-shrink-0" />
                 <p className="text-base sm:text-lg text-gray-300 font-['Poppins']">
                   Acha que a vida é mais do que apenas o que vemos, e quer se conectar com sua intuição?
@@ -340,9 +340,9 @@ const LandingPage = () => {
                 />
                 <div className="absolute -bottom-2 -right-2 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold text-sm">
                    Mestra
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
             <div className="space-y-6 text-center">
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed font-['Poppins'] px-4">
@@ -385,64 +385,64 @@ const LandingPage = () => {
             {/* Capa do E-book */}
             <div className="flex justify-center">
               <div className="relative">
-                <img 
-                  src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" 
+                    <img 
+                      src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" 
                   alt="Capa do E-book O Presente da Vovó Divina"
                   className="w-56 h-auto object-contain rounded-lg shadow-2xl"
-                />
+                    />
                 <div className="absolute -top-3 -right-3 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold text-lg animate-pulse">
                   R$ 9,90
                 </div>
               </div>
-            </div>
+                  </div>
 
-            {/* Formulário */}
+                  {/* Formulário */}
             <MysticalCard className="p-6">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="text-center mb-6">
                   <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-4 font-['Playfair_Display']">
-                    Adquira seu Guia Completo
-                  </h3>
+                          Adquira seu Guia Completo
+                        </h3>
                   <div className="space-y-2">
                     <div className="text-base sm:text-lg text-gray-400 line-through font-['Poppins']">
-                      De R$ 39,90
-                    </div>
+                            De R$ 39,90
+                          </div>
                     <div className="text-2xl sm:text-3xl font-bold text-yellow-400 font-['Poppins']">
-                      Por apenas R$ 9,90
-                    </div>
+                            Por apenas R$ 9,90
+                          </div>
                     <div className="text-sm sm:text-base text-green-400 font-bold font-['Poppins']">
                       Economia de R$ 30,00!
-                    </div>
-                  </div>
-                </div>
+                          </div>
+                        </div>
+                      </div>
 
                 <div className="space-y-4">
-                  <div>
+                        <div>
                     <Label htmlFor="name" className="text-yellow-400 text-base sm:text-lg font-['Poppins']">Seu Nome</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
+                          <Input
+                            id="name"
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                       className="bg-gray-700 border-gray-600 text-white placeholder:text-gray-400 h-12 sm:h-14 text-base font-['Poppins'] mt-2"
-                      placeholder="Como posso te chamar?"
-                      disabled={isLoading}
-                    />
-                  </div>
-                  
-                  <div>
+                            placeholder="Como posso te chamar?"
+                            disabled={isLoading}
+                          />
+                        </div>
+                        
+                        <div>
                     <Label htmlFor="email" className="text-yellow-400 text-base sm:text-lg font-['Poppins']">Seu E-mail</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                          <Input
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                       className="bg-gray-700 border-gray-600 text-white placeholder:text-gray-400 h-12 sm:h-14 text-base font-['Poppins'] mt-2"
-                      placeholder="seu@email.com"
-                      disabled={isLoading}
-                    />
-                  </div>
-                </div>
+                            placeholder="seu@email.com"
+                            disabled={isLoading}
+                          />
+                        </div>
+                      </div>
 
                 {/* Order Bump - Otimizado para mobile */}
                 <div className="bg-gradient-to-r from-yellow-400/20 to-pink-400/20 p-4 rounded-lg border border-yellow-400/30">
@@ -469,30 +469,30 @@ const LandingPage = () => {
                   </div>
                 </div>
 
-                <MysticalButton 
-                  type="submit" 
-                  variant="gold" 
-                  size="lg" 
-                  className="w-full h-14 sm:h-16 text-lg sm:text-xl font-bold font-['Poppins'] mt-6"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
+                      <MysticalButton 
+                        type="submit" 
+                  variant="green-pulse" 
+                        size="lg" 
+                  className="w-full text-lg sm:text-xl font-bold font-['Poppins'] mt-6"
+                        disabled={isLoading}
+                      >
+                        {isLoading ? (
+                          <>
                       <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
                       PROCESSANDO...
-                    </>
-                  ) : (
-                    <>
+                          </>
+                        ) : (
+                          <>
                        QUERO MEU PRESENTE AGORA! (R$ 9,90)
-                    </>
-                  )}
-                </MysticalButton>
+                          </>
+                        )}
+                      </MysticalButton>
 
                 <p className="text-xs sm:text-sm text-gray-400 text-center font-['Poppins']">
-                  Seus dados estão seguros. Não enviamos spam.
-                </p>
-              </form>
-            </MysticalCard>
+                        Seus dados estão seguros. Não enviamos spam.
+                      </p>
+                    </form>
+                  </MysticalCard>
           </div>
         </div>
       </section>
