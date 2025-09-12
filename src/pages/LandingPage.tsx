@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { CheckoutModal } from "@/components/CheckoutModal";
 import { UrgencyCountdown } from "@/components/UrgencyCountdown";
 import { toast } from "@/hooks/use-toast";
-import { Star, CheckCircle, Gift, Heart, Sparkles, Users, BookOpen, Crystal, Shield, Zap } from "lucide-react";
+import { Star, CheckCircle, Gift, Heart, Sparkles, Users, BookOpen, Gem, Shield, Zap } from "lucide-react";
 
 const LandingPage = () => {
   const [name, setName] = useState("");
@@ -235,7 +235,7 @@ const LandingPage = () => {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-400/20 hover:border-yellow-400/50 transition-all duration-300">
-              <Crystal className="text-green-400 text-3xl mb-4" />
+              <Gem className="text-green-400 text-3xl mb-4" />
               <h3 className="text-xl font-bold text-white mb-3 font-['Poppins']">
                 Bônus Especial
               </h3>
