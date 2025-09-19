@@ -104,6 +104,9 @@ const LandingPage = () => {
                 <div className="absolute -top-3 -right-3 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold text-lg animate-pulse">
                   R$ 9,90
                 </div>
+                <div className="absolute -bottom-3 -left-3 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm animate-bounce">
+                  -75%
+                </div>
               </div>
             </div>
 
@@ -133,7 +136,7 @@ const LandingPage = () => {
                   size="lg" 
                   className="w-full text-lg sm:text-xl font-bold py-5 px-8 font-['Poppins'] min-h-[70px] mx-auto max-w-md"
                 >
-                  QUERO MEU PRESENTE AGORA! (R$ 9,90)
+                  QUERO MEU PRESENTE AGORA! (R$ 9,90 - 75% OFF)
                 </MysticalButton>
               </div>
             </div>
@@ -393,6 +396,9 @@ const LandingPage = () => {
                 <div className="absolute -top-3 -right-3 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold text-lg animate-pulse">
                   R$ 9,90
                 </div>
+                <div className="absolute -bottom-3 -left-3 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm animate-bounce">
+                  -75%
+                </div>
               </div>
             </div>
 
@@ -411,7 +417,7 @@ const LandingPage = () => {
                       Por apenas R$ 9,90
                     </div>
                     <div className="text-sm sm:text-base text-green-400 font-bold font-['Poppins']">
-                      Economia de R$ 30,00!
+                      Economia de R$ 30,00! (75% OFF)
                     </div>
                   </div>
                 </div>
@@ -464,6 +470,7 @@ const LandingPage = () => {
                       <div className="flex items-center space-x-2 mt-2">
                         <span className="text-gray-400 line-through text-sm">De R$ 69,90</span>
                         <span className="text-yellow-400 font-bold text-sm sm:text-base">por apenas R$ 34,53</span>
+                        <span className="text-red-400 font-bold text-xs bg-red-500/20 px-2 py-1 rounded">-51% OFF</span>
                       </div>
                     </div>
                   </div>
@@ -483,7 +490,7 @@ const LandingPage = () => {
                     </>
                   ) : (
                     <>
-                       QUERO MEU PRESENTE AGORA! (R$ 9,90)
+                       QUERO MEU PRESENTE AGORA! (R$ 9,90 - 75% OFF)
                     </>
                   )}
                 </MysticalButton>
