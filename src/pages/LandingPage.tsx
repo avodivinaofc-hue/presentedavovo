@@ -134,9 +134,12 @@ const LandingPage = () => {
                   }}
                   variant="green-pulse" 
                   size="lg" 
-                  className="w-full text-lg sm:text-xl font-bold py-5 px-8 font-['Poppins'] min-h-[70px] mx-auto max-w-md"
+                  className="w-full text-base sm:text-lg font-bold py-6 px-6 font-['Poppins'] min-h-[90px] mx-auto max-w-lg"
                 >
-                  QUERO MEU PRESENTE AGORA! (R$ 9,90 - 75% OFF)
+                  <div className="text-center">
+                    <div>QUERO MEU PRESENTE AGORA!</div>
+                    <div className="text-sm sm:text-base">(R$ 9,90 - 75% OFF)</div>
+                  </div>
                 </MysticalButton>
               </div>
             </div>
@@ -480,7 +483,7 @@ const LandingPage = () => {
                   type="submit" 
                   variant="green-pulse" 
                   size="lg" 
-                  className="w-full text-lg sm:text-xl font-bold font-['Poppins'] mt-6 py-5 px-8 min-h-[70px]"
+                  className="w-full text-base sm:text-lg font-bold font-['Poppins'] mt-6 py-6 px-6 min-h-[90px]"
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -489,9 +492,10 @@ const LandingPage = () => {
                       PROCESSANDO...
                     </>
                   ) : (
-                    <>
-                       QUERO MEU PRESENTE AGORA! (R$ 9,90 - 75% OFF)
-                    </>
+                    <div className="text-center">
+                      <div>QUERO MEU PRESENTE AGORA!</div>
+                      <div className="text-sm sm:text-base">(R$ 9,90 - 75% OFF)</div>
+                    </div>
                   )}
                 </MysticalButton>
 
