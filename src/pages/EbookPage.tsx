@@ -228,10 +228,13 @@ const EbookPage = () => {
               variant="gold" 
               size="lg" 
               className="animate-pulse h-12 sm:h-14 text-base sm:text-lg font-['Arial_Black']"
-              onClick={() => window.open('https://wa.me/5519981765316', '_blank')}
+              onClick={() => window.open('https://santuario-da-divina.netlify.app/', '_blank')}
             >
-              🌟 Fazer Minha Leitura Premium
+              🌟 Ir para o nível 2
             </MysticalButton>
+            <p className="text-white text-sm sm:text-base mt-4 font-['Poppins'] px-4">
+              Desbloqueie agora a sua prosperidade, Melhor vida amorosa e paz divina clicando nesse botão.
+            </p>
           </div>
         </div>
       )
