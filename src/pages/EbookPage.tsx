@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MysticalCard } from "@/components/MysticalCard";
 import { MysticalButton } from "@/components/MysticalButton";
 import { FloatingParticles } from "@/components/FloatingParticles";
+import Footer from "@/components/Footer";
 import { ChevronLeft, ChevronRight, BookOpen, Star } from "lucide-react";
 
 const EbookPage = () => {
@@ -338,6 +339,9 @@ const EbookPage = () => {
           )}
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckoutModal } from "@/components/CheckoutModal";
 import { UrgencyCountdown } from "@/components/UrgencyCountdown";
+import Footer from "@/components/Footer";
 import { toast } from "@/hooks/use-toast";
 import { Star, CheckCircle, Gift, Heart, Sparkles, Users, BookOpen, Gem, Shield, Zap } from "lucide-react";
 
@@ -519,6 +520,9 @@ const LandingPage = () => {
         customerEmail={email}
         productImage="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png"
       />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
