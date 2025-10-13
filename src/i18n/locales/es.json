@@ -1,8 +1,61 @@
 {
   "hero": {
-    "title": "Descubre el Poder de la Intuición y Transforma tu Vida",
-    "subtitle": "Recibe tu E-book Exclusivo y Desvela los Secretos del Tarot",
-    "cta": "Recibir la Claridad en mi vida"
+    "urgency": "🔥 OFERTA RELÁMPAGO - ¡ÚLTIMAS HORAS! 🔥",
+    "title": "Descubre los Secretos Ocultos del Tarot",
+    "subtitle": "Transforma tu Vida Con el Poder de la Sabiduría Ancestral",
+    "cta": "¡QUIERO MI TRANSFORMACIÓN AHORA!",
+    "price": {
+      "from": "De $29,90",
+      "for": "Por solo $9,90",
+      "discount": "67% OFF"
+    }
+  },
+  "urgency": {
+    "warning": "⚠️ ATENCIÓN: ¡Esta oferta expira pronto!",
+    "timer": "La oferta termina en:",
+    "alert": "Después del tiempo, el precio vuelve a $29,90"
+  },
+  "howItWorks": {
+    "title": "Cómo Funciona",
+    "step1": {
+      "title": "1. Haz Clic en el Botón",
+      "description": "Asegura tu acceso al e-book exclusivo"
+    },
+    "step2": {
+      "title": "2. Completa tus Datos",
+      "description": "Información segura y encriptada"
+    },
+    "step3": {
+      "title": "3. Acceso Inmediato",
+      "description": "Recibe el e-book al instante en tu correo"
+    },
+    "step4": {
+      "title": "4. Comienza tu Viaje",
+      "description": "Desvela los misterios del tarot ahora mismo"
+    }
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "testimonial1": {
+      "name": "Maria Silva",
+      "text": "¡Este e-book cambió completamente mi vida! ¡Ahora puedo hacer lecturas increíbles!",
+      "rating": 5
+    },
+    "testimonial2": {
+      "name": "João Santos",
+      "text": "Contenido increíble y muy profundo. ¡Vale cada centavo invertido!",
+      "rating": 5
+    },
+    "testimonial3": {
+      "name": "Ana Costa",
+      "text": "Finalmente entendí el verdadero poder de las cartas. ¡Lo recomiendo mucho!",
+      "rating": 5
+    },
+    "testimonial4": {
+      "name": "Pedro Oliveira",
+      "text": "¡La mejor compra que he hecho! ¡Contenido de altísima calidad!",
+      "rating": 5
+    }
   },
   "languageBanner": {
     "title": "¿Te gustaría cambiar a {language}?",
@@ -11,11 +64,6 @@
   },
   "languageSelector": {
     "label": "Idioma"
-  },
-  "pricing": {
-    "from": "De",
-    "for": "Por",
-    "savings": "¡Ahorra R$ 20,00!"
   },
   "guarantees": {
     "secure": "Pago 100% seguro y encriptado",

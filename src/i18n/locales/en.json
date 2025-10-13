@@ -1,8 +1,61 @@
 {
   "hero": {
-    "title": "Discover the Power of Intuition and Transform Your Life",
-    "subtitle": "Receive Your Exclusive E-book and Unlock the Secrets of Tarot",
-    "cta": "Get Clarity in My Life"
+    "urgency": "🔥 FLASH OFFER - LAST HOURS! 🔥",
+    "title": "Discover the Hidden Secrets of Tarot",
+    "subtitle": "Transform Your Life With the Power of Ancestral Wisdom",
+    "cta": "I WANT MY TRANSFORMATION NOW!",
+    "price": {
+      "from": "From $29.90",
+      "for": "For only $9.90",
+      "discount": "67% OFF"
+    }
+  },
+  "urgency": {
+    "warning": "⚠️ WARNING: This offer expires soon!",
+    "timer": "Offer ends in:",
+    "alert": "After time runs out, price returns to $29.90"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "step1": {
+      "title": "1. Click the Button",
+      "description": "Secure your access to the exclusive e-book"
+    },
+    "step2": {
+      "title": "2. Fill in Your Details",
+      "description": "Secure and encrypted information"
+    },
+    "step3": {
+      "title": "3. Immediate Access",
+      "description": "Receive the e-book instantly in your email"
+    },
+    "step4": {
+      "title": "4. Start Your Journey",
+      "description": "Unveil the mysteries of tarot right now"
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "testimonial1": {
+      "name": "Maria Silva",
+      "text": "This e-book completely changed my life! Now I can do amazing readings!",
+      "rating": 5
+    },
+    "testimonial2": {
+      "name": "João Santos",
+      "text": "Incredible and very deep content. Worth every penny invested!",
+      "rating": 5
+    },
+    "testimonial3": {
+      "name": "Ana Costa",
+      "text": "I finally understood the true power of the cards. Highly recommend!",
+      "rating": 5
+    },
+    "testimonial4": {
+      "name": "Pedro Oliveira",
+      "text": "The best purchase I've ever made! Top quality content!",
+      "rating": 5
+    }
   },
   "languageBanner": {
     "title": "Would you like to switch to {language}?",
@@ -11,11 +64,6 @@
   },
   "languageSelector": {
     "label": "Language"
-  },
-  "pricing": {
-    "from": "From",
-    "for": "For",
-    "savings": "Save R$ 20.00!"
   },
   "guarantees": {
     "secure": "100% secure and encrypted payment",

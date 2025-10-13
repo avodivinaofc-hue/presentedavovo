@@ -1,8 +1,61 @@
 {
   "hero": {
-    "title": "Descubra o Poder da Intuição e Transforme Sua Vida",
-    "subtitle": "Receba Seu E-book Exclusivo e Desvende os Segredos do Tarô",
-    "cta": "Receber a Clareza na minha vida"
+    "urgency": "🔥 OFERTA RELÂMPAGO - ÚLTIMAS HORAS! 🔥",
+    "title": "Descubra os Segredos Ocultos do Tarô",
+    "subtitle": "Transforme Sua Vida Com o Poder da Sabedoria Ancestral",
+    "cta": "QUERO MINHA TRANSFORMAÇÃO AGORA!",
+    "price": {
+      "from": "De R$ 29,90",
+      "for": "Por apenas R$ 9,90",
+      "discount": "67% OFF"
+    }
+  },
+  "urgency": {
+    "warning": "⚠️ ATENÇÃO: Esta oferta expira em breve!",
+    "timer": "Oferta termina em:",
+    "alert": "Após o tempo acabar, o preço volta para R$ 29,90"
+  },
+  "howItWorks": {
+    "title": "Como Funciona",
+    "step1": {
+      "title": "1. Clique no Botão",
+      "description": "Garanta seu acesso ao e-book exclusivo"
+    },
+    "step2": {
+      "title": "2. Preencha Seus Dados",
+      "description": "Informações seguras e criptografadas"
+    },
+    "step3": {
+      "title": "3. Acesso Imediato",
+      "description": "Receba o e-book na hora em seu e-mail"
+    },
+    "step4": {
+      "title": "4. Comece Sua Jornada",
+      "description": "Desvende os mistérios do tarô agora mesmo"
+    }
+  },
+  "testimonials": {
+    "title": "O Que Dizem Nossos Clientes",
+    "testimonial1": {
+      "name": "Maria Silva",
+      "text": "Esse e-book mudou completamente minha vida! Agora consigo fazer leituras incríveis!",
+      "rating": 5
+    },
+    "testimonial2": {
+      "name": "João Santos",
+      "text": "Conteúdo incrível e muito profundo. Vale cada centavo investido!",
+      "rating": 5
+    },
+    "testimonial3": {
+      "name": "Ana Costa",
+      "text": "Finalmente entendi o verdadeiro poder das cartas. Recomendo muito!",
+      "rating": 5
+    },
+    "testimonial4": {
+      "name": "Pedro Oliveira",
+      "text": "A melhor compra que já fiz! Conteúdo de altíssima qualidade!",
+      "rating": 5
+    }
   },
   "languageBanner": {
     "title": "Gostaria de mudar para {language}?",
@@ -11,11 +64,6 @@
   },
   "languageSelector": {
     "label": "Idioma"
-  },
-  "pricing": {
-    "from": "De",
-    "for": "Por",
-    "savings": "Economia de R$ 20,00!"
   },
   "guarantees": {
     "secure": "Pagamento 100% seguro e criptografado",

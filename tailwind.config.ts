@@ -56,21 +56,17 @@ export default {
 				mystic: {
 					purple: 'hsl(var(--mystic-purple))',
 					'purple-light': 'hsl(var(--mystic-purple-light))',
-					blue: 'hsl(var(--mystic-blue))',
-					gold: 'hsl(var(--mystic-gold))',
-					'gold-bright': 'hsl(var(--mystic-gold-bright))',
-					cream: 'hsl(var(--mystic-cream))'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+					magenta: 'hsl(var(--mystic-magenta))',
+					red: 'hsl(var(--mystic-red))',
+					'red-dark': 'hsl(var(--mystic-red-dark))',
+					pink: 'hsl(var(--mystic-pink))',
+					dark: 'hsl(var(--mystic-dark))',
+					darker: 'hsl(var(--mystic-darker))'
 				}
+			},
+			fontFamily: {
+				'display': ['Montserrat', 'Arial Black', 'sans-serif'],
+				'body': ['Inter', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
