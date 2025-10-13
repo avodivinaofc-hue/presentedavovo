@@ -73,15 +73,12 @@ const App = () => (
               
               {/* Language routes */}
               <Route path="/:lang" element={<LanguageRoute><LandingPage /></LanguageRoute>} />
-              <Route path="/:lang/ebook" element={<LanguageRoute><EbookPage /></LanguageRoute>} />
+              <Route path="/digital" element={<EbookPage />} />
               
               {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
-          
-          {/* Componentes de Temas */}
-          <ThemeController />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
