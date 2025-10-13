@@ -95,7 +95,11 @@ export const CheckoutModal = ({
               <img 
                 src={productImage} 
                 alt={productName}
-                className="w-12 sm:w-16 h-auto rounded-lg shadow-mystical flex-shrink-0"
+                className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg shadow-mystical flex-shrink-0"
+                onError={(e) => {
+                  console.error('Erro ao carregar imagem:', productImage);
+                  e.currentTarget.src = '/lovable-uploads/vovo-divina-nova.jpeg.png';
+                }}
               />
               <div className="flex-1 text-center sm:text-left">
                 <h3 className="text-sm sm:text-lg font-bold text-mystic-cream font-['Arial_Black']">

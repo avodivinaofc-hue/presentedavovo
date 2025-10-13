@@ -118,11 +118,11 @@ const LandingPage = () => {
               </div>
 
               {/* CTA Button */}
-              <div className="pt-6">
+              <div className="pt-6 px-4">
                 <Button
                   onClick={handleCtaClick}
                   size="lg"
-                  className="text-xl md:text-2xl lg:text-3xl font-display font-black px-8 md:px-12 py-6 md:py-8 rounded-full bg-gradient-intense hover:scale-105 transition-all duration-300 glow-magenta uppercase shadow-2xl"
+                  className="w-full max-w-md mx-auto text-base sm:text-xl md:text-2xl lg:text-3xl font-display font-black px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 rounded-full bg-gradient-intense hover:scale-105 transition-all duration-300 glow-magenta uppercase shadow-2xl break-words"
                 >
                   {t("hero.cta")}
                 </Button>
@@ -293,13 +293,15 @@ const LandingPage = () => {
                 NÃO PERCA ESTA OPORTUNIDADE!
               </h2>
 
-              <Button
-                onClick={handleCtaClick}
-                size="lg"
-                className="text-xl md:text-2xl lg:text-3xl font-display font-black px-8 md:px-12 py-6 md:py-8 rounded-full bg-gradient-intense hover:scale-110 transition-all duration-300 glow-magenta uppercase shadow-2xl"
-              >
-                {t("hero.cta")}
-              </Button>
+              <div className="px-4">
+                <Button
+                  onClick={handleCtaClick}
+                  size="lg"
+                  className="w-full max-w-md mx-auto text-base sm:text-xl md:text-2xl lg:text-3xl font-display font-black px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 rounded-full bg-gradient-intense hover:scale-110 transition-all duration-300 glow-magenta uppercase shadow-2xl break-words"
+                >
+                  {t("hero.cta")}
+                </Button>
+              </div>
 
               <p className="text-lg md:text-xl font-body text-secondary font-bold">
                 {t("urgency.alert")}
@@ -318,7 +320,7 @@ const LandingPage = () => {
           productPrice={9.90}
           customerName={customerName}
           customerEmail={customerEmail}
-          productImage="/ebook-cover.jpg"
+          productImage="/lovable-uploads/vovo-divina-nova.jpeg.png"
         />
       </div>
     </AnimatedPage>
