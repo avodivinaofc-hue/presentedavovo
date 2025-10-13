@@ -122,7 +122,7 @@ const LandingPage = () => {
                 <Button
                   onClick={handleCtaClick}
                   size="lg"
-                  className="w-full max-w-md mx-auto text-base sm:text-xl md:text-2xl lg:text-3xl font-display font-black px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 rounded-full bg-gradient-intense hover:scale-105 transition-all duration-300 glow-magenta uppercase shadow-2xl break-words"
+                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-105 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight"
                 >
                   {t("hero.cta")}
                 </Button>
@@ -297,7 +297,7 @@ const LandingPage = () => {
                 <Button
                   onClick={handleCtaClick}
                   size="lg"
-                  className="w-full max-w-md mx-auto text-base sm:text-xl md:text-2xl lg:text-3xl font-display font-black px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 rounded-full bg-gradient-intense hover:scale-110 transition-all duration-300 glow-magenta uppercase shadow-2xl break-words"
+                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-110 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight"
                 >
                   {t("hero.cta")}
                 </Button>
