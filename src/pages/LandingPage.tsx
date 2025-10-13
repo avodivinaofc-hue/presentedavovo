@@ -9,6 +9,7 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { UrgencyCountdown } from "@/components/UrgencyCountdown";
 import { Star, Shield, Zap, Clock, CheckCircle2 } from "lucide-react";
 import { AnimatedPage } from "@/components/AnimatedPage";
+import heroCartomante from "@/assets/hero-cartomante.jpg";
 
 const LandingPage = () => {
   const { t } = useTranslation();
@@ -66,8 +67,11 @@ const LandingPage = () => {
 
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-primary opacity-20"></div>
+          {/* Background image */}
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroCartomante})` }}></div>
+          <div className="absolute inset-0 bg-mystic-dark/80"></div>
+          {/* Background gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-primary opacity-30"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,255,0.3),transparent_50%)]"></div>
           
           <div className="container mx-auto px-4 relative z-10">
