@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Discover the Power of Intuition and Transform Your Life",
+    "subtitle": "Receive Your Exclusive E-book and Unlock the Secrets of Tarot",
+    "cta": "Get Clarity in My Life"
+  },
+  "languageBanner": {
+    "title": "Would you like to switch to {language}?",
+    "confirm": "Yes, switch",
+    "dismiss": "No, thanks"
+  },
+  "languageSelector": {
+    "label": "Language"
+  },
+  "pricing": {
+    "from": "From",
+    "for": "For",
+    "savings": "Save R$ 20.00!"
+  },
+  "guarantees": {
+    "secure": "100% secure and encrypted payment",
+    "immediate": "Immediate access after confirmation",
+    "satisfaction": "7-day satisfaction guarantee",
+    "support": "Specialized support"
+  },
+  "footer": {
+    "cnpj": "Tax ID: 60.050.992/0001-93",
+    "rights": "All rights reserved.",
+    "tagline": "Connecting you with the ancestral wisdom of tarot."
+  }
+}

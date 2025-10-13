@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Descubre el Poder de la Intuición y Transforma tu Vida",
+    "subtitle": "Recibe tu E-book Exclusivo y Desvela los Secretos del Tarot",
+    "cta": "Recibir la Claridad en mi vida"
+  },
+  "languageBanner": {
+    "title": "¿Te gustaría cambiar a {language}?",
+    "confirm": "Sí, cambiar",
+    "dismiss": "No, gracias"
+  },
+  "languageSelector": {
+    "label": "Idioma"
+  },
+  "pricing": {
+    "from": "De",
+    "for": "Por",
+    "savings": "¡Ahorra R$ 20,00!"
+  },
+  "guarantees": {
+    "secure": "Pago 100% seguro y encriptado",
+    "immediate": "Acceso inmediato después de la confirmación",
+    "satisfaction": "Garantía de satisfacción de 7 días",
+    "support": "Soporte especializado"
+  },
+  "footer": {
+    "cnpj": "CNPJ: 60.050.992/0001-93",
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Conectándote con la sabiduría ancestral del tarot."
+  }
+}

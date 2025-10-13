@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { X, ExternalLink } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
@@ -24,6 +25,7 @@ export const CheckoutModal = ({
   customerEmail,
   productImage
 }: CheckoutModalProps) => {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   
   // Construir URL do Disrupty com email preenchido
@@ -101,13 +103,13 @@ export const CheckoutModal = ({
                 </h3>
                 <div className="space-y-1">
                   <div className="text-xs sm:text-sm text-mystic-cream/60 line-through font-['Arial_Black']">
-                    De R$ 39,90
+                    {t('pricing.from')} R$ 39,90
                   </div>
                   <div className="text-lg sm:text-2xl font-bold text-mystic-gold font-['Arial_Black']">
-                    Por R$ {productPrice.toFixed(2).replace(".", ",")}
+                    {t('pricing.for')} R$ {productPrice.toFixed(2).replace(".", ",")}
                   </div>
                   <div className="text-xs text-green-400 font-bold font-['Arial_Black']">
-                    Economia de R$ 20,00!
+                    {t('pricing.savings')}
                   </div>
                 </div>
               </div>
@@ -166,10 +168,10 @@ export const CheckoutModal = ({
           <div className="px-3 sm:px-6 pb-3 sm:pb-6">
             <div className="text-center space-y-1 sm:space-y-2 bg-mystic-purple/10 p-2 sm:p-3 rounded-lg">
               <div className="text-xs text-mystic-cream/60 space-y-0.5 sm:space-y-1">
-                <p className="text-xs">✅ Pagamento 100% seguro e criptografado</p>
-                <p className="text-xs">✅ Acesso imediato após confirmação</p>
-                <p className="text-xs">✅ Garantia de satisfação de 7 dias</p>
-                <p className="text-xs">✅ Suporte especializado</p>
+                <p className="text-xs">✅ {t('guarantees.secure')}</p>
+                <p className="text-xs">✅ {t('guarantees.immediate')}</p>
+                <p className="text-xs">✅ {t('guarantees.satisfaction')}</p>
+                <p className="text-xs">✅ {t('guarantees.support')}</p>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { MysticalButton } from "@/components/MysticalButton";
 import { MysticalCard } from "@/components/MysticalCard";
 import { FloatingParticles } from "@/components/FloatingParticles";
@@ -7,11 +8,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckoutModal } from "@/components/CheckoutModal";
 import { UrgencyCountdown } from "@/components/UrgencyCountdown";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 import { toast } from "@/hooks/use-toast";
 import { Star, CheckCircle, Gift, Heart, Sparkles, Users, BookOpen, Gem, Shield, Zap } from "lucide-react";
 
 const LandingPage = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -88,6 +91,11 @@ const LandingPage = () => {
       {/* FloatingParticles */}
       <FloatingParticles />
       
+      {/* Language Selector - Fixed in header */}
+      <div className="fixed top-4 right-4 z-50">
+        <LanguageSelector />
+      </div>
+      
       {/* 1. SEÇÃO PRINCIPAL (HERO SECTION) - OTIMIZADA PARA MOBILE */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-8">
         <div className="max-w-7xl mx-auto w-full">
@@ -114,16 +122,11 @@ const LandingPage = () => {
             {/* Texto Principal - Segundo no mobile */}
             <div className="text-center space-y-6 w-full">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white font-['Playfair_Display'] px-4">
-                Pare de andar no escuro.{" "}
-                <span className="text-yellow-400">Descubra seu destino</span>{" "}
-                e tenha clareza nas decisões com o guia completo da{" "}
-                <span className="text-pink-300">Vovó Divina</span>.
+                {t('hero.title')}
               </h1>
               
               <p className="text-lg sm:text-xl text-gray-200 leading-relaxed font-['Poppins'] px-6">
-                O e-book que já ajudou mais de{" "}
-                <span className="text-yellow-400 font-bold">29 mil pessoas</span>{" "}
-                a desvendarem os segredos do tarot e a encontrarem o próprio caminho.
+                {t('hero.subtitle')}
               </p>
 
               {/* Botão CTA Principal - Verde pulsante com mais espaçamento */}
@@ -138,7 +141,7 @@ const LandingPage = () => {
                   className="w-full text-base sm:text-lg font-bold py-6 px-6 font-['Poppins'] min-h-[90px] mx-auto max-w-lg"
                 >
                   <div className="text-center">
-                    <div>QUERO MEU PRESENTE AGORA!</div>
+                    <div>{t('hero.cta').toUpperCase()}</div>
                     <div className="text-sm sm:text-base">(R$ 9,90 - 75% OFF)</div>
                   </div>
                 </MysticalButton>

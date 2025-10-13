@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Descubra o Poder da Intuição e Transforme Sua Vida",
+    "subtitle": "Receba Seu E-book Exclusivo e Desvende os Segredos do Tarô",
+    "cta": "Receber a Clareza na minha vida"
+  },
+  "languageBanner": {
+    "title": "Gostaria de mudar para {language}?",
+    "confirm": "Sim, mudar",
+    "dismiss": "Não, obrigado"
+  },
+  "languageSelector": {
+    "label": "Idioma"
+  },
+  "pricing": {
+    "from": "De",
+    "for": "Por",
+    "savings": "Economia de R$ 20,00!"
+  },
+  "guarantees": {
+    "secure": "Pagamento 100% seguro e criptografado",
+    "immediate": "Acesso imediato após confirmação",
+    "satisfaction": "Garantia de satisfação de 7 dias",
+    "support": "Suporte especializado"
+  },
+  "footer": {
+    "cnpj": "CNPJ: 60.050.992/0001-93",
+    "rights": "Todos os direitos reservados.",
+    "tagline": "Conectando você com a sabedoria ancestral do tarô."
+  }
+}

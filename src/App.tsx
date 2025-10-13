@@ -1,12 +1,14 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-
+import { useTranslation } from "react-i18next";
 import { ThemeController } from "@/components/ThemeController";
+import { LanguageBanner } from "@/components/LanguageBanner";
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "@/i18n/config";
 
 
 // Lazy loading das páginas
@@ -35,6 +37,27 @@ const queryClient = new QueryClient({
   },
 });
 
+// Language route wrapper
+const LanguageRoute = ({ children }: { children: React.ReactNode }) => {
+  const { lang } = useParams<{ lang: string }>();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (lang && SUPPORTED_LANGUAGES.includes(lang) && i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+    }
+  }, [lang, i18n]);
+
+  return <>{children}</>;
+};
+
+// Root redirect component
+const RootRedirect = () => {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || DEFAULT_LANGUAGE;
+  return <Navigate to={`/${currentLang}/`} replace />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
@@ -42,11 +65,17 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <LanguageBanner />
           <Suspense fallback={<PageLoader />}>
             <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/ebook" element={<EbookPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              {/* Root redirect */}
+              <Route path="/" element={<RootRedirect />} />
+              
+              {/* Language routes */}
+              <Route path="/:lang" element={<LanguageRoute><LandingPage /></LanguageRoute>} />
+              <Route path="/:lang/ebook" element={<LanguageRoute><EbookPage /></LanguageRoute>} />
+              
+              {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
