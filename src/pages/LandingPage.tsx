@@ -68,11 +68,14 @@ const LandingPage = () => {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
           {/* Background image */}
-          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroCartomante})` }}></div>
-          <div className="absolute inset-0 bg-mystic-dark/80"></div>
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+            style={{ backgroundImage: `url(${heroCartomante})` }}
+          />
+          <div className="absolute inset-0 bg-mystic-dark/80" />
           {/* Background gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-primary opacity-30"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,255,0.3),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-gradient-primary opacity-30" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,255,0.3),transparent_50%)]" />
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center space-y-8">
