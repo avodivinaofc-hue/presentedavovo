@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { MysticalCard } from "@/components/MysticalCard";
 import { MysticalButton } from "@/components/MysticalButton";
 import { FloatingParticles } from "@/components/FloatingParticles";
@@ -10,6 +11,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { AnimatePresence, motion } from "framer-motion";
 
 const EbookPage = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -21,23 +23,23 @@ const EbookPage = () => {
   const pages = [
     {
       id: "cover",
-      title: "Capa",
+      title: t('ebook.cover.title'),
       content: (
         <div className="text-center space-y-6">
           <img 
             src="/lovable-uploads/1200434d-79ce-4aa5-b9b5-3ee4554a1684.png" 
-            alt="O Oráculo Interior" 
+            alt={t('ebook.cover.title')}
             className="mx-auto w-64 h-auto shadow-mystical rounded-lg" 
           />
           <div className="space-y-4">
             <h1 className="text-5xl font-bold text-mystical-gradient font-['Arial_Black']">
-              O Oráculo Interior
+              {t('ebook.cover.title')}
             </h1>
             <p className="text-xl text-primary font-['Arial_Black']">
-              Um Guia da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô
+              {t('ebook.cover.subtitle')}
             </p>
             <p className="text-lg text-muted-foreground font-['Arial_Black']">
-              Autora: Avó Divina
+              {t('ebook.cover.author')}
             </p>
           </div>
         </div>
@@ -45,61 +47,60 @@ const EbookPage = () => {
     },
     {
       id: "quote",
-      title: "Citação Inspiracional",
+      title: t('ebook.quote.author'),
       content: (
         <div className="flex items-center justify-center min-h-[400px] text-center px-8">
           <div className="space-y-6">
             <p className="text-2xl italic text-mystic-gold font-['Arial_Black'] leading-relaxed">
-              "A resposta mais importante que você procura não está nas cartas. 
-              Está na alma que as segura. As cartas são apenas o eco."
+              "{t('ebook.quote.text')}"
             </p>
-            <p className="text-xl text-primary font-['Arial_Black']">— Avó Divina</p>
+            <p className="text-xl text-primary font-['Arial_Black']">{t('ebook.quote.author')}</p>
           </div>
         </div>
       )
     },
     {
       id: "sumario",
-      title: "Sumário",
+      title: t('ebook.toc.title'),
       content: (
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-mystical-gradient mb-6 font-['Arial_Black']">Sumário</h2>
+          <h2 className="text-3xl font-bold text-mystical-gradient mb-6 font-['Arial_Black']">{t('ebook.toc.title')}</h2>
           <div className="space-y-4 text-lg">
             <div className="space-y-2">
-              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">Introdução: O Acolhimento da Alma</h3>
+              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">{t('ebook.toc.intro')}</h3>
             </div>
             
             <div className="space-y-2 mt-4">
-              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">Parte 1: A Preparação da Alma (O Fundamento)</h3>
+              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">{t('ebook.toc.part1.title')}</h3>
               <ul className="list-disc list-inside space-y-1 ml-4 text-mystic-cream/90 font-['Arial_Black']">
-                <li>Capítulo 1: O Tarô Não é o que te Contaram</li>
-                <li>Capítulo 2: Criando o Seu Santuário Pessoal</li>
+                <li>{t('ebook.toc.part1.chapter1')}</li>
+                <li>{t('ebook.toc.part1.chapter2')}</li>
               </ul>
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">Parte 2: A Linguagem do Universo (Desvendando as Cartas)</h3>
+              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">{t('ebook.toc.part2.title')}</h3>
               <ul className="list-disc list-inside space-y-1 ml-4 text-mystic-cream/90 font-['Arial_Black']">
-                <li>Capítulo 3: A Jornada do Herói Interior (Arcanos Maiores)</li>
-                <li>Capítulo 4: Os Quatro Reinos da Sua Vida (Arcanos Menores)</li>
-                <li>Capítulo 5: As Pessoas no Seu Espelho (As Cartas da Corte)</li>
+                <li>{t('ebook.toc.part2.chapter3')}</li>
+                <li>{t('ebook.toc.part2.chapter4')}</li>
+                <li>{t('ebook.toc.part2.chapter5')}</li>
               </ul>
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">Parte 3: A Prática da Clareza (As Suas Leituras)</h3>
+              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">{t('ebook.toc.part3.title')}</h3>
               <ul className="list-disc list-inside space-y-1 ml-4 text-mystic-cream/90 font-['Arial_Black']">
-                <li>Capítulo 6: Sua Primeira Conversa com o Oráculo (A Tiragem de 3 Cartas)</li>
-                <li>Capítulo 7: A Arte de Perguntar</li>
-                <li>Capítulo 8: Abraçando as Sombras: O que Fazer com as Cartas "Assustadoras"</li>
+                <li>{t('ebook.toc.part3.chapter6')}</li>
+                <li>{t('ebook.toc.part3.chapter7')}</li>
+                <li>{t('ebook.toc.part3.chapter8')}</li>
               </ul>
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">Parte 4: A Jornada Continua</h3>
+              <h3 className="text-xl text-mystic-gold font-bold font-['Arial_Black']">{t('ebook.toc.part4.title')}</h3>
               <ul className="list-disc list-inside space-y-1 ml-4 text-mystic-cream/90 font-['Arial_Black']">
-                <li>Conclusão: A Bússola é Sua</li>
-                <li>BÓNUS: Guia Rápido dos 22 Arcanos Maiores</li>
+                <li>{t('ebook.toc.part4.conclusion')}</li>
+                <li>{t('ebook.toc.part4.bonus')}</li>
               </ul>
             </div>
           </div>
@@ -108,92 +109,74 @@ const EbookPage = () => {
     },
     {
       id: "intro",
-      title: "Introdução - O Acolhimento da Alma",
+      title: t('ebook.intro.title'),
       content: (
         <div className="space-y-6 text-lg leading-relaxed">
           <h2 className="text-3xl font-bold text-mystical-gradient mb-6 font-['Arial_Black']">
-            Introdução: O Acolhimento da Alma
+            {t('ebook.intro.title')}
           </h2>
-          <p className="text-mystic-gold font-semibold font-['Arial_Black']">Minha querida leitora,</p>
+          <p className="text-mystic-gold font-semibold font-['Arial_Black']">{t('ebook.intro.greeting')}</p>
           <p className="text-mystic-cream/90 font-['Arial_Black']">
-            Se este guia chegou até você, é porque uma busca já começou aí dentro. Uma busca por clareza em meio ao ruído. 
-            Uma busca por direção quando os caminhos parecem confusos. Uma busca por uma voz de sabedoria que, muitas vezes, 
-            é a sua própria, apenas um pouco abafada pela correria da vida.
+            {t('ebook.intro.p1')}
           </p>
           <p className="text-mystic-cream/90 font-['Arial_Black']">
-            Eu conheço essa busca. E sei que o Tarô, muito mais do que um baralho de cartas, é uma ponte sagrada 
-            de volta para casa, para dentro de você.
+            {t('ebook.intro.p2')}
           </p>
           <p className="text-mystic-cream/90 font-['Arial_Black']">
-            Este guia não foi feito para "prever seu futuro". Ele foi criado para te entregar a chave do seu Oráculo Interior. 
-            Para que você possa, com suas próprias mãos, iluminar seu presente e construir o futuro que sua alma deseja.
+            {t('ebook.intro.p3')}
           </p>
           <p className="text-mystic-gold font-semibold font-['Arial_Black']">
-            Respire fundo. Sua jornada de clareza começa agora.
+            {t('ebook.intro.p4')}
           </p>
-          <p className="text-mystic-cream italic font-['Arial_Black']">Com carinho,<br/>Avó Divina.</p>
+          <p className="text-mystic-cream italic font-['Arial_Black']" style={{ whiteSpace: 'pre-line' }}>{t('ebook.intro.signature')}</p>
         </div>
       )
     },
     {
       id: "chapter1",
-      title: "Capítulo 1 - O Tarô Não é o que te Contaram",
+      title: t('ebook.chapter1.title'),
       content: (
         <ScrollArea className="h-[600px] pr-4">
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-mystical-gradient mb-6 font-['Arial_Black']">
-              Capítulo 1: O Tarô Não é o que te Contaram
+              {t('ebook.chapter1.title')}
             </h2>
-            <img src="/tarot-spread.jpg" alt="Cartas de Tarô" className="w-full rounded-lg shadow-ethereal mb-6" />
+            <img src="/tarot-spread.jpg" alt="Tarot Cards" className="w-full rounded-lg shadow-ethereal mb-6" />
             <div className="space-y-4 text-lg leading-relaxed text-mystic-cream/90">
               <p className="font-['Arial_Black']">
-                Esqueça as bolas de cristal e as videntes de feira. O verdadeiro poder do Tarô não está em adivinhar 
-                números de loteria ou o nome do seu futuro amor. Isso é diminuir sua magia e o potencial transformador que ele oferece.
+                {t('ebook.chapter1.p1')}
               </p>
               <p className="font-['Arial_Black']">
-                O Tarô é, na verdade, um espelho de 78 facetas da alma humana. Cada carta é um arquétipo, uma emoção, uma lição, 
-                um caminho. Quando você embaralha as cartas e faz uma pergunta, não está invocando espíritos; está mergulhando 
-                no seu próprio inconsciente, acedendo a um vasto repositório de sabedoria que já reside em você.
+                {t('ebook.chapter1.p2')}
               </p>
               <p className="font-['Arial_Black']">
-                As cartas que aparecem são um reflexo do que você já sabe, mas ainda não admitiu. Elas organizam 
-                o caos interno, trazem à tona medos e desejos ocultos e, o mais importante, mostram as energias 
-                disponíveis para você no momento, as escolhas que se apresentam e os caminhos que se abrem.
+                {t('ebook.chapter1.p3')}
               </p>
               <p className="font-['Arial_Black']">
-                Pense no Tarô como um sábio conselheiro. Ele não te dá as respostas prontas, mas te ajuda a encontrar as suas próprias, 
-                iluminando os cantos escuros da sua mente e do seu coração.
+                {t('ebook.chapter1.p4')}
               </p>
 
               <h3 className="text-2xl font-bold text-mystic-gold mt-6 font-['Arial_Black']">
-                A Diferença Crucial: Previsão vs. Orientação
+                {t('ebook.chapter1.section1.title')}
               </h3>
               <p className="font-['Arial_Black']">
-                É fundamental entender esta distinção. Prever o futuro nos coloca como espectadoras passivas, à mercê de um destino 
-                pré-determinado, tirando de nós o poder da escolha e da cocriação.
+                {t('ebook.chapter1.section1.p1')}
               </p>
               <p className="font-['Arial_Black']">
-                Receber orientação, por outro lado, nos coloca no centro do nosso poder. O Tarô, como guia, não te diz "o que vai acontecer", 
-                mas sim "o que você precisa saber ou fazer para criar o melhor desfecho possível". Ele te capacita a influenciar o seu caminho, 
-                em vez de apenas observá-lo.
+                {t('ebook.chapter1.section1.p2')}
               </p>
               <p className="font-['Arial_Black']">
-                Este guia é sobre orientação. É sobre aprender a perguntar "Como posso criar o melhor caminho para mim?" 
-                em vez de "O que vai acontecer comigo no futuro?".
+                {t('ebook.chapter1.section1.p3')}
               </p>
 
               <h3 className="text-2xl font-bold text-mystic-gold mt-6 font-['Arial_Black']">
-                A Sua Intuição é o Ingrediente Secreto
+                {t('ebook.chapter1.section2.title')}
               </h3>
               <p className="font-['Arial_Black']">
-                O baralho de Tarô é um instrumento musical. Os significados das cartas são as notas. Mas a sua intuição, 
-                minha querida, é a música. Sem ela, temos apenas teoria, um conjunto de símbolos sem vida. Com ela, temos magia, 
-                uma melodia pessoal que ressoa profundamente com a sua verdade.
+                {t('ebook.chapter1.section2.p1')}
               </p>
               <p className="font-['Arial_Black']">
-                A sua intuição é a sua capacidade inata de saber sem lógica, de sentir sem explicar. Este guia vai te ensinar 
-                a afinar o seu instrumento, a silenciar o ruído externo e a tocar a sua própria melodia, permitindo que a 
-                sabedoria do seu Oráculo Interior flua livremente.
+                {t('ebook.chapter1.section2.p2')}
               </p>
             </div>
           </div>
@@ -811,11 +794,11 @@ const EbookPage = () => {
           {/* Header */}
           <div className="text-center mb-4 sm:mb-6 lg:mb-8">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-mystical-gradient mb-3 sm:mb-4 px-2 font-['Arial_Black']">
-              O Oráculo Interior
+              {t('ebook.cover.title')}
             </h1>
             <div className="flex items-center justify-center space-x-2 text-primary text-xs sm:text-sm lg:text-base font-['Arial_Black']">
               <BookOpen className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
-              <span>Página {currentPage + 1} de {pages.length}</span>
+              <span>{t('ebook.navigation.page')} {currentPage + 1} {t('ebook.navigation.of')} {pages.length}</span>
             </div>
           </div>
 
@@ -871,8 +854,8 @@ const EbookPage = () => {
               className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base h-10 sm:h-12 font-['Arial_Black'] text-white"
             >
               <ChevronLeft className="w-3 h-3 sm:w-4 sm:w-4" />
-              <span className="hidden sm:inline">Anterior</span>
-              <span className="sm:hidden">Ant.</span>
+              <span className="hidden sm:inline">{t('ebook.navigation.previous')}</span>
+              <span className="sm:hidden">{t('ebook.navigation.previousShort')}</span>
             </MysticalButton>
 
             <div className="flex space-x-1 sm:space-x-2">
@@ -895,8 +878,8 @@ const EbookPage = () => {
               disabled={currentPage === pages.length - 1}
               className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base h-10 sm:h-12 font-['Arial_Black'] text-white"
             >
-              <span className="hidden sm:inline">Próxima</span>
-              <span className="sm:hidden">Próx.</span>
+              <span className="hidden sm:inline">{t('ebook.navigation.next')}</span>
+              <span className="sm:hidden">{t('ebook.navigation.nextShort')}</span>
               <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
             </MysticalButton>
           </div>

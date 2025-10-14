@@ -75,5 +75,77 @@
     "cnpj": "Tax ID: 60.050.992/0001-93",
     "rights": "All rights reserved.",
     "tagline": "Connecting you with the ancestral wisdom of tarot."
+  },
+  "ebook": {
+    "cover": {
+      "title": "The Inner Oracle",
+      "subtitle": "A Guide from Grandma Divine to Help You Start Listening to the Answers of Your Heart with Tarot",
+      "author": "Author: Grandma Divine"
+    },
+    "navigation": {
+      "page": "Page",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next",
+      "previousShort": "Prev.",
+      "nextShort": "Next"
+    },
+    "quote": {
+      "text": "The most important answer you seek is not in the cards. It is in the soul that holds them. The cards are just the echo.",
+      "author": "— Grandma Divine"
+    },
+    "toc": {
+      "title": "Table of Contents",
+      "intro": "Introduction: The Soul's Welcoming",
+      "part1": {
+        "title": "Part 1: Preparing the Soul (The Foundation)",
+        "chapter1": "Chapter 1: Tarot Is Not What They Told You",
+        "chapter2": "Chapter 2: Creating Your Personal Sanctuary"
+      },
+      "part2": {
+        "title": "Part 2: The Language of the Universe (Unveiling the Cards)",
+        "chapter3": "Chapter 3: The Inner Hero's Journey (Major Arcana)",
+        "chapter4": "Chapter 4: The Four Realms of Your Life (Minor Arcana)",
+        "chapter5": "Chapter 5: The People in Your Mirror (The Court Cards)"
+      },
+      "part3": {
+        "title": "Part 3: The Practice of Clarity (Your Readings)",
+        "chapter6": "Chapter 6: Your First Conversation with the Oracle (The 3-Card Spread)",
+        "chapter7": "Chapter 7: The Art of Asking",
+        "chapter8": "Chapter 8: Embracing the Shadows: What to Do with the \"Scary\" Cards"
+      },
+      "part4": {
+        "title": "Part 4: The Journey Continues",
+        "conclusion": "Conclusion: The Compass is Yours",
+        "bonus": "BONUS: Quick Guide to the 22 Major Arcana"
+      }
+    },
+    "intro": {
+      "title": "Introduction: The Soul's Welcoming",
+      "greeting": "My dear reader,",
+      "p1": "If this guide has reached you, it's because a search has already begun inside you. A search for clarity amidst the noise. A search for direction when paths seem confusing. A search for a voice of wisdom that, often, is your own, just a little muffled by the rush of life.",
+      "p2": "I know this search. And I know that Tarot, much more than a deck of cards, is a sacred bridge back home, back inside you.",
+      "p3": "This guide was not created to \"predict your future\". It was created to give you the key to your Inner Oracle. So that you can, with your own hands, illuminate your present and build the future your soul desires.",
+      "p4": "Take a deep breath. Your journey of clarity begins now.",
+      "signature": "With love,\nGrandma Divine."
+    },
+    "chapter1": {
+      "title": "Chapter 1: Tarot Is Not What They Told You",
+      "p1": "Forget the crystal balls and fortune tellers at fairs. The true power of Tarot is not in guessing lottery numbers or the name of your future love. That diminishes its magic and the transformative potential it offers.",
+      "p2": "Tarot is, in fact, a mirror with 78 facets of the human soul. Each card is an archetype, an emotion, a lesson, a path. When you shuffle the cards and ask a question, you're not invoking spirits; you're diving into your own unconscious, accessing a vast repository of wisdom that already resides within you.",
+      "p3": "The cards that appear are a reflection of what you already know, but haven't yet admitted. They organize internal chaos, bring hidden fears and desires to the surface and, most importantly, show the energies available to you at the moment, the choices that present themselves and the paths that open.",
+      "p4": "Think of Tarot as a wise counselor. It doesn't give you ready-made answers, but helps you find your own, illuminating the dark corners of your mind and heart.",
+      "section1": {
+        "title": "The Crucial Difference: Prediction vs. Guidance",
+        "p1": "It's essential to understand this distinction. Predicting the future places us as passive spectators, at the mercy of a predetermined destiny, taking away from us the power of choice and co-creation.",
+        "p2": "Receiving guidance, on the other hand, places us at the center of our power. Tarot, as a guide, doesn't tell you \"what will happen\", but rather \"what you need to know or do to create the best possible outcome\". It empowers you to influence your path, instead of just observing it.",
+        "p3": "This guide is about guidance. It's about learning to ask \"How can I create the best path for myself?\" instead of \"What will happen to me in the future?\"."
+      },
+      "section2": {
+        "title": "Your Intuition is the Secret Ingredient",
+        "p1": "The Tarot deck is a musical instrument. The meanings of the cards are the notes. But your intuition, my dear, is the music. Without it, we have only theory, a set of lifeless symbols. With it, we have magic, a personal melody that resonates deeply with your truth.",
+        "p2": "Your intuition is your innate ability to know without logic, to feel without explaining. This guide will teach you to tune your instrument, to silence external noise and play your own melody, allowing the wisdom of your Inner Oracle to flow freely."
+      }
+    }
   }
 }

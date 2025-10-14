@@ -75,5 +75,77 @@
     "cnpj": "CNPJ: 60.050.992/0001-93",
     "rights": "Todos los derechos reservados.",
     "tagline": "Conectándote con la sabiduría ancestral del tarot."
+  },
+  "ebook": {
+    "cover": {
+      "title": "El Oráculo Interior",
+      "subtitle": "Una Guía de la Abuela Divina para que Comiences a Escuchar las Respuestas de tu Corazón con el Tarot",
+      "author": "Autora: Abuela Divina"
+    },
+    "navigation": {
+      "page": "Página",
+      "of": "de",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "previousShort": "Ant.",
+      "nextShort": "Sig."
+    },
+    "quote": {
+      "text": "La respuesta más importante que buscas no está en las cartas. Está en el alma que las sostiene. Las cartas son solo el eco.",
+      "author": "— Abuela Divina"
+    },
+    "toc": {
+      "title": "Índice",
+      "intro": "Introducción: La Acogida del Alma",
+      "part1": {
+        "title": "Parte 1: La Preparación del Alma (El Fundamento)",
+        "chapter1": "Capítulo 1: El Tarot No es lo que te Contaron",
+        "chapter2": "Capítulo 2: Creando tu Santuario Personal"
+      },
+      "part2": {
+        "title": "Parte 2: El Lenguaje del Universo (Desvelando las Cartas)",
+        "chapter3": "Capítulo 3: El Viaje del Héroe Interior (Arcanos Mayores)",
+        "chapter4": "Capítulo 4: Los Cuatro Reinos de tu Vida (Arcanos Menores)",
+        "chapter5": "Capítulo 5: Las Personas en tu Espejo (Las Cartas de la Corte)"
+      },
+      "part3": {
+        "title": "Parte 3: La Práctica de la Claridad (Tus Lecturas)",
+        "chapter6": "Capítulo 6: Tu Primera Conversación con el Oráculo (La Tirada de 3 Cartas)",
+        "chapter7": "Capítulo 7: El Arte de Preguntar",
+        "chapter8": "Capítulo 8: Abrazando las Sombras: Qué Hacer con las Cartas \"Aterradoras\""
+      },
+      "part4": {
+        "title": "Parte 4: El Viaje Continúa",
+        "conclusion": "Conclusión: La Brújula es Tuya",
+        "bonus": "BONUS: Guía Rápida de los 22 Arcanos Mayores"
+      }
+    },
+    "intro": {
+      "title": "Introducción: La Acogida del Alma",
+      "greeting": "Mi querida lectora,",
+      "p1": "Si esta guía ha llegado a ti, es porque una búsqueda ya ha comenzado dentro de ti. Una búsqueda de claridad en medio del ruido. Una búsqueda de dirección cuando los caminos parecen confusos. Una búsqueda de una voz de sabiduría que, a menudo, es la tuya propia, solo un poco ahogada por el ajetreo de la vida.",
+      "p2": "Conozco esta búsqueda. Y sé que el Tarot, mucho más que una baraja de cartas, es un puente sagrado de regreso a casa, de regreso a tu interior.",
+      "p3": "Esta guía no fue creada para \"predecir tu futuro\". Fue creada para entregarte la llave de tu Oráculo Interior. Para que puedas, con tus propias manos, iluminar tu presente y construir el futuro que tu alma desea.",
+      "p4": "Respira profundo. Tu viaje de claridad comienza ahora.",
+      "signature": "Con cariño,\nAbuela Divina."
+    },
+    "chapter1": {
+      "title": "Capítulo 1: El Tarot No es lo que te Contaron",
+      "p1": "Olvida las bolas de cristal y las videntes de feria. El verdadero poder del Tarot no está en adivinar números de lotería o el nombre de tu futuro amor. Eso disminuye su magia y el potencial transformador que ofrece.",
+      "p2": "El Tarot es, en realidad, un espejo de 78 facetas del alma humana. Cada carta es un arquetipo, una emoción, una lección, un camino. Cuando barajas las cartas y haces una pregunta, no estás invocando espíritus; estás sumergiéndote en tu propio inconsciente, accediendo a un vasto repositorio de sabiduría que ya reside en ti.",
+      "p3": "Las cartas que aparecen son un reflejo de lo que ya sabes, pero aún no has admitido. Organizan el caos interno, sacan a la luz miedos y deseos ocultos y, lo más importante, muestran las energías disponibles para ti en el momento, las elecciones que se presentan y los caminos que se abren.",
+      "p4": "Piensa en el Tarot como un sabio consejero. No te da respuestas hechas, pero te ayuda a encontrar las tuyas propias, iluminando los rincones oscuros de tu mente y tu corazón.",
+      "section1": {
+        "title": "La Diferencia Crucial: Predicción vs. Orientación",
+        "p1": "Es fundamental entender esta distinción. Predecir el futuro nos coloca como espectadoras pasivas, a merced de un destino predeterminado, quitándonos el poder de elección y co-creación.",
+        "p2": "Recibir orientación, por otro lado, nos coloca en el centro de nuestro poder. El Tarot, como guía, no te dice \"qué va a pasar\", sino \"qué necesitas saber o hacer para crear el mejor desenlace posible\". Te capacita para influir en tu camino, en lugar de solo observarlo.",
+        "p3": "Esta guía es sobre orientación. Es sobre aprender a preguntar \"¿Cómo puedo crear el mejor camino para mí?\" en lugar de \"¿Qué me va a pasar en el futuro?\"."
+      },
+      "section2": {
+        "title": "Tu Intuición es el Ingrediente Secreto",
+        "p1": "La baraja de Tarot es un instrumento musical. Los significados de las cartas son las notas. Pero tu intuición, mi querida, es la música. Sin ella, tenemos solo teoría, un conjunto de símbolos sin vida. Con ella, tenemos magia, una melodía personal que resuena profundamente con tu verdad.",
+        "p2": "Tu intuición es tu capacidad innata de saber sin lógica, de sentir sin explicar. Esta guía te enseñará a afinar tu instrumento, a silenciar el ruido externo y a tocar tu propia melodía, permitiendo que la sabiduría de tu Oráculo Interior fluya libremente."
+      }
+    }
   }
 }
