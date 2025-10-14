@@ -817,7 +817,7 @@ const EbookPage = () => {
               variant="ethereal" 
               onClick={prevPage} 
               disabled={currentPage === 0}
-              className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base h-10 sm:h-12 font-['Arial_Black']"
+              className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base h-10 sm:h-12 font-['Arial_Black'] text-white"
             >
               <ChevronLeft className="w-3 h-3 sm:w-4 sm:w-4" />
               <span className="hidden sm:inline">Anterior</span>
@@ -842,7 +842,7 @@ const EbookPage = () => {
               variant="ethereal" 
               onClick={nextPage} 
               disabled={currentPage === pages.length - 1}
-              className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base h-10 sm:h-12 font-['Arial_Black']"
+              className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base h-10 sm:h-12 font-['Arial_Black'] text-white"
             >
               <span className="hidden sm:inline">Próxima</span>
               <span className="sm:hidden">Próx.</span>
