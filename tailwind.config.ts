@@ -61,7 +61,10 @@ export default {
 					'red-dark': 'hsl(var(--mystic-red-dark))',
 					pink: 'hsl(var(--mystic-pink))',
 					dark: 'hsl(var(--mystic-dark))',
-					darker: 'hsl(var(--mystic-darker))'
+					darker: 'hsl(var(--mystic-darker))',
+					gold: 'hsl(var(--mystic-gold))',
+					'gold-bright': 'hsl(var(--mystic-gold-bright))',
+					cream: 'hsl(var(--mystic-cream))'
 				}
 			},
 			fontFamily: {

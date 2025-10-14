@@ -48,6 +48,9 @@
   --mystic-pink: 340 100% 60%;
   --mystic-dark: 0 0% 0%;
   --mystic-darker: 0 0% 5%;
+  --mystic-gold: 45 100% 60%;
+  --mystic-gold-bright: 50 100% 70%;
+  --mystic-cream: 40 30% 90%;
 
   /* Gradientes vibrantes */
   --gradient-primary: linear-gradient(135deg, hsl(300, 100%, 50%) 0%, hsl(320, 100%, 60%) 50%, hsl(0, 100%, 50%) 100%);
@@ -206,6 +209,8 @@ html {
   color-scheme: dark;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -244,6 +249,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-gradient-intense {
   background: var(--gradient-intense);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Texto com gradiente místico */
+.text-mystical-gradient {
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
