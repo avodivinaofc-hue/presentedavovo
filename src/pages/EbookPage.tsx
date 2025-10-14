@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import { MysticalCard } from "@/components/MysticalCard";
 import { MysticalButton } from "@/components/MysticalButton";
 import { FloatingParticles } from "@/components/FloatingParticles";
+import { PageTransitionParticles } from "@/components/PageTransitionParticles";
+import { MysticalGlowOverlay } from "@/components/MysticalGlowOverlay";
 import Footer from "@/components/Footer";
 import { ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { AnimatePresence, motion } from "framer-motion";
 
 const EbookPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -775,19 +780,31 @@ const EbookPage = () => {
 
   const nextPage = () => {
     if (currentPage < pages.length - 1) {
-      setCurrentPage(currentPage + 1);
+      setDirection('next');
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentPage(currentPage + 1);
+        setIsTransitioning(false);
+      }, 100);
     }
   };
 
   const prevPage = () => {
     if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
+      setDirection('prev');
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentPage(currentPage - 1);
+        setIsTransitioning(false);
+      }, 100);
     }
   };
 
   return (
     <div className="min-h-screen relative">
       <FloatingParticles />
+      <PageTransitionParticles isActive={isTransitioning} direction={direction} />
+      <MysticalGlowOverlay isActive={isTransitioning} />
       
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 lg:py-20 pt-20 sm:pt-16 md:pt-8">
         <div className="max-w-6xl mx-auto">
@@ -811,9 +828,39 @@ const EbookPage = () => {
           </div>
 
           {/* Page Content */}
-          <MysticalCard variant="ethereal" className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 lg:p-12 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] mx-2 sm:mx-4">
-            {pages[currentPage].content}
-          </MysticalCard>
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentPage}
+              custom={direction}
+              initial={{ 
+                opacity: 0,
+                scale: 0.95,
+                rotateY: direction === 'next' ? 15 : -15,
+                x: direction === 'next' ? 100 : -100
+              }}
+              animate={{ 
+                opacity: 1,
+                scale: 1,
+                rotateY: 0,
+                x: 0
+              }}
+              exit={{ 
+                opacity: 0,
+                scale: 0.95,
+                rotateY: direction === 'next' ? -15 : 15,
+                x: direction === 'next' ? -100 : 100
+              }}
+              transition={{
+                duration: 0.6,
+                ease: [0.43, 0.13, 0.23, 0.96]
+              }}
+              style={{ perspective: 1000 }}
+            >
+              <MysticalCard variant="ethereal" className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 lg:p-12 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] mx-2 sm:mx-4">
+                {pages[currentPage].content}
+              </MysticalCard>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Navigation */}
           <div className="flex justify-between items-center mt-4 sm:mt-6 lg:mt-8 max-w-4xl mx-auto px-2 sm:px-4">
