@@ -81,12 +81,15 @@ const LandingPage = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center space-y-8">
               {/* Urgency Banner */}
-              <div className="inline-block">
+              <div className="inline-block space-y-2">
                 <div className="bg-gradient-fire px-6 py-3 rounded-full animate-pulse glow-red">
                   <p className="text-xl md:text-2xl font-display font-black uppercase">
                     {t("hero.urgency")}
                   </p>
                 </div>
+                <p className="text-sm md:text-base font-body font-semibold text-yellow-500 text-center uppercase">
+                  {t("hero.exclusive")}
+                </p>
               </div>
 
               {/* Main Title */}
