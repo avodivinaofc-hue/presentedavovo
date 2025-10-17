@@ -103,7 +103,7 @@ const LandingPage = () => {
               {/* Price */}
               <div className="space-y-4">
                 <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <span className="text-2xl md:text-3xl font-body line-through text-muted-foreground">
+                  <span className="text-2xl md:text-3xl font-body line-through text-red-500">
                     {t("hero.price.from")}
                   </span>
                   <span className="text-5xl md:text-6xl lg:text-7xl font-display font-black text-gradient-intense">
@@ -122,7 +122,7 @@ const LandingPage = () => {
                 <Button
                   onClick={handleCtaClick}
                   size="lg"
-                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-105 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight"
+                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-105 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight text-white"
                 >
                   {t("hero.cta")}
                 </Button>
@@ -137,13 +137,13 @@ const LandingPage = () => {
                   </span>
                 </div>
                 <div className="flex flex-col items-center gap-2 text-center">
-                  <Zap className="w-8 h-8 text-secondary" />
+                  <Zap className="w-8 h-8 text-yellow-500" />
                   <span className="text-xs md:text-sm font-body font-semibold">
                     {t("guarantees.immediate")}
                   </span>
                 </div>
                 <div className="flex flex-col items-center gap-2 text-center">
-                  <CheckCircle2 className="w-8 h-8 text-accent" />
+                  <CheckCircle2 className="w-8 h-8 text-yellow-500" />
                   <span className="text-xs md:text-sm font-body font-semibold">
                     {t("guarantees.satisfaction")}
                   </span>
@@ -165,7 +165,7 @@ const LandingPage = () => {
             <div className="max-w-3xl mx-auto space-y-8">
               <div className="text-center">
                 <div className="inline-block bg-secondary/20 border-2 border-secondary px-6 py-3 rounded-lg mb-6">
-                  <p className="text-xl md:text-2xl font-display font-black text-secondary uppercase">
+                  <p className="text-xl md:text-2xl font-display font-black text-gray-300 uppercase">
                     {t("urgency.warning")}
                   </p>
                 </div>
@@ -297,13 +297,13 @@ const LandingPage = () => {
                 <Button
                   onClick={handleCtaClick}
                   size="lg"
-                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-110 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight"
+                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-110 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight text-white"
                 >
                   {t("hero.cta")}
                 </Button>
               </div>
 
-              <p className="text-lg md:text-xl font-body text-secondary font-bold">
+              <p className="text-lg md:text-xl font-body text-white font-bold">
                 {t("urgency.alert")}
               </p>
             </div>
