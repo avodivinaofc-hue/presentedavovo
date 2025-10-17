@@ -9,6 +9,7 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { UrgencyCountdown } from "@/components/UrgencyCountdown";
 import { Star, Shield, Zap, Clock, CheckCircle2 } from "lucide-react";
 import { AnimatedPage } from "@/components/AnimatedPage";
+import { MysticalBook3D } from "@/components/MysticalBook3D";
 import heroCartomante from "@/assets/hero-cartomante.jpg";
 
 const LandingPage = () => {
@@ -99,6 +100,9 @@ const LandingPage = () => {
               <p className="text-2xl md:text-3xl lg:text-4xl font-body font-bold text-foreground/90">
                 {t("hero.subtitle")}
               </p>
+
+              {/* 3D Book */}
+              <MysticalBook3D />
 
               {/* Price */}
               <div className="space-y-4">
