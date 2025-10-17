@@ -89,7 +89,7 @@ export const CheckoutModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] sm:w-[90vw] md:max-w-6xl mx-auto bg-mystic-blue/95 border-mystic-purple-light max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent className="w-[97vw] h-[97vh] mx-auto bg-mystic-blue/95 border-mystic-purple-light overflow-hidden p-0 max-w-none">
         <DialogHeader className="p-2 sm:p-6 pb-1 sm:pb-4 sticky top-0 bg-mystic-blue/95 z-10 backdrop-blur-sm">
           <div className="flex items-center justify-between gap-2">
             <DialogTitle className="text-mystic-gold text-sm sm:text-xl font-['Arial_Black'] flex-1">
@@ -167,7 +167,7 @@ export const CheckoutModal = ({
                     </p>
                   </div>
                   
-                  <div className="relative w-full h-[50vh] sm:h-[60vh] min-h-[350px] sm:min-h-[500px] bg-white rounded-lg overflow-hidden shadow-lg">
+                  <div className="relative w-full h-[70vh] bg-white rounded-lg overflow-hidden shadow-lg">
                     <iframe
                       src={disruptyUrl}
                       className="w-full h-full border-0"
