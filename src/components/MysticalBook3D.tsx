@@ -1,30 +1,39 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 
-export const MysticalBook3D = () => {
+export const MysticalBook3D = memo(() => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    let timeoutId: number;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      const x = (clientX / innerWidth - 0.5) * 20;
-      const y = (clientY / innerHeight - 0.5) * -20;
-      setMousePosition({ x, y });
+      // Debounce para reduzir re-renders
+      clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+        const x = (clientX / innerWidth - 0.5) * 20;
+        const y = (clientY / innerHeight - 0.5) * -20;
+        setMousePosition({ x, y });
+      }, 16); // ~60fps
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (
     <div className="relative w-full max-w-md mx-auto py-8 perspective-1000">
-      {/* Mystical particles background */}
+      {/* Mystical particles background - REDUZIDO para performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full"
+            className="absolute w-1 h-1 bg-primary rounded-full will-change-transform"
             initial={{
               x: Math.random() * 400,
               y: Math.random() * 400,
@@ -32,69 +41,58 @@ export const MysticalBook3D = () => {
             }}
             animate={{
               y: [null, Math.random() * -100],
-              opacity: [0, 1, 0],
+              opacity: [0, 0.8, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 4 + Math.random() * 2,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
               ease: "easeInOut",
             }}
           />
         ))}
       </div>
 
-      {/* Glowing aura */}
+      {/* Glowing aura - OTIMIZADO */}
       <motion.div
-        className="absolute inset-0 blur-3xl opacity-50"
+        className="absolute inset-0 blur-3xl opacity-40 will-change-transform"
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
+          scale: [1, 1.15, 1],
+          opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
-          duration: 4,
+          duration: 5,
           repeat: Infinity,
           ease: "easeInOut",
         }}
         style={{
-          background: "radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%)",
         }}
       />
 
-      {/* 3D Book Container */}
+      {/* 3D Book Container - OTIMIZADO */}
       <motion.div
-        className="relative z-10"
+        className="relative z-10 will-change-transform"
         style={{
           transformStyle: "preserve-3d",
           transform: `rotateY(${mousePosition.x}deg) rotateX(${mousePosition.y}deg)`,
         }}
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: "spring", stiffness: 200, damping: 25 }}
       >
-        {/* Book shadow */}
-        <motion.div
-          className="absolute inset-0 bg-primary/20 blur-2xl rounded-lg transform translate-y-8 -z-10"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        {/* Book shadow - SIMPLIFICADO */}
+        <div className="absolute inset-0 bg-primary/15 blur-2xl rounded-lg transform translate-y-8 -z-10" />
 
         {/* Main book image with 3D effect */}
         <div className="relative group">
-          {/* Magical glow border */}
+          {/* Magical glow border - OTIMIZADO */}
           <motion.div
-            className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-lg opacity-75 blur-lg"
+            className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-lg opacity-60 blur-lg will-change-transform"
             animate={{
               rotate: [0, 360],
             }}
             transition={{
-              duration: 8,
+              duration: 12,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -102,43 +100,40 @@ export const MysticalBook3D = () => {
           
           {/* Book image */}
           <div className="relative bg-mystic-dark p-2 rounded-lg overflow-hidden">
-            <motion.img
+            <img
               src="/lovable-uploads/oraculo-interior-cover.png"
               alt="Oráculo Interior"
-              className="w-full h-auto rounded-lg shadow-2xl"
+              className="w-full h-auto rounded-lg shadow-2xl transition-all duration-300 hover:brightness-110"
               style={{
                 transformStyle: "preserve-3d",
                 transform: "translateZ(50px)",
               }}
-              whileHover={{
-                filter: "brightness(1.2)",
-              }}
+              loading="lazy"
             />
 
-            {/* Sparkle overlay */}
+            {/* Sparkle overlay - OTIMIZADO */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent"
+              className="absolute inset-0 bg-gradient-to-br from-transparent via-white/8 to-transparent will-change-transform"
               animate={{
                 x: ["-100%", "100%"],
               }}
               transition={{
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
-                repeatDelay: 1,
+                repeatDelay: 2,
                 ease: "easeInOut",
               }}
             />
           </div>
 
-          {/* Floating mystical symbols */}
+          {/* Floating mystical symbols - REDUZIDO */}
           <motion.div
-            className="absolute -top-4 -right-4 text-4xl"
+            className="absolute -top-4 -right-4 text-3xl will-change-transform"
             animate={{
-              y: [0, -10, 0],
-              rotate: [0, 10, 0],
+              y: [0, -8, 0],
             }}
             transition={{
-              duration: 3,
+              duration: 3.5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -147,64 +142,35 @@ export const MysticalBook3D = () => {
           </motion.div>
 
           <motion.div
-            className="absolute -bottom-4 -left-4 text-3xl"
+            className="absolute -bottom-4 -left-4 text-2xl will-change-transform"
             animate={{
-              y: [0, 10, 0],
-              rotate: [0, -10, 0],
+              y: [0, 8, 0],
             }}
             transition={{
-              duration: 2.5,
+              duration: 3,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 0.5,
+              delay: 1,
             }}
           >
             🔮
           </motion.div>
-
-          <motion.div
-            className="absolute top-1/2 -right-6 text-2xl"
-            animate={{
-              x: [0, 10, 0],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            ⭐
-          </motion.div>
         </div>
       </motion.div>
 
-      {/* Energy waves */}
+      {/* Energy waves - OTIMIZADO */}
       <motion.div
-        className="absolute inset-0 rounded-full border-2 border-primary/30"
+        className="absolute inset-0 rounded-full border-2 border-primary/20 will-change-transform"
         animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.5, 0, 0.5],
+          scale: [1, 1.4, 1],
+          opacity: [0.4, 0, 0.4],
         }}
         transition={{
-          duration: 2,
+          duration: 3,
           repeat: Infinity,
           ease: "easeOut",
-        }}
-      />
-      <motion.div
-        className="absolute inset-0 rounded-full border-2 border-secondary/30"
-        animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.5, 0, 0.5],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeOut",
-          delay: 0.5,
         }}
       />
     </div>
   );
-};
+});
