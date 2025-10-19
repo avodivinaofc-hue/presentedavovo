@@ -33,8 +33,8 @@ export const CheckoutModal = ({
   const [isLoading, setIsLoading] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
   
-  // Construir URL do Disrupty com email preenchido
-  const disruptyUrl = `https://global.disruptybr.com.br/mmbk5?email=${encodeURIComponent(customerEmail)}`;
+  // Construir URL do checkout
+  const disruptyUrl = `https://global.ironpayapp.com.br/1pipf99pmd`;
 
   // Toast quando modal abre
   useEffect(() => {
@@ -61,8 +61,8 @@ export const CheckoutModal = ({
   // Detectar quando o pagamento é concluído (você pode integrar com webhooks do Disrupty)
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      // Verificar se a mensagem é do Disrupty indicando pagamento concluído
-      if (event.origin === "https://global.disruptybr.com.br" && 
+      // Verificar se a mensagem é do checkout indicando pagamento concluído
+      if (event.origin === "https://global.ironpayapp.com.br" && 
           event.data && 
           event.data.type === "payment_completed") {
         
