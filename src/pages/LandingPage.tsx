@@ -13,11 +13,17 @@ import { MysticalBook3D } from "@/components/MysticalBook3D";
 import heroCartomante from "@/assets/hero-cartomante.jpg";
 
 const LandingPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [showCheckout, setShowCheckout] = useState(false);
   const [customerName] = useState("Cliente");
   const [customerEmail] = useState("cliente@email.com");
+  
+  // Definir preço e nome do produto baseado no idioma
+  const productPrice = i18n.language === 'pt' ? 9.90 : 5.97;
+  const productName = i18n.language === 'pt' 
+    ? 'E-book Tarô Ancestral' 
+    : 'Ancestral Tarot E-book';
 
   const handleCtaClick = () => {
     setShowCheckout(true);
@@ -323,8 +329,8 @@ const LandingPage = () => {
           isOpen={showCheckout}
           onClose={() => setShowCheckout(false)}
           onPaymentComplete={handlePaymentComplete}
-          productName="E-book Tarô Ancestral"
-          productPrice={9.90}
+          productName={productName}
+          productPrice={productPrice}
           customerName={customerName}
           customerEmail={customerEmail}
           productImage="/lovable-uploads/vovo-divina-nova.jpeg.png"

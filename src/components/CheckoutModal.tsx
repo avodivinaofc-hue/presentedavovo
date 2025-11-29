@@ -28,24 +28,37 @@ export const CheckoutModal = ({
   customerEmail,
   productImage
 }: CheckoutModalProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
   
   // Construir URL do checkout
   const disruptyUrl = `https://global.ironpayapp.com.br/1pipf99pmd`;
+  
+  // Determinar moeda e formato baseado no idioma
+  const currency = i18n.language === 'pt' ? 'R$' : '$';
+  const formatPrice = (price: number) => {
+    if (i18n.language === 'pt') {
+      return price.toFixed(2).replace(".", ",");
+    }
+    return price.toFixed(2);
+  };
+  
+  // Calcular preço original baseado no desconto (assumindo 80% OFF para EN, 67% OFF para PT)
+  const discountPercent = i18n.language === 'pt' ? 0.67 : 0.80;
+  const originalPrice = productPrice / (1 - discountPercent);
 
   // Toast quando modal abre
   useEffect(() => {
     if (isOpen) {
       toast({
-        title: "🔮 Checkout Seguro",
-        description: "Carregando sua experiência de pagamento...",
+        title: i18n.language === 'pt' ? '🔮 Checkout Seguro' : '🔮 Secure Checkout',
+        description: i18n.language === 'pt' ? 'Carregando sua experiência de pagamento...' : 'Loading your payment experience...',
         duration: 2000,
       });
     }
-  }, [isOpen]);
+  }, [isOpen, i18n.language]);
 
   // Simular carregamento do iframe
   useEffect(() => {
@@ -67,8 +80,8 @@ export const CheckoutModal = ({
           event.data.type === "payment_completed") {
         
         toast({
-          title: "Pagamento realizado com sucesso! 🎉",
-          description: "Redirecionando para o e-book...",
+          title: i18n.language === 'pt' ? 'Pagamento realizado com sucesso! 🎉' : 'Payment completed successfully! 🎉',
+          description: i18n.language === 'pt' ? 'Redirecionando para o e-book...' : 'Redirecting to your e-book...',
         });
 
         // Redirecionar após 2 segundos
@@ -93,13 +106,13 @@ export const CheckoutModal = ({
         <DialogHeader className="p-2 sm:p-6 pb-1 sm:pb-4 sticky top-0 bg-mystic-blue/95 z-10 backdrop-blur-sm">
           <div className="flex items-center justify-between gap-2">
             <DialogTitle className="text-mystic-gold text-sm sm:text-xl font-['Arial_Black'] flex-1">
-              {isMobile ? "🔮 Finalizar Compra" : `🔮 Finalizar Compra - ${productName}`}
+              {isMobile ? (i18n.language === 'pt' ? '🔮 Finalizar Compra' : '🔮 Complete Purchase') : `🔮 ${i18n.language === 'pt' ? 'Finalizar Compra' : 'Complete Purchase'} - ${productName}`}
             </DialogTitle>
             <div className="flex items-center gap-1 flex-shrink-0">
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
                 className="text-mystic-cream/60 hover:text-mystic-cream transition-colors p-1 sm:p-2 hover:bg-mystic-purple/20 rounded-full"
-                title={isMinimized ? "Expandir" : "Minimizar"}
+                title={isMinimized ? (i18n.language === 'pt' ? 'Expandir' : 'Expand') : (i18n.language === 'pt' ? 'Minimizar' : 'Minimize')}
               >
                 {isMinimized ? <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5" /> : <Minimize2 className="w-4 h-4 sm:w-5 sm:h-5" />}
               </button>
@@ -133,13 +146,13 @@ export const CheckoutModal = ({
                   </h3>
                   <div className="space-y-0.5 sm:space-y-1">
                     <div className="hidden sm:block text-xs sm:text-sm text-mystic-cream/60 line-through font-['Arial_Black']">
-                      {t('pricing.from')} R$ 39,90
+                      {t('hero.price.from').replace('$29.90', `${currency} ${formatPrice(originalPrice)}`)}
                     </div>
                     <div className="text-base sm:text-2xl font-bold text-mystic-gold font-['Arial_Black']">
-                      R$ {productPrice.toFixed(2).replace(".", ",")}
+                      {currency} {formatPrice(productPrice)}
                     </div>
                     <div className="hidden sm:block text-xs text-green-400 font-bold font-['Arial_Black']">
-                      {t('pricing.savings')}
+                      {t('hero.price.discount')}
                     </div>
                   </div>
                 </div>
@@ -156,14 +169,14 @@ export const CheckoutModal = ({
                     <Skeleton className="h-6 w-1/2 mx-auto bg-mystic-purple/20" />
                   </div>
                   <p className="text-mystic-gold text-xs sm:text-sm font-['Arial_Black'] animate-pulse">
-                    🔮 Carregando checkout seguro...
+                    {i18n.language === 'pt' ? '🔮 Carregando checkout seguro...' : '🔮 Loading secure checkout...'}
                   </p>
                 </div>
               ) : (
                 <div className="space-y-2 sm:space-y-4">
                   <div className="hidden sm:block bg-mystic-purple/10 p-2 sm:p-3 rounded-lg text-center">
                     <p className="text-xs sm:text-sm text-mystic-cream/80">
-                      Complete seu pagamento de forma segura abaixo
+                      {i18n.language === 'pt' ? 'Complete seu pagamento de forma segura abaixo' : 'Complete your payment securely below'}
                     </p>
                   </div>
                   
@@ -182,7 +195,9 @@ export const CheckoutModal = ({
                   {/* Indicador de Scroll */}
                   <div className="text-center animate-bounce">
                     <ChevronDown className="w-4 h-4 text-mystic-gold/60 mx-auto" />
-                    <p className="text-xs text-mystic-cream/40">Role para ver mais</p>
+                    <p className="text-xs text-mystic-cream/40">
+                      {i18n.language === 'pt' ? 'Role para ver mais' : 'Scroll to see more'}
+                    </p>
                   </div>
 
                   {/* Botão de Fallback */}
@@ -192,7 +207,7 @@ export const CheckoutModal = ({
                       className="inline-flex items-center gap-2 text-mystic-gold hover:text-mystic-cream transition-colors text-xs sm:text-sm underline"
                     >
                       <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span>Abrir checkout em nova aba</span>
+                      <span>{i18n.language === 'pt' ? 'Abrir checkout em nova aba' : 'Open checkout in new tab'}</span>
                     </button>
                   </div>
                 </div>
