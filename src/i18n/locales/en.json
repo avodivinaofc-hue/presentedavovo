@@ -1,14 +1,14 @@
 {
   "hero": {
-    "urgency": "GIFT 67% OFF",
+    "urgency": "GIFT 80% OFF",
     "exclusive": "Only for Divine Grandma followers",
     "title": "Discover the Hidden Secrets of Tarot",
     "subtitle": "Transform Your Life With the Power of Ancestral Wisdom",
     "cta": "I WANT MY TRANSFORMATION NOW!",
     "price": {
       "from": "From $29.90",
-      "for": "For only $9.90",
-      "discount": "67% OFF"
+      "for": "For only $5.97",
+      "discount": "80% OFF"
     }
   },
   "urgency": {
