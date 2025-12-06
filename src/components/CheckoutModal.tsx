@@ -33,8 +33,10 @@ export const CheckoutModal = ({
   const [isLoading, setIsLoading] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
   
-  // Construir URL do checkout
-  const disruptyUrl = `https://global.ironpayapp.com.br/1pipf99pmd`;
+  // Construir URL do checkout baseado no idioma
+  const disruptyUrl = i18n.language === 'pt' 
+    ? 'https://global.disruptybr.com.br/mmbk5'
+    : 'https://global.ironpayapp.com.br/1pipf99pmd';
   
   // Determinar moeda e formato baseado no idioma
   const currency = i18n.language === 'pt' ? 'R$' : '$';
