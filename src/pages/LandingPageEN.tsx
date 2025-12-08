@@ -19,8 +19,8 @@ import {
   RefreshCw
 } from "lucide-react";
 import { AnimatedPage } from "@/components/AnimatedPage";
-import avoPortrait from "@/assets/avo-divina-portrait.jpg";
-import ebookCover from "@/assets/ebook-cover.jpg";
+import heroPhoto from "@/assets/hero-avo-divina.jpg";
+import ebookCover from "@/assets/cover-en.jpg";
 
 const LandingPageEN = () => {
   const { t, i18n } = useTranslation();
@@ -246,9 +246,9 @@ const LandingPageEN = () => {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="relative">
                   <img 
-                    src={avoPortrait} 
-                    alt="Divine Grandma portrait — smiling elderly woman with warm expression"
-                    className="w-full max-w-md mx-auto rounded-lg shadow-xl"
+                    src={heroPhoto} 
+                    alt="Avó Divina portrait — smiling elderly woman offering guidance"
+                    className="w-full max-w-md mx-auto rounded-xl shadow-lg"
                     loading="lazy"
                   />
                 </div>

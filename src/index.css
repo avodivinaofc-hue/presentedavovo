@@ -2,69 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design System Variables - Professional Boho Theme */
+/* Design System Variables - Boho-Modern / Warm-Earthy Theme */
 :root {
-  /* Core Colors - Deep Plum & Warm Gold Palette */
-  --background: 30 20% 97%;
-  --foreground: 270 30% 15%;
-  --card: 30 20% 98%;
-  --card-foreground: 270 30% 15%;
-  --popover: 30 20% 98%;
-  --popover-foreground: 270 30% 15%;
+  /* Core Colors - Based on specified HEX palette */
+  /* Background: #FAF6F2 (Cream) = hsl(30, 40%, 97%) */
+  --background: 30 40% 97%;
+  /* Foreground: #111111 (Very dark) = hsl(0, 0%, 7%) */
+  --foreground: 0 0% 7%;
+  --card: 30 40% 98%;
+  --card-foreground: 0 0% 7%;
+  --popover: 30 40% 98%;
+  --popover-foreground: 0 0% 7%;
   
-  /* Primary - Deep Plum */
-  --primary: 285 50% 30%;
-  --primary-foreground: 30 20% 98%;
-  --primary-light: 285 40% 45%;
-  --primary-dark: 285 55% 22%;
+  /* Primary - Deep Plum #4A1F4E = hsl(296, 43%, 21%) */
+  --primary: 296 43% 21%;
+  --primary-foreground: 30 40% 97%;
+  --primary-light: 296 35% 35%;
+  --primary-dark: 296 50% 15%;
   
-  /* Secondary - Warm Gold */
-  --secondary: 40 70% 50%;
-  --secondary-foreground: 270 30% 15%;
+  /* Secondary - Muted Wine #7A3B6E = hsl(310, 35%, 36%) */
+  --secondary: 310 35% 36%;
+  --secondary-foreground: 30 40% 97%;
   
-  /* Accent - Warm Gold */
-  --accent: 40 70% 50%;
-  --accent-foreground: 270 30% 15%;
+  /* Accent - Warm Gold #C89B4B = hsl(40, 52%, 54%) */
+  --accent: 40 52% 54%;
+  --accent-foreground: 0 0% 7%;
   
-  /* Muted */
-  --muted: 30 15% 90%;
-  --muted-foreground: 270 15% 45%;
+  /* Muted - #6B6B6B = hsl(0, 0%, 42%) */
+  --muted: 30 20% 92%;
+  --muted-foreground: 0 0% 42%;
   
   /* Destructive */
   --destructive: 0 65% 50%;
   --destructive-foreground: 0 0% 100%;
   
   /* Borders and inputs */
-  --border: 270 20% 85%;
+  --border: 30 15% 90%;
   --input: 30 20% 95%;
-  --ring: 40 70% 50%;
-  --radius: 0.5rem;
+  --ring: 40 52% 54%;
+  --radius: 0.75rem;
 
-  /* Custom Theme Colors */
-  --plum: 285 50% 30%;
-  --plum-light: 285 40% 45%;
-  --plum-dark: 285 55% 22%;
-  --gold: 40 70% 50%;
-  --gold-light: 45 80% 65%;
-  --gold-dark: 35 65% 40%;
-  --cream: 30 30% 96%;
-  --cream-dark: 30 20% 92%;
-  --charcoal: 0 0% 6%;
-  --charcoal-light: 0 0% 12%;
+  /* Custom Theme Colors - Exact HEX conversions */
+  /* Deep Plum #4A1F4E */
+  --plum: 296 43% 21%;
+  --plum-light: 296 35% 35%;
+  --plum-dark: 296 50% 15%;
+  /* Warm Gold #C89B4B */
+  --gold: 40 52% 54%;
+  --gold-light: 45 60% 65%;
+  --gold-dark: 35 50% 45%;
+  /* Muted Wine #7A3B6E */
+  --wine: 310 35% 36%;
+  /* Cream #FAF6F2 */
+  --cream: 30 40% 97%;
+  --cream-dark: 30 30% 94%;
+  /* Charcoal #0F0F10 */
+  --charcoal: 240 3% 6%;
+  --charcoal-light: 240 2% 12%;
+  /* Success #3CB371 */
+  --success: 147 50% 47%;
 
   /* Gradients - Subtle and Professional */
-  --gradient-primary: linear-gradient(135deg, hsl(285, 50%, 30%) 0%, hsl(285, 40%, 45%) 100%);
-  --gradient-gold: linear-gradient(135deg, hsl(40, 70%, 50%) 0%, hsl(45, 80%, 65%) 100%);
-  --gradient-cream: linear-gradient(180deg, hsl(30, 30%, 96%) 0%, hsl(30, 20%, 92%) 100%);
-  --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 6%) 0%, hsl(0, 0%, 12%) 100%);
+  --gradient-primary: linear-gradient(135deg, hsl(296, 43%, 21%) 0%, hsl(310, 35%, 36%) 100%);
+  --gradient-gold: linear-gradient(135deg, hsl(40, 52%, 54%) 0%, hsl(45, 60%, 65%) 100%);
+  --gradient-cream: linear-gradient(180deg, hsl(30, 40%, 97%) 0%, hsl(30, 30%, 94%) 100%);
+  --gradient-dark: linear-gradient(180deg, hsl(240, 3%, 6%) 0%, hsl(240, 2%, 12%) 100%);
 
-  /* Shadows - Refined */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 2px 4px 0 rgb(0 0 0 / 0.08);
-  --shadow-md: 0 4px 8px 0 rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 8px 16px 0 rgb(0 0 0 / 0.12);
-  --shadow-xl: 0 16px 32px 0 rgb(0 0 0 / 0.15);
-  --shadow-gold: 0 4px 16px 0 hsl(40, 70%, 50%, 0.25);
+  /* Shadows - Refined (per spec: 0 6px 18px rgba(10,10,10,0.08)) */
+  --shadow-sm: 0 1px 2px 0 rgb(10 10 10 / 0.04);
+  --shadow: 0 2px 4px 0 rgb(10 10 10 / 0.06);
+  --shadow-md: 0 6px 18px 0 rgb(10 10 10 / 0.08);
+  --shadow-lg: 0 10px 24px 0 rgb(10 10 10 / 0.1);
+  --shadow-xl: 0 16px 32px 0 rgb(10 10 10 / 0.12);
+  --shadow-gold: 0 4px 16px 0 hsl(40, 52%, 54%, 0.25);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -73,7 +83,7 @@
 
   /* Layout */
   --header-height: 4rem;
-  --container-padding: 1rem;
+  --container-padding: 1.5rem;
   --section-spacing: 2rem;
 }
 

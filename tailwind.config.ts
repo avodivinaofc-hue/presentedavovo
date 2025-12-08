@@ -54,7 +54,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Custom theme colors
+				// Custom theme colors - Boho-Modern palette
 				plum: {
 					DEFAULT: 'hsl(var(--plum))',
 					light: 'hsl(var(--plum-light))',
@@ -65,6 +65,9 @@ export default {
 					light: 'hsl(var(--gold-light))',
 					dark: 'hsl(var(--gold-dark))'
 				},
+				wine: {
+					DEFAULT: 'hsl(var(--wine))'
+				},
 				cream: {
 					DEFAULT: 'hsl(var(--cream))',
 					dark: 'hsl(var(--cream-dark))'
@@ -72,6 +75,9 @@ export default {
 				charcoal: {
 					DEFAULT: 'hsl(var(--charcoal))',
 					light: 'hsl(var(--charcoal-light))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))'
 				},
 				// Legacy mystic colors for PT-BR
 				mystic: {
@@ -90,7 +96,7 @@ export default {
 			},
 			fontFamily: {
 				'display': ['Poppins', 'Montserrat', 'sans-serif'],
-				'body': ['Inter', 'sans-serif'],
+				'body': ['Inter', 'Roboto', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -98,8 +104,9 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			boxShadow: {
-				'gold': '0 4px 16px 0 hsl(40, 70%, 50%, 0.25)',
-				'gold-lg': '0 6px 20px 0 hsl(40, 70%, 50%, 0.35)',
+				'card': '0 6px 18px rgba(10, 10, 10, 0.08)',
+				'gold': '0 4px 16px 0 hsl(40, 52%, 54%, 0.25)',
+				'gold-lg': '0 6px 20px 0 hsl(40, 52%, 54%, 0.35)',
 			},
 			keyframes: {
 				'accordion-down': {
