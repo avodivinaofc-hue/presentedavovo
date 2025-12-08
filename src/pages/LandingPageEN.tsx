@@ -60,7 +60,7 @@ const LandingPageEN = () => {
 
   return (
     <AnimatedPage>
-      <div className="min-h-screen bg-cream text-foreground">
+      <div className="min-h-screen bg-cream text-charcoal">
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-border">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -70,7 +70,7 @@ const LandingPageEN = () => {
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => scrollToSection('preview')}
-                className="hidden md:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="hidden md:block text-sm font-medium text-gray-600 hover:text-charcoal transition-colors"
               >
                 Preview
               </button>
@@ -92,12 +92,12 @@ const LandingPageEN = () => {
                 </div>
 
                 {/* Title */}
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-plum leading-tight">
                   {t("hero.title")}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                   {t("hero.subtitle")}
                 </p>
 
@@ -105,26 +105,26 @@ const LandingPageEN = () => {
                 <ul className="space-y-3 text-left">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{t("valueBullets.delivery")}</span>
+                    <span className="text-charcoal">{t("valueBullets.delivery")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{t("valueBullets.method")}</span>
+                    <span className="text-charcoal">{t("valueBullets.method")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{t("valueBullets.results")}</span>
+                    <span className="text-charcoal">{t("valueBullets.results")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{t("valueBullets.guarantee")}</span>
+                    <span className="text-charcoal">{t("valueBullets.guarantee")}</span>
                   </li>
                 </ul>
 
                 {/* Price & CTA */}
                 <div className="space-y-4 pt-4">
                   <div className="flex items-center justify-center lg:justify-start gap-4">
-                    <span className="text-2xl text-muted-foreground line-through">
+                    <span className="text-2xl text-gray-500 line-through">
                       {t("hero.price.original")}
                     </span>
                     <span className="text-4xl md:text-5xl font-display font-bold text-primary">
@@ -153,7 +153,7 @@ const LandingPageEN = () => {
                 </div>
 
                 {/* Trust Badges */}
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 text-sm text-muted-foreground">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 text-sm text-gray-500">
                   <div className="flex items-center gap-2">
                     <Lock className="w-4 h-4" />
                     <span>{t("guarantees.secure")}</span>
@@ -190,48 +190,48 @@ const LandingPageEN = () => {
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-foreground">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-plum">
                 {t("whatYouGet.title")}
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="professional-card p-6 flex items-start gap-4">
-                  <BookOpen className="w-8 h-8 text-primary flex-shrink-0" />
+                  <BookOpen className="w-8 h-8 text-plum flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Complete E-book</h3>
-                    <p className="text-muted-foreground text-sm">{t("whatYouGet.item1")}</p>
+                    <h3 className="font-semibold text-charcoal mb-1">Complete E-book</h3>
+                    <p className="text-gray-600 text-sm">{t("whatYouGet.item1")}</p>
                   </div>
                 </div>
 
                 <div className="professional-card p-6 flex items-start gap-4">
                   <Star className="w-8 h-8 text-gold flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Major Arcana Guide</h3>
-                    <p className="text-muted-foreground text-sm">{t("whatYouGet.item2")}</p>
+                    <h3 className="font-semibold text-charcoal mb-1">Major Arcana Guide</h3>
+                    <p className="text-gray-600 text-sm">{t("whatYouGet.item2")}</p>
                   </div>
                 </div>
 
                 <div className="professional-card p-6 flex items-start gap-4">
-                  <FileText className="w-8 h-8 text-primary flex-shrink-0" />
+                  <FileText className="w-8 h-8 text-plum flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Cheat Sheet</h3>
-                    <p className="text-muted-foreground text-sm">{t("whatYouGet.item4")}</p>
+                    <h3 className="font-semibold text-charcoal mb-1">Cheat Sheet</h3>
+                    <p className="text-gray-600 text-sm">{t("whatYouGet.item4")}</p>
                   </div>
                 </div>
 
                 <div className="professional-card p-6 flex items-start gap-4">
                   <Headphones className="w-8 h-8 text-gold flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Audio Guides</h3>
-                    <p className="text-muted-foreground text-sm">{t("whatYouGet.item5")}</p>
+                    <h3 className="font-semibold text-charcoal mb-1">Audio Guides</h3>
+                    <p className="text-gray-600 text-sm">{t("whatYouGet.item5")}</p>
                   </div>
                 </div>
 
                 <div className="professional-card p-6 flex items-start gap-4 md:col-span-2">
-                  <Mail className="w-8 h-8 text-primary flex-shrink-0" />
+                  <Mail className="w-8 h-8 text-plum flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Lifetime Access + Support</h3>
-                    <p className="text-muted-foreground text-sm">{t("whatYouGet.item6")}</p>
+                    <h3 className="font-semibold text-charcoal mb-1">Lifetime Access + Support</h3>
+                    <p className="text-gray-600 text-sm">{t("whatYouGet.item6")}</p>
                   </div>
                 </div>
               </div>
@@ -282,7 +282,7 @@ const LandingPageEN = () => {
         {/* Testimonials */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-foreground">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-plum">
               {t("testimonials.title")}
             </h2>
 
@@ -294,8 +294,8 @@ const LandingPageEN = () => {
                       <Star key={i} className="w-5 h-5 fill-gold text-gold" />
                     ))}
                   </div>
-                  <p className="text-foreground italic">"{testimonial.text}"</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-charcoal italic">"{testimonial.text}"</p>
+                  <p className="text-sm text-gray-500">
                     — {testimonial.name}, {testimonial.location}
                   </p>
                 </div>
@@ -308,14 +308,14 @@ const LandingPageEN = () => {
         <section id="preview" className="py-16 md:py-24 bg-cream-dark">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-foreground">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-plum">
                 Preview the Book
               </h2>
               <div className="professional-card p-8">
-                <blockquote className="text-xl md:text-2xl italic text-foreground mb-4">
+                <blockquote className="text-xl md:text-2xl italic text-charcoal mb-4">
                   "{t("ebook.quote.text")}"
                 </blockquote>
-                <p className="text-muted-foreground">{t("ebook.quote.author")}</p>
+                <p className="text-gray-600">{t("ebook.quote.author")}</p>
               </div>
             </div>
           </div>
@@ -327,13 +327,13 @@ const LandingPageEN = () => {
             <div className="max-w-3xl mx-auto text-center">
               <div className="gold-card p-8 md:p-12">
                 <Shield className="w-16 h-16 text-gold mx-auto mb-6" />
-                <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 text-foreground">
+                <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 text-plum">
                   {t("guarantee.title")}
                 </h2>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-6 leading-relaxed">
                   {t("guarantee.text")}
                 </p>
-                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
                   <Lock className="w-4 h-4" />
                   <span>{t("guarantee.secure")}</span>
                 </div>
@@ -346,7 +346,7 @@ const LandingPageEN = () => {
         <section className="py-16 md:py-24 bg-cream-dark">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-foreground">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-plum">
                 {t("faq.title")}
               </h2>
 
@@ -358,15 +358,15 @@ const LandingPageEN = () => {
                       className="w-full p-6 text-left flex items-center justify-between gap-4"
                       aria-expanded={expandedFaq === index}
                     >
-                      <span className="font-semibold text-foreground">{faq.question}</span>
+                      <span className="font-semibold text-charcoal">{faq.question}</span>
                       <ChevronDown 
-                        className={`w-5 h-5 text-muted-foreground transition-transform ${
+                        className={`w-5 h-5 text-gray-500 transition-transform ${
                           expandedFaq === index ? 'rotate-180' : ''
                         }`} 
                       />
                     </button>
                     {expandedFaq === index && (
-                      <div className="px-6 pb-6 text-muted-foreground animate-fade-in">
+                      <div className="px-6 pb-6 text-gray-600 animate-fade-in">
                         {faq.answer}
                       </div>
                     )}
