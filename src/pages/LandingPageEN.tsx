@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckoutModal } from "@/components/CheckoutModal";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import { SubtleCountdown } from "@/components/SubtleCountdown";
+
 import { 
   Star, 
   Shield, 
@@ -183,8 +183,6 @@ const LandingPageEN = () => {
           </div>
         </section>
 
-        {/* Subtle Countdown */}
-        <SubtleCountdown />
 
         {/* What You Get Section */}
         <section className="py-16 md:py-24 bg-background">
