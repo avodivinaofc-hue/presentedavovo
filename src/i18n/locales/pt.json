@@ -12,60 +12,27 @@
     }
   },
   "urgency": {
+    "title": "⚠️ ATENÇÃO: Oferta por tempo limitado!",
     "warning": "⚠️ ATENÇÃO: Esta oferta expira em breve!",
     "timer": "Oferta termina em:",
     "alert": "Após o tempo acabar, o preço volta para R$ 29,90"
   },
   "howItWorks": {
     "title": "Como Funciona",
-    "step1": {
-      "title": "1. Clique no Botão",
-      "description": "Garanta seu acesso ao Oráculo Divino exclusivo"
-    },
-    "step2": {
-      "title": "2. Preencha Seus Dados",
-      "description": "Informações seguras e criptografadas"
-    },
-    "step3": {
-      "title": "3. Acesso Imediato",
-      "description": "Receba o e-book na hora em seu e-mail"
-    },
-    "step4": {
-      "title": "4. Comece Sua Jornada",
-      "description": "Desvende os mistérios do tarô agora mesmo"
-    }
+    "step1": { "title": "1. Clique no Botão", "description": "Garanta seu acesso ao Oráculo Divino exclusivo" },
+    "step2": { "title": "2. Preencha Seus Dados", "description": "Informações seguras e criptografadas" },
+    "step3": { "title": "3. Acesso Imediato", "description": "Receba o e-book na hora em seu e-mail" },
+    "step4": { "title": "4. Comece Sua Jornada", "description": "Desvende os mistérios do tarô agora mesmo" }
   },
   "testimonials": {
     "title": "O Que Dizem Nossos Clientes",
-    "testimonial1": {
-      "name": "Maria Silva",
-      "text": "Esse e-book mudou completamente minha vida! Agora consigo fazer leituras incríveis!",
-      "rating": 5
-    },
-    "testimonial2": {
-      "name": "João Santos",
-      "text": "Conteúdo incrível e muito profundo. Vale cada centavo investido!",
-      "rating": 5
-    },
-    "testimonial3": {
-      "name": "Ana Costa",
-      "text": "Finalmente entendi o verdadeiro poder das cartas. Recomendo muito!",
-      "rating": 5
-    },
-    "testimonial4": {
-      "name": "Pedro Oliveira",
-      "text": "A melhor compra que já fiz! Conteúdo de altíssima qualidade!",
-      "rating": 5
-    }
+    "testimonial1": { "name": "Maria Silva", "text": "Esse e-book mudou completamente minha vida! Agora consigo fazer leituras incríveis!", "rating": 5 },
+    "testimonial2": { "name": "João Santos", "text": "Conteúdo incrível e muito profundo. Vale cada centavo investido!", "rating": 5 },
+    "testimonial3": { "name": "Ana Costa", "text": "Finalmente entendi o verdadeiro poder das cartas. Recomendo muito!", "rating": 5 },
+    "testimonial4": { "name": "Pedro Oliveira", "text": "A melhor compra que já fiz! Conteúdo de altíssima qualidade!", "rating": 5 }
   },
-  "languageBanner": {
-    "title": "Gostaria de mudar para {language}?",
-    "confirm": "Sim, mudar",
-    "dismiss": "Não, obrigado"
-  },
-  "languageSelector": {
-    "label": "Idioma"
-  },
+  "languageBanner": { "title": "Gostaria de mudar para {language}?", "confirm": "Sim, mudar", "dismiss": "Não, obrigado" },
+  "languageSelector": { "label": "Idioma" },
   "guarantees": {
     "secure": "Pagamento 100% seguro e criptografado",
     "immediate": "Acesso imediato após confirmação",
@@ -78,75 +45,11 @@
     "tagline": "Conectando você com a sabedoria ancestral do tarô."
   },
   "ebook": {
-    "cover": {
-      "title": "O Oráculo Interior",
-      "subtitle": "Um Guia da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô",
-      "author": "Autora: Avó Divina"
-    },
-    "navigation": {
-      "page": "Página",
-      "of": "de",
-      "previous": "Anterior",
-      "next": "Próxima",
-      "previousShort": "Ant.",
-      "nextShort": "Próx."
-    },
-    "quote": {
-      "text": "A resposta mais importante que você procura não está nas cartas. Está na alma que as segura. As cartas são apenas o eco.",
-      "author": "— Avó Divina"
-    },
-    "toc": {
-      "title": "Sumário",
-      "intro": "Introdução: O Acolhimento da Alma",
-      "part1": {
-        "title": "Parte 1: A Preparação da Alma (O Fundamento)",
-        "chapter1": "Capítulo 1: O Tarô Não é o que te Contaram",
-        "chapter2": "Capítulo 2: Criando o Seu Santuário Pessoal"
-      },
-      "part2": {
-        "title": "Parte 2: A Linguagem do Universo (Desvendando as Cartas)",
-        "chapter3": "Capítulo 3: A Jornada do Herói Interior (Arcanos Maiores)",
-        "chapter4": "Capítulo 4: Os Quatro Reinos da Sua Vida (Arcanos Menores)",
-        "chapter5": "Capítulo 5: As Pessoas no Seu Espelho (As Cartas da Corte)"
-      },
-      "part3": {
-        "title": "Parte 3: A Prática da Clareza (As Suas Leituras)",
-        "chapter6": "Capítulo 6: Sua Primeira Conversa com o Oráculo (A Tiragem de 3 Cartas)",
-        "chapter7": "Capítulo 7: A Arte de Perguntar",
-        "chapter8": "Capítulo 8: Abraçando as Sombras: O que Fazer com as Cartas \"Assustadoras\""
-      },
-      "part4": {
-        "title": "Parte 4: A Jornada Continua",
-        "conclusion": "Conclusão: A Bússola é Sua",
-        "bonus": "BÓNUS: Guia Rápido dos 22 Arcanos Maiores"
-      }
-    },
-    "intro": {
-      "title": "Introdução: O Acolhimento da Alma",
-      "greeting": "Minha querida leitora,",
-      "p1": "Se este guia chegou até você, é porque uma busca já começou aí dentro. Uma busca por clareza em meio ao ruído. Uma busca por direção quando os caminhos parecem confusos. Uma busca por uma voz de sabedoria que, muitas vezes, é a sua própria, apenas um pouco abafada pela correria da vida.",
-      "p2": "Eu conheço essa busca. E sei que o Tarô, muito mais do que um baralho de cartas, é uma ponte sagrada de volta para casa, para dentro de você.",
-      "p3": "Este guia não foi feito para \"prever seu futuro\". Ele foi criado para te entregar a chave do seu Oráculo Interior. Para que você possa, com suas próprias mãos, iluminar seu presente e construir o futuro que sua alma deseja.",
-      "p4": "Respire fundo. Sua jornada de clareza começa agora.",
-      "signature": "Com carinho,\nAvó Divina."
-    },
-    "chapter1": {
-      "title": "Capítulo 1: O Tarô Não é o que te Contaram",
-      "p1": "Esqueça as bolas de cristal e as videntes de feira. O verdadeiro poder do Tarô não está em adivinhar números de loteria ou o nome do seu futuro amor. Isso é diminuir sua magia e o potencial transformador que ele oferece.",
-      "p2": "O Tarô é, na verdade, um espelho de 78 facetas da alma humana. Cada carta é um arquétipo, uma emoção, uma lição, um caminho. Quando você embaralha as cartas e faz uma pergunta, não está invocando espíritos; está mergulhando no seu próprio inconsciente, acedendo a um vasto repositório de sabedoria que já reside em você.",
-      "p3": "As cartas que aparecem são um reflexo do que você já sabe, mas ainda não admitiu. Elas organizam o caos interno, trazem à tona medos e desejos ocultos e, o mais importante, mostram as energias disponíveis para você no momento, as escolhas que se apresentam e os caminhos que se abrem.",
-      "p4": "Pense no Tarô como um sábio conselheiro. Ele não te dá as respostas prontas, mas te ajuda a encontrar as suas próprias, iluminando os cantos escuros da sua mente e do seu coração.",
-      "section1": {
-        "title": "A Diferença Crucial: Previsão vs. Orientação",
-        "p1": "É fundamental entender esta distinção. Prever o futuro nos coloca como espectadoras passivas, à mercê de um destino pré-determinado, tirando de nós o poder da escolha e da cocriação.",
-        "p2": "Receber orientação, por outro lado, nos coloca no centro do nosso poder. O Tarô, como guia, não te diz \"o que vai acontecer\", mas sim \"o que você precisa saber ou fazer para criar o melhor desfecho possível\". Ele te capacita a influenciar o seu caminho, em vez de apenas observá-lo.",
-        "p3": "Este guia é sobre orientação. É sobre aprender a perguntar \"Como posso criar o melhor caminho para mim?\" em vez de \"O que vai acontecer comigo no futuro?\"."
-      },
-      "section2": {
-        "title": "A Sua Intuição é o Ingrediente Secreto",
-        "p1": "O baralho de Tarô é um instrumento musical. Os significados das cartas são as notas. Mas a sua intuição, minha querida, é a música. Sem ela, temos apenas teoria, um conjunto de símbolos sem vida. Com ela, temos magia, uma melodia pessoal que ressoa profundamente com a sua verdade.",
-        "p2": "A sua intuição é a sua capacidade inata de saber sem lógica, de sentir sem explicar. Este guia vai te ensinar a afinar o seu instrumento, a silenciar o ruído externo e a tocar a sua própria melodia, permitindo que a sabedoria do seu Oráculo Interior flua livremente."
-      }
-    }
+    "cover": { "title": "O Oráculo Interior", "subtitle": "Um Guia da Avó Divina para Você Começar a Ouvir as Respostas do seu Coração com o Tarô", "author": "Autora: Avó Divina" },
+    "navigation": { "page": "Página", "of": "de", "previous": "Anterior", "next": "Próxima", "previousShort": "Ant.", "nextShort": "Próx." },
+    "quote": { "text": "A resposta mais importante que você procura não está nas cartas. Está na alma que as segura. As cartas são apenas o eco.", "author": "— Avó Divina" },
+    "toc": { "title": "Sumário", "intro": "Introdução: O Acolhimento da Alma" },
+    "intro": { "title": "Introdução: O Acolhimento da Alma", "greeting": "Minha querida leitora,", "p1": "Se este guia chegou até você, é porque uma busca já começou aí dentro.", "signature": "Com carinho,\nAvó Divina." },
+    "chapter1": { "title": "Capítulo 1: O Tarô Não é o que te Contaram" }
   }
 }
