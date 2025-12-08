@@ -1,61 +1,93 @@
 {
   "hero": {
-    "urgency": "GIFT 80% OFF",
-    "exclusive": "Only for Divine Grandma followers",
-    "title": "Discover the Hidden Secrets of Tarot",
-    "subtitle": "Transform Your Life With the Power of Ancestral Wisdom",
-    "cta": "I WANT MY TRANSFORMATION NOW!",
+    "badge": "INSTANT DIGITAL DELIVERY",
+    "exclusive": "Trusted by thousands of readers",
+    "title": "Discover Practical Tarot Guidance From a Trusted Grandmotherly Teacher",
+    "subtitle": "Inner Oracle — A simple, heartfelt guide to reading the cards, gaining clarity, and making better decisions in daily life.",
+    "cta": "Get Instant Access — $19",
+    "ctaSecondary": "Preview the Book",
     "price": {
-      "from": "From $29.90",
-      "for": "For only $5.97",
-      "discount": "80% OFF"
+      "current": "$19",
+      "original": "$29",
+      "discount": "SAVE $10"
     }
+  },
+  "valueBullets": {
+    "delivery": "Immediate digital delivery — read in minutes",
+    "method": "Practical step-by-step tarot method for beginners and intermediates",
+    "results": "Real results: make clearer choices, reduce anxiety, deepen self-knowledge",
+    "guarantee": "7-day money-back guarantee — no questions asked"
   },
   "urgency": {
-    "warning": "⚠️ WARNING: This offer expires soon!",
+    "title": "Limited Time Offer",
     "timer": "Offer ends in:",
-    "alert": "After time runs out, price returns to $29.90"
+    "alert": "Price increases to $29 when timer ends"
   },
-  "howItWorks": {
-    "title": "How It Works",
-    "step1": {
-      "title": "1. Click the Button",
-      "description": "Secure your access to the exclusive Divine Oracle"
-    },
-    "step2": {
-      "title": "2. Fill in Your Details",
-      "description": "Secure and encrypted information"
-    },
-    "step3": {
-      "title": "3. Immediate Access",
-      "description": "Receive the e-book instantly in your email"
-    },
-    "step4": {
-      "title": "4. Start Your Journey",
-      "description": "Unveil the mysteries of tarot right now"
-    }
+  "whatYouGet": {
+    "title": "What You Get",
+    "item1": "Full e-book: \"Inner Oracle\" — 7 comprehensive chapters",
+    "item2": "The Major Arcana explained with clarity",
+    "item3": "Step-by-step spreads for daily guidance",
+    "item4": "Quick start cheat sheet (printable PDF)",
+    "item5": "Guided reading audio (3 MP3s)",
+    "item6": "Lifetime access + email support"
+  },
+  "about": {
+    "title": "About Divine Grandma",
+    "bio": "Divine Grandma (Maria) has spent 30+ years studying ancestral tarot traditions and helping people find clarity in difficult times. She combines simple techniques with real empathy so anyone — regardless of background — can learn and use the cards with confidence.",
+    "credentials1": "30+ years of tarot practice",
+    "credentials2": "Thousands of readers helped",
+    "credentials3": "Authentic ancestral wisdom"
   },
   "testimonials": {
-    "title": "What Our Clients Say",
+    "title": "What Readers Are Saying",
     "testimonial1": {
-      "name": "Maria Silva",
-      "text": "This e-book completely changed my life! Now I can do amazing readings!",
+      "name": "Emily R.",
+      "location": "USA",
+      "text": "This guide helped me read my first spread with confidence. Practical and warm.",
       "rating": 5
     },
     "testimonial2": {
-      "name": "João Santos",
-      "text": "Incredible and very deep content. Worth every penny invested!",
+      "name": "Sarah K.",
+      "location": "USA",
+      "text": "Clear steps, easy to follow. The audio lessons are a nice touch.",
       "rating": 5
     },
     "testimonial3": {
-      "name": "Ana Costa",
-      "text": "I finally understood the true power of the cards. Highly recommend!",
+      "name": "Jennifer M.",
+      "location": "USA",
+      "text": "Finally, a tarot guide that feels grounded and not overly mystical. Love it!",
       "rating": 5
     },
     "testimonial4": {
-      "name": "Pedro Oliveira",
-      "text": "The best purchase I've ever made! Top quality content!",
+      "name": "Amanda L.",
+      "location": "USA",
+      "text": "The best investment I made for my spiritual growth. Highly recommend!",
       "rating": 5
+    }
+  },
+  "guarantee": {
+    "title": "7-Day Money-Back Guarantee",
+    "text": "Try the Inner Oracle risk-free for 7 days. If you aren't satisfied, simply request a refund and we'll return your full payment. No questions asked.",
+    "secure": "Secure checkout powered by trusted payment processors"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "question": "Is the book in English?",
+      "answer": "Yes — the Inner Oracle e-book, cheat sheet and audio guides are provided in English."
+    },
+    "q2": {
+      "question": "How will I receive it?",
+      "answer": "After purchase you'll receive an email with a secure download link within minutes."
+    },
+    "q3": {
+      "question": "Can I get a refund?",
+      "answer": "Yes — we offer a full 7-day money-back guarantee, no questions asked."
+    },
+    "q4": {
+      "question": "Is this suitable for beginners?",
+      "answer": "Absolutely! This guide is designed for both complete beginners and those with some experience looking to deepen their practice."
     }
   },
   "languageBanner": {
@@ -67,21 +99,27 @@
     "label": "Language"
   },
   "guarantees": {
-    "secure": "100% secure and encrypted payment",
-    "immediate": "Immediate access after confirmation",
-    "satisfaction": "7-day satisfaction guarantee",
-    "support": "Specialized support"
+    "secure": "Secure encrypted payment",
+    "immediate": "Instant digital access",
+    "satisfaction": "7-day money-back guarantee",
+    "support": "Email support included"
   },
   "footer": {
-    "cnpj": "Tax ID: 60.050.992/0001-93",
+    "company": "Divine Grandma",
+    "contact": "Contact: support@avodivina.com",
     "rights": "All rights reserved.",
-    "tagline": "Connecting you with the ancestral wisdom of tarot."
+    "tagline": "Connecting you with the ancestral wisdom of tarot.",
+    "links": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "refund": "Refund Policy"
+    }
   },
   "ebook": {
     "cover": {
       "title": "The Inner Oracle",
-      "subtitle": "A Guide from Grandma Divine to Help You Start Listening to the Answers of Your Heart with Tarot",
-      "author": "Author: Grandma Divine"
+      "subtitle": "A Guide from Divine Grandma to Help You Start Listening to the Answers of Your Heart with Tarot",
+      "author": "Author: Divine Grandma"
     },
     "navigation": {
       "page": "Page",
@@ -93,7 +131,7 @@
     },
     "quote": {
       "text": "The most important answer you seek is not in the cards. It is in the soul that holds them. The cards are just the echo.",
-      "author": "— Grandma Divine"
+      "author": "— Divine Grandma"
     },
     "toc": {
       "title": "Table of Contents",
@@ -128,7 +166,7 @@
       "p2": "I know this search. And I know that Tarot, much more than a deck of cards, is a sacred bridge back home, back inside you.",
       "p3": "This guide was not created to \"predict your future\". It was created to give you the key to your Inner Oracle. So that you can, with your own hands, illuminate your present and build the future your soul desires.",
       "p4": "Take a deep breath. Your journey of clarity begins now.",
-      "signature": "With love,\nGrandma Divine."
+      "signature": "With love,\nDivine Grandma."
     },
     "chapter1": {
       "title": "Chapter 1: Tarot Is Not What They Told You",
