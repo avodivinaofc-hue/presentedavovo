@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { AnimatedPage } from "@/components/AnimatedPage";
 import heroPhoto from "@/assets/hero-avo-divina.jpg";
-import ebookCover from "@/assets/cover-en.jpg";
+import ebookCover from "@/assets/cover-en.png";
 
 const LandingPageEN = () => {
   const { t, i18n } = useTranslation();
