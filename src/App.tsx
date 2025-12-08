@@ -4,7 +4,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
 import "./i18n/config";
