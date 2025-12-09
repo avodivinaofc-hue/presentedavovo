@@ -167,6 +167,26 @@ const LandingPageEN = () => {
                     <span>{t("guarantees.satisfaction")}</span>
                   </div>
                 </div>
+
+                {/* Payment Badges */}
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                  <div className="flex items-center gap-2 bg-white/80 px-3 py-2 rounded-lg border border-gray-200 shadow-sm">
+                    <svg className="w-10 h-6" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="60" height="25" rx="4" fill="#635BFF"/>
+                      <text x="30" y="16" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold" fontFamily="sans-serif">stripe</text>
+                    </svg>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/80 px-3 py-2 rounded-lg border border-gray-200 shadow-sm">
+                    <svg className="w-10 h-6" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="60" height="25" rx="4" fill="#003087"/>
+                      <text x="30" y="16" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="sans-serif">PayPal</text>
+                    </svg>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/80 px-3 py-2 rounded-lg border border-gray-200 shadow-sm">
+                    <Shield className="w-5 h-5 text-green-600" />
+                    <span className="text-xs font-medium text-gray-600">SSL Secure</span>
+                  </div>
+                </div>
               </div>
 
               {/* Right - Book Cover */}
