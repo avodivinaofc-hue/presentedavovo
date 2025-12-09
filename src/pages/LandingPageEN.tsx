@@ -21,6 +21,10 @@ import {
 import { AnimatedPage } from "@/components/AnimatedPage";
 import heroPhoto from "@/assets/hero-avo-divina.jpg";
 import ebookCover from "@/assets/cover-en.png";
+import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
+import testimonial4 from "@/assets/testimonial-4.jpg";
 
 const LandingPageEN = () => {
   const { t, i18n } = useTranslation();
@@ -45,10 +49,10 @@ const LandingPageEN = () => {
   };
 
   const testimonials = [
-    { name: t("testimonials.testimonial1.name"), location: t("testimonials.testimonial1.location"), text: t("testimonials.testimonial1.text"), rating: 5 },
-    { name: t("testimonials.testimonial2.name"), location: t("testimonials.testimonial2.location"), text: t("testimonials.testimonial2.text"), rating: 5 },
-    { name: t("testimonials.testimonial3.name"), location: t("testimonials.testimonial3.location"), text: t("testimonials.testimonial3.text"), rating: 5 },
-    { name: t("testimonials.testimonial4.name"), location: t("testimonials.testimonial4.location"), text: t("testimonials.testimonial4.text"), rating: 5 },
+    { name: t("testimonials.testimonial1.name"), location: t("testimonials.testimonial1.location"), text: t("testimonials.testimonial1.text"), rating: 5, photo: testimonial1 },
+    { name: t("testimonials.testimonial2.name"), location: t("testimonials.testimonial2.location"), text: t("testimonials.testimonial2.text"), rating: 5, photo: testimonial2 },
+    { name: t("testimonials.testimonial3.name"), location: t("testimonials.testimonial3.location"), text: t("testimonials.testimonial3.text"), rating: 5, photo: testimonial3 },
+    { name: t("testimonials.testimonial4.name"), location: t("testimonials.testimonial4.location"), text: t("testimonials.testimonial4.text"), rating: 5, photo: testimonial4 },
   ];
 
   const faqs = [
@@ -293,9 +297,17 @@ const LandingPageEN = () => {
                     ))}
                   </div>
                   <p className="text-charcoal italic">"{testimonial.text}"</p>
-                  <p className="text-sm text-gray-500">
-                    — {testimonial.name}, {testimonial.location}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src={testimonial.photo} 
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                      loading="lazy"
+                    />
+                    <p className="text-sm text-gray-500">
+                      {testimonial.name}, {testimonial.location}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
