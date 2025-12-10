@@ -25,6 +25,7 @@ import testimonial2 from "@/assets/testimonial-pt-2.jpg";
 import testimonial3 from "@/assets/testimonial-pt-3.jpg";
 import testimonial4 from "@/assets/testimonial-pt-4.jpg";
 import ebookCover from "@/assets/cover-en.png";
+import avoDivinaImg from "@/assets/avo-divina-nova.jpg";
 
 const LandingPagePT = () => {
   const navigate = useNavigate();
@@ -253,7 +254,7 @@ const LandingPagePT = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
               <div className="flex justify-center">
                 <img 
-                  src="/lovable-uploads/vovo-divina-nova.jpeg.png" 
+                  src={avoDivinaImg} 
                   alt="Avó Divina" 
                   className="w-64 md:w-80 rounded-2xl shadow-lg border-4 border-background"
                 />
@@ -519,7 +520,7 @@ const LandingPagePT = () => {
           productPrice={productPrice}
           customerName={customerName}
           customerEmail={customerEmail}
-          productImage="/lovable-uploads/vovo-divina-nova.jpeg.png"
+          productImage={avoDivinaImg}
         />
       </div>
     </AnimatedPage>
