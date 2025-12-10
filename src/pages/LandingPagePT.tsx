@@ -24,7 +24,7 @@ import testimonial1 from "@/assets/testimonial-pt-1.jpg";
 import testimonial2 from "@/assets/testimonial-pt-2.jpg";
 import testimonial3 from "@/assets/testimonial-pt-3.jpg";
 import testimonial4 from "@/assets/testimonial-pt-4.jpg";
-import ebookCover from "@/assets/cover-en.png";
+import ebookCover from "@/assets/ebook-cover-pt.png";
 import avoDivinaImg from "@/assets/avo-divina-nova.jpg";
 
 const LandingPagePT = () => {
@@ -206,8 +206,8 @@ const LandingPagePT = () => {
                     alt="O Oráculo Interior - E-book da Avó Divina" 
                     className="w-64 md:w-80 lg:w-96 rounded-lg shadow-xl"
                   />
-                  <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-lg font-bold shadow-lg">
-                    PDF Completo
+                  <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-lg font-bold shadow-lg text-sm text-center max-w-[180px]">
+                    Experiência de clarificação premium da sua vida
                   </div>
                 </div>
               </div>
