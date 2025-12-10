@@ -20,10 +20,10 @@ import {
   Phone
 } from "lucide-react";
 import { AnimatedPage } from "@/components/AnimatedPage";
-import testimonial1 from "@/assets/testimonial-1.jpg";
-import testimonial2 from "@/assets/testimonial-2.jpg";
-import testimonial3 from "@/assets/testimonial-3.jpg";
-import testimonial4 from "@/assets/testimonial-4.jpg";
+import testimonial1 from "@/assets/testimonial-pt-1.jpg";
+import testimonial2 from "@/assets/testimonial-pt-2.jpg";
+import testimonial3 from "@/assets/testimonial-pt-3.jpg";
+import testimonial4 from "@/assets/testimonial-pt-4.jpg";
 import ebookCover from "@/assets/cover-en.png";
 
 const LandingPagePT = () => {
@@ -100,7 +100,7 @@ const LandingPagePT = () => {
   ];
 
   const productFeatures = [
-    "E-book completo em PDF (mais de 100 páginas)",
+    "Web-book completo Online",
     "Guia passo-a-passo para iniciantes",
     "Significado detalhado de todas as cartas",
     "Técnicas de meditação e conexão espiritual",
