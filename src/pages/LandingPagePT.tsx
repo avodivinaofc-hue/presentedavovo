@@ -1,26 +1,40 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckoutModal } from "@/components/CheckoutModal";
 import Footer from "@/components/Footer";
-import { LanguageBanner } from "@/components/LanguageBanner";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import { UrgencyCountdown } from "@/components/UrgencyCountdown";
-import { Star, Shield, Zap, CheckCircle2 } from "lucide-react";
+import { 
+  Shield, 
+  Zap, 
+  CheckCircle2, 
+  Star, 
+  Heart,
+  BookOpen,
+  Sparkles,
+  Clock,
+  MessageCircle,
+  ChevronDown,
+  Lock,
+  Mail,
+  Phone
+} from "lucide-react";
 import { AnimatedPage } from "@/components/AnimatedPage";
-import { MysticalBook3D } from "@/components/MysticalBook3D";
-import heroCartomante from "@/assets/hero-cartomante.jpg";
+import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
+import testimonial4 from "@/assets/testimonial-4.jpg";
+import ebookCover from "@/assets/cover-en.png";
 
 const LandingPagePT = () => {
-  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [showCheckout, setShowCheckout] = useState(false);
   const [customerName] = useState("Cliente");
   const [customerEmail] = useState("cliente@email.com");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   
   const productPrice = 9.90;
-  const productName = 'E-book Tarô Ancestral';
+  const productName = 'O Oráculo Interior - Guia Completo';
 
   const handleCtaClick = () => {
     setShowCheckout(true);
@@ -31,223 +45,466 @@ const LandingPagePT = () => {
     navigate("/ebook");
   };
 
+  const benefits = [
+    {
+      icon: Heart,
+      title: "Autoconhecimento Profundo",
+      description: "Descubra respostas claras para suas dúvidas emocionais e existenciais através da sabedoria ancestral do tarô."
+    },
+    {
+      icon: BookOpen,
+      title: "Método Simples e Acessível",
+      description: "Aprenda um método fácil de interpretar as cartas — mesmo que você nunca tenha mexido com tarô antes."
+    },
+    {
+      icon: Sparkles,
+      title: "Paz Interior e Clareza",
+      description: "Ganhe segurança nas suas decisões, equilíbrio emocional e uma conexão mais profunda consigo mesma."
+    },
+    {
+      icon: Clock,
+      title: "Estude no Seu Ritmo",
+      description: "Material completo em PDF para você acessar quando quiser, sem pressa, do seu jeito."
+    }
+  ];
+
   const testimonials = [
-    { name: t("testimonials.testimonial1.name"), text: t("testimonials.testimonial1.text"), rating: 5 },
-    { name: t("testimonials.testimonial2.name"), text: t("testimonials.testimonial2.text"), rating: 5 },
-    { name: t("testimonials.testimonial3.name"), text: t("testimonials.testimonial3.text"), rating: 5 },
-    { name: t("testimonials.testimonial4.name"), text: t("testimonials.testimonial4.text"), rating: 5 },
+    { 
+      name: "Maria S.", 
+      location: "São Paulo, SP",
+      text: "Sempre tive receio de mexer com cartas — mas com o método da Avó Divina tudo fez sentido. Hoje uso o tarô com consciência e paz.", 
+      photo: testimonial1,
+      rating: 5 
+    },
+    { 
+      name: "Ana C.", 
+      location: "Rio de Janeiro, RJ",
+      text: "Esse guia mudou minha forma de ver a vida. Agora consigo entender melhor minhas emoções e tomar decisões com mais clareza.", 
+      photo: testimonial2,
+      rating: 5 
+    },
+    { 
+      name: "Juliana M.", 
+      location: "Belo Horizonte, MG",
+      text: "Nunca imaginei que seria capaz de fazer leituras tão profundas. O conteúdo é rico, acessível e cheio de carinho.", 
+      photo: testimonial3,
+      rating: 5 
+    },
+    { 
+      name: "Carla R.", 
+      location: "Porto Alegre, RS",
+      text: "A Avó Divina tem um dom especial de ensinar. Me sinto mais conectada comigo mesma do que nunca!", 
+      photo: testimonial4,
+      rating: 5 
+    },
+  ];
+
+  const productFeatures = [
+    "E-book completo em PDF (mais de 100 páginas)",
+    "Guia passo-a-passo para iniciantes",
+    "Significado detalhado de todas as cartas",
+    "Técnicas de meditação e conexão espiritual",
+    "Exercícios práticos de autoconhecimento",
+    "Acesso vitalício ao material"
+  ];
+
+  const faqs = [
+    {
+      question: "Funciona mesmo se eu nunca estudei tarô?",
+      answer: "Sim! O método foi criado especialmente para iniciantes. Você vai aprender do zero, passo a passo, de forma simples e acolhedora."
+    },
+    {
+      question: "Quando recebo o material?",
+      answer: "Imediatamente após a confirmação do pagamento, você recebe o link de acesso direto no seu e-mail."
+    },
+    {
+      question: "Posso acessar de qualquer lugar?",
+      answer: "Sim! O material é em PDF, então você pode ler no celular, tablet ou computador, quando e onde quiser."
+    },
+    {
+      question: "O pagamento é seguro?",
+      answer: "Totalmente seguro. Utilizamos checkout criptografado com as principais bandeiras de cartão e PIX. Seus dados estão protegidos."
+    },
+    {
+      question: "Tem garantia?",
+      answer: "Sim! Você tem 7 dias de garantia. Se não ficar satisfeita(o), devolvemos 100% do seu dinheiro, sem perguntas."
+    }
   ];
 
   return (
     <AnimatedPage>
-      <div className="min-h-screen bg-mystic-dark text-foreground mystic-theme">
-        <LanguageBanner />
-        
+      <div className="min-h-screen bg-background text-foreground">
         {/* Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-mystic-dark/80 backdrop-blur-lg border-b border-primary/30">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="text-2xl font-display font-black text-gradient-primary">
-              AVÓ DIVINA
+            <div className="text-xl md:text-2xl font-display font-bold text-primary">
+              Avó Divina
             </div>
             <LanguageSelector />
           </div>
         </header>
 
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-            style={{ backgroundImage: `url(${heroCartomante})` }}
-          />
-          <div className="absolute inset-0 bg-mystic-dark/80" />
-          <div className="absolute inset-0 bg-gradient-primary opacity-30" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,255,0.3),transparent_50%)]" />
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center space-y-8">
-              {/* Urgency Banner */}
-              <div className="inline-block space-y-2">
-                <div className="bg-gradient-fire px-6 py-3 rounded-full animate-pulse glow-red">
-                  <p className="text-xl md:text-2xl font-display font-black uppercase">
-                    {t("hero.urgency")}
-                  </p>
-                </div>
-                <p className="text-sm md:text-base font-body font-semibold text-yellow-500 text-center uppercase">
-                  {t("hero.exclusive")}
-                </p>
-              </div>
-
-              {/* Main Title */}
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black leading-none">
-                <span className="text-gradient-primary block mb-4">
-                  {t("hero.title")}
-                </span>
-              </h1>
-
-              {/* Subtitle */}
-              <p className="text-2xl md:text-3xl lg:text-4xl font-body font-bold text-foreground/90">
-                {t("hero.subtitle")}
-              </p>
-
-              {/* 3D Book */}
-              <MysticalBook3D />
-
-              {/* Price */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <span className="text-2xl md:text-3xl font-body line-through text-red-500">
-                    {t("hero.price.from")}
-                  </span>
-                  <span className="text-5xl md:text-6xl lg:text-7xl font-display font-black text-gradient-intense">
-                    {t("hero.price.for")}
-                  </span>
-                </div>
-                <div className="inline-block bg-secondary px-6 py-2 rounded-full glow-red">
-                  <span className="text-2xl md:text-3xl font-display font-black">
-                    {t("hero.price.discount")}
-                  </span>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <div className="pt-6 px-4">
-                <Button
-                  onClick={handleCtaClick}
-                  size="lg"
-                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-105 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight text-white"
-                >
-                  {t("hero.cta")}
-                </Button>
-              </div>
-
-              {/* Guarantees */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
-                <div className="flex flex-col items-center gap-2 text-center">
-                  <Shield className="w-8 h-8 text-primary" />
-                  <span className="text-xs md:text-sm font-body font-semibold">
-                    {t("guarantees.secure")}
-                  </span>
-                </div>
-                <div className="flex flex-col items-center gap-2 text-center">
-                  <Zap className="w-8 h-8 text-yellow-500" />
-                  <span className="text-xs md:text-sm font-body font-semibold">
-                    {t("guarantees.immediate")}
-                  </span>
-                </div>
-                <div className="flex flex-col items-center gap-2 text-center">
-                  <CheckCircle2 className="w-8 h-8 text-yellow-500" />
-                  <span className="text-xs md:text-sm font-body font-semibold">
-                    {t("guarantees.satisfaction")}
-                  </span>
-                </div>
-                <div className="flex flex-col items-center gap-2 text-center">
-                  <Star className="w-8 h-8 text-primary" />
-                  <span className="text-xs md:text-sm font-body font-semibold">
-                    {t("guarantees.support")}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Urgency Section with Countdown */}
-        <section className="py-16 md:py-24 bg-mystic-darker border-y border-secondary/50">
+        <section className="relative min-h-screen flex items-center pt-20 pb-16 bg-gradient-cream">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto space-y-8">
-              <div className="text-center">
-                <div className="inline-block bg-secondary/20 border-2 border-secondary px-6 py-3 rounded-lg mb-6">
-                  <p className="text-xl md:text-2xl font-display font-black text-gray-300 uppercase">
-                    {t("urgency.warning")}
-                  </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              {/* Text Content */}
+              <div className="space-y-6 text-center lg:text-left order-2 lg:order-1">
+                <div className="inline-block bg-accent/10 text-accent-foreground px-4 py-2 rounded-full text-sm font-medium border border-accent/20">
+                  ✨ Método exclusivo da Avó Divina
+                </div>
+                
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight text-foreground">
+                  Transforme sua vida com <span className="text-gradient-primary">sabedoria ancestral</span> e tarô guiado
+                </h1>
+                
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  Aprenda a interpretar cartas com calma e clareza — método simples, direto e acessível para você que busca autoconhecimento e paz interior.
+                </p>
+
+                {/* Price */}
+                <div className="flex items-center gap-4 justify-center lg:justify-start flex-wrap">
+                  <span className="text-lg text-muted-foreground line-through">De R$ 29,90</span>
+                  <span className="text-3xl md:text-4xl font-display font-bold text-primary">R$ 9,90</span>
+                  <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-bold">67% OFF</span>
+                </div>
+
+                {/* CTA Button */}
+                <div className="pt-4">
+                  <Button
+                    onClick={handleCtaClick}
+                    size="lg"
+                    className="w-full sm:w-auto text-lg font-display font-bold px-8 py-6 rounded-xl bg-gradient-gold hover:opacity-90 transition-all duration-300 shadow-lg text-charcoal"
+                  >
+                    Eu Quero Acessar Agora
+                  </Button>
+                </div>
+
+                {/* Trust Badges */}
+                <div className="flex items-center gap-6 justify-center lg:justify-start flex-wrap pt-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-success" />
+                    <span>Pagamento Seguro</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-accent" />
+                    <span>Acesso Imediato</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-success" />
+                    <span>Garantia 7 dias</span>
+                  </div>
                 </div>
               </div>
-              <UrgencyCountdown initialHours={2} />
+
+              {/* Book Image */}
+              <div className="flex justify-center order-1 lg:order-2">
+                <div className="relative">
+                  <img 
+                    src={ebookCover} 
+                    alt="O Oráculo Interior - E-book da Avó Divina" 
+                    className="w-64 md:w-80 lg:w-96 rounded-lg shadow-xl"
+                  />
+                  <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-lg font-bold shadow-lg">
+                    PDF Completo
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,0,0,0.2),transparent_50%)]"></div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-center mb-16 text-gradient-primary uppercase">
-              {t("howItWorks.title")}
-            </h2>
+        {/* Benefits Section */}
+        <section className="py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
+                O Que Você Vai Conquistar
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Mais do que um simples guia, este é um caminho de transformação pessoal
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
-              {[1, 2, 3, 4].map((step) => (
-                <div key={step} className="vibrant-card p-6 md:p-8 text-center space-y-4 hover:scale-105 transition-all duration-300">
-                  <div className={`w-16 h-16 md:w-20 md:h-20 mx-auto ${step % 2 === 0 ? 'bg-gradient-fire glow-red' : 'bg-gradient-intense glow-purple'} rounded-full flex items-center justify-center text-3xl md:text-4xl font-display font-black`}>
-                    {step}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {benefits.map((benefit, index) => (
+                <div 
+                  key={index} 
+                  className="professional-card p-6 text-center space-y-4"
+                >
+                  <div className="w-14 h-14 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                    <benefit.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className={`text-xl md:text-2xl font-display font-black ${step % 2 === 0 ? 'text-gradient-primary' : 'text-gradient-intense'}`}>
-                    {t(`howItWorks.step${step}.title`)}
+                  <h3 className="text-lg font-display font-bold text-foreground">
+                    {benefit.title}
                   </h3>
-                  <p className="text-sm md:text-base font-body text-foreground/80">
-                    {t(`howItWorks.step${step}.description`)}
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {benefit.description}
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section className="py-16 md:py-24 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/vovo-divina-nova.jpeg.png" 
+                  alt="Avó Divina" 
+                  className="w-64 md:w-80 rounded-2xl shadow-lg border-4 border-background"
+                />
+              </div>
+              <div className="space-y-6 text-center lg:text-left">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground">
+                  Quem é a Avó Divina?
+                </h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    Olá, minha querida! Sou a Avó Divina. Há mais de 30 anos estudo e pratico a sabedoria ancestral do tarô e das artes divinatórias.
+                  </p>
+                  <p>
+                    Ao longo dessa jornada, já ajudei milhares de pessoas a encontrarem clareza, equilíbrio e paz interior através das cartas.
+                  </p>
+                  <p>
+                    Com este guia, quero levar esse conhecimento para você — de forma séria, amorosa e acessível. Não importa se você é iniciante: vou te guiar passo a passo nessa jornada de autoconhecimento.
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 justify-center lg:justify-start text-sm">
+                  <div className="flex items-center gap-2 text-primary">
+                    <Star className="w-5 h-5 fill-current" />
+                    <span className="font-medium">+30 anos de experiência</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-primary">
+                    <Heart className="w-5 h-5" />
+                    <span className="font-medium">+10.000 vidas transformadas</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-16 md:py-24 bg-mystic-darker border-y border-primary/30">
+        <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-center mb-16 text-gradient-intense uppercase">
-              {t("testimonials.title")}
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
+                O Que Dizem Nossas Alunas
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Histórias reais de transformação e autoconhecimento
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="vibrant-card p-6 md:p-8 space-y-4 hover:scale-105 transition-all duration-300"
+                  className="professional-card p-6 space-y-4"
                 >
-                  <div className="flex gap-1 justify-center">
+                  <div className="flex gap-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 md:w-6 md:h-6 fill-primary text-primary" />
+                      <Star key={i} className="w-5 h-5 fill-accent text-accent" />
                     ))}
                   </div>
-                  <p className="text-base md:text-lg font-body text-center text-foreground/90 italic">
+                  <p className="text-foreground/90 italic leading-relaxed">
                     "{testimonial.text}"
                   </p>
-                  <p className="text-lg md:text-xl font-display font-black text-center text-gradient-primary">
-                    - {testimonial.name}
-                  </p>
+                  <div className="flex items-center gap-3 pt-2">
+                    <img 
+                      src={testimonial.photo} 
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <p className="font-display font-bold text-foreground">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.location}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Final CTA Section */}
-        <section className="py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-primary opacity-30"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,0,0.3),transparent_60%)]"></div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center space-y-8">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-gradient-intense uppercase">
-                NÃO PERCA ESTA OPORTUNIDADE!
-              </h2>
-
-              <div className="px-4">
-                <Button
-                  onClick={handleCtaClick}
-                  size="lg"
-                  className="w-full max-w-md mx-auto text-base sm:text-lg md:text-xl lg:text-2xl font-display font-black px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 min-h-[60px] sm:min-h-[70px] md:min-h-[80px] rounded-full bg-gradient-intense hover:scale-110 transition-all duration-300 glow-magenta uppercase shadow-2xl whitespace-normal leading-tight text-white"
-                >
-                  {t("hero.cta")}
-                </Button>
+        {/* Product Details Section */}
+        <section className="py-16 md:py-24 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
+                  O Que Está Incluso
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Tudo que você precisa para começar sua jornada
+                </p>
               </div>
 
-              <p className="text-lg md:text-xl font-body text-white font-bold">
-                {t("urgency.alert")}
+              <div className="gold-card p-8 md:p-10">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-4">
+                    {productFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-center space-y-6">
+                    <div>
+                      <p className="text-muted-foreground line-through">De R$ 29,90</p>
+                      <p className="text-4xl md:text-5xl font-display font-bold text-primary">R$ 9,90</p>
+                      <p className="text-sm text-muted-foreground mt-2">Pagamento único • Acesso vitalício</p>
+                    </div>
+                    <Button
+                      onClick={handleCtaClick}
+                      size="lg"
+                      className="w-full text-lg font-display font-bold px-8 py-6 rounded-xl bg-gradient-gold hover:opacity-90 transition-all duration-300 shadow-lg text-charcoal"
+                    >
+                      Garantir Meu Acesso
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Guarantee Section */}
+        <section className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <div className="w-20 h-20 mx-auto bg-success/10 rounded-full flex items-center justify-center">
+                <Shield className="w-10 h-10 text-success" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                Garantia Incondicional de 7 Dias
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Se por qualquer motivo você não ficar satisfeita(o) com o material, basta nos enviar um e-mail em até 7 dias e devolvemos <strong>100% do seu dinheiro</strong>, sem perguntas. 
+                Você não tem nada a perder — o risco é todo nosso.
               </p>
+              
+              <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
+                <div className="flex items-center gap-2 bg-muted/50 px-4 py-2 rounded-lg">
+                  <Lock className="w-5 h-5 text-success" />
+                  <span className="text-sm font-medium">Checkout Seguro</span>
+                </div>
+                <div className="flex items-center gap-2 bg-muted/50 px-4 py-2 rounded-lg">
+                  <svg className="w-10 h-6" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="25" rx="4" fill="#635BFF"/>
+                    <text x="30" y="16" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold" fontFamily="sans-serif">stripe</text>
+                  </svg>
+                </div>
+                <div className="flex items-center gap-2 bg-muted/50 px-4 py-2 rounded-lg">
+                  <svg className="w-10 h-6" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="25" rx="4" fill="#003087"/>
+                    <text x="30" y="16" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="sans-serif">PayPal</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 md:py-24 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
+                  Perguntas Frequentes
+                </h2>
+              </div>
+
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div 
+                    key={index} 
+                    className="professional-card overflow-hidden"
+                  >
+                    <button
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      className="w-full p-5 flex items-center justify-between text-left"
+                    >
+                      <span className="font-display font-bold text-foreground pr-4">
+                        {faq.question}
+                      </span>
+                      <ChevronDown 
+                        className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${
+                          openFaq === index ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </button>
+                    {openFaq === index && (
+                      <div className="px-5 pb-5 text-muted-foreground leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="py-16 md:py-24 bg-gradient-primary text-primary-foreground">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center space-y-8">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold">
+                Comece Hoje Sua Jornada de Autoconhecimento
+              </h2>
+              <p className="text-lg opacity-90 leading-relaxed">
+                Não deixe para depois. Este é o momento de dar o primeiro passo rumo a uma vida mais consciente, equilibrada e cheia de clareza.
+              </p>
+              
+              <div className="flex items-center gap-4 justify-center flex-wrap">
+                <span className="text-lg opacity-80 line-through">De R$ 29,90</span>
+                <span className="text-4xl md:text-5xl font-display font-bold">R$ 9,90</span>
+              </div>
+
+              <Button
+                onClick={handleCtaClick}
+                size="lg"
+                className="text-lg font-display font-bold px-10 py-7 rounded-xl bg-white text-primary hover:bg-white/90 transition-all duration-300 shadow-xl"
+              >
+                Quero Transformar Minha Vida Agora
+              </Button>
+
+              <p className="text-sm opacity-80">
+                Acesso imediato • Garantia de 7 dias • Pagamento 100% seguro
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact & Support */}
+        <section className="py-12 bg-background border-t border-border">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <span>suporte@avodivina.com.br</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp: (11) 99999-9999</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  <span>Atendimento: Seg-Sex, 9h-18h</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
