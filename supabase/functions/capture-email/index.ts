@@ -241,8 +241,8 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({ 
         error: 'Erro interno do servidor', 
-        details: error.message || 'Erro desconhecido',
-        stack: error.stack 
+      details: error instanceof Error ? error.message : 'Erro desconhecido',
+      stack: error instanceof Error ? error.stack : undefined
       }),
       {
         status: 500,

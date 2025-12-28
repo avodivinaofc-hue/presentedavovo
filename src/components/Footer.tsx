@@ -1,6 +1,9 @@
 import { Heart } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  
   return (
     <footer className="bg-gradient-to-r from-purple-900/90 to-indigo-900/90 backdrop-blur-sm border-t border-purple-400/20 py-8 px-4">
       <div className="max-w-6xl mx-auto">
@@ -16,17 +19,17 @@ const Footer = () => {
           {/* CNPJ */}
           <div className="text-center">
             <p className="text-gray-300 text-sm font-['Poppins']">
-              CNPJ: 60.050.992/0001-93
+              {t('footer.cnpj')}
             </p>
           </div>
           
           {/* Direitos autorais */}
           <div className="text-center pt-4 border-t border-purple-400/20">
             <p className="text-gray-400 text-xs font-['Poppins']">
-              © 2024 Avó Divina. Todos os direitos reservados.
+              © 2024 Avó Divina. {t('footer.rights')}
             </p>
             <p className="text-gray-400 text-xs font-['Poppins'] mt-1">
-              Conectando você com a sabedoria ancestral do tarô.
+              {t('footer.tagline')}
             </p>
           </div>
         </div>

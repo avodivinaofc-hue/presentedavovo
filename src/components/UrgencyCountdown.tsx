@@ -24,67 +24,56 @@ export const UrgencyCountdown = ({ initialHours = 2 }: UrgencyCountdownProps) =>
   const seconds = timeLeft % 60;
 
   return (
-    <div className="text-center space-y-3">
-      {/* Texto de Urgência */}
-      <div className="bg-red-600 text-white px-4 py-2 rounded-full inline-block animate-pulse">
-        <span className="text-sm sm:text-base md:text-lg font-bold font-['Arial_Black']">
-          🔥 ÚLTIMAS 2 HORAS! PREÇO ESPECIAL! 🔥
-        </span>
-      </div>
-      
+    <div className="text-center space-y-4">
       {/* Cronômetro */}
-      <div className="bg-red-600/20 border-2 border-red-500 rounded-lg p-4 sm:p-6">
-        <div className="flex items-center justify-center space-x-2 mb-2">
-          <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
-          <span className="text-red-500 text-sm sm:text-base font-bold font-['Arial_Black']">
-            OFERTA TERMINA EM:
+      <div className="vibrant-card p-6 sm:p-8 glow-red">
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-secondary" />
+          <span className="text-lg sm:text-xl md:text-2xl font-display font-black text-gradient-fire uppercase">
+            Oferta Termina em:
           </span>
         </div>
         
-        <div className="grid grid-cols-4 gap-2 sm:gap-4">
+        <div className="grid grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {/* Dias */}
-          <div className="bg-red-600 text-white rounded-lg p-2 sm:p-3">
-            <div className="text-lg sm:text-2xl md:text-3xl font-bold font-['Arial_Black']">
+          <div className="bg-gradient-fire rounded-xl p-3 sm:p-4 glow-red">
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black">
               {String(days).padStart(2, '0')}
             </div>
-            <div className="text-xs sm:text-sm font-bold">
-              {days === 1 ? 'DIA' : 'DIAS'}
+            <div className="text-xs sm:text-sm md:text-base font-body font-bold mt-2 uppercase">
+              {days === 1 ? 'Dia' : 'Dias'}
             </div>
           </div>
           
           {/* Horas */}
-          <div className="bg-red-600 text-white rounded-lg p-2 sm:p-3">
-            <div className="text-lg sm:text-2xl md:text-3xl font-bold font-['Arial_Black']">
+          <div className="bg-gradient-intense rounded-xl p-3 sm:p-4 glow-magenta">
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black">
               {String(hours).padStart(2, '0')}
             </div>
-            <div className="text-xs sm:text-sm font-bold">
-              {hours === 1 ? 'HORA' : 'HORAS'}
+            <div className="text-xs sm:text-sm md:text-base font-body font-bold mt-2 uppercase">
+              {hours === 1 ? 'Hora' : 'Horas'}
             </div>
           </div>
           
           {/* Minutos */}
-          <div className="bg-red-600 text-white rounded-lg p-2 sm:p-3">
-            <div className="text-lg sm:text-2xl md:text-3xl font-bold font-['Arial_Black']">
+          <div className="bg-gradient-fire rounded-xl p-3 sm:p-4 glow-red">
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black">
               {String(minutes).padStart(2, '0')}
             </div>
-            <div className="text-xs sm:text-sm font-bold">
-              {minutes === 1 ? 'MIN' : 'MINS'}
+            <div className="text-xs sm:text-sm md:text-base font-body font-bold mt-2 uppercase">
+              Min
             </div>
           </div>
           
           {/* Segundos */}
-          <div className="bg-red-600 text-white rounded-lg p-2 sm:p-3">
-            <div className="text-lg sm:text-2xl md:text-3xl font-bold font-['Arial_Black']">
+          <div className="bg-gradient-intense rounded-xl p-3 sm:p-4 glow-purple">
+            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black">
               {String(seconds).padStart(2, '0')}
             </div>
-            <div className="text-xs sm:text-sm font-bold">
-              {seconds === 1 ? 'SEG' : 'SEGS'}
+            <div className="text-xs sm:text-sm md:text-base font-body font-bold mt-2 uppercase">
+              Seg
             </div>
           </div>
-        </div>
-        
-        <div className="mt-3 text-red-500 text-xs sm:text-sm font-bold font-['Arial_Black']">
-          ⚠️ Após 2 horas, o preço volta ao valor normal de R$ 29,90
         </div>
       </div>
     </div>

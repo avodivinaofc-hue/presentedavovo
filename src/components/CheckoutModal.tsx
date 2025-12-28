@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { X, ExternalLink } from "lucide-react";
+import { X, ExternalLink, ChevronDown, Minimize2, Maximize2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -24,10 +28,39 @@ export const CheckoutModal = ({
   customerEmail,
   productImage
 }: CheckoutModalProps) => {
+  const { t, i18n } = useTranslation();
+  const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState(true);
+  const [isMinimized, setIsMinimized] = useState(false);
   
-  // Construir URL do Disrupty com email preenchido
-  const disruptyUrl = `https://global.disruptybr.com.br/mmbk5?email=${encodeURIComponent(customerEmail)}`;
+  // Construir URL do checkout baseado no idioma
+  const disruptyUrl = i18n.language === 'pt' 
+    ? 'https://global.disruptybr.com.br/mmbk5'
+    : 'https://global.ironpayapp.com.br/1pipf99pmd';
+  
+  // Determinar moeda e formato baseado no idioma
+  const currency = i18n.language === 'pt' ? 'R$' : '$';
+  const formatPrice = (price: number) => {
+    if (i18n.language === 'pt') {
+      return price.toFixed(2).replace(".", ",");
+    }
+    return price.toFixed(2);
+  };
+  
+  // Calcular preço original baseado no desconto (assumindo 80% OFF para EN, 67% OFF para PT)
+  const discountPercent = i18n.language === 'pt' ? 0.67 : 0.80;
+  const originalPrice = productPrice / (1 - discountPercent);
+
+  // Toast quando modal abre
+  useEffect(() => {
+    if (isOpen) {
+      toast({
+        title: i18n.language === 'pt' ? '🔮 Checkout Seguro' : '🔮 Secure Checkout',
+        description: i18n.language === 'pt' ? 'Carregando sua experiência de pagamento...' : 'Loading your payment experience...',
+        duration: 2000,
+      });
+    }
+  }, [isOpen, i18n.language]);
 
   // Simular carregamento do iframe
   useEffect(() => {
@@ -43,14 +76,14 @@ export const CheckoutModal = ({
   // Detectar quando o pagamento é concluído (você pode integrar com webhooks do Disrupty)
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      // Verificar se a mensagem é do Disrupty indicando pagamento concluído
-      if (event.origin === "https://global.disruptybr.com.br" && 
+      // Verificar se a mensagem é do checkout indicando pagamento concluído
+      if (event.origin === "https://global.ironpayapp.com.br" && 
           event.data && 
           event.data.type === "payment_completed") {
         
         toast({
-          title: "Pagamento realizado com sucesso! 🎉",
-          description: "Redirecionando para o e-book...",
+          title: i18n.language === 'pt' ? 'Pagamento realizado com sucesso! 🎉' : 'Payment completed successfully! 🎉',
+          description: i18n.language === 'pt' ? 'Redirecionando para o e-book...' : 'Redirecting to your e-book...',
         });
 
         // Redirecionar após 2 segundos
@@ -71,109 +104,131 @@ export const CheckoutModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] sm:w-[90vw] md:max-w-6xl mx-auto bg-mystic-blue/95 border-mystic-purple-light max-h-[95vh] overflow-hidden p-0">
-        <DialogHeader className="p-3 sm:p-6 pb-2 sm:pb-4">
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-center text-mystic-gold text-sm sm:text-xl font-['Arial_Black'] flex-1 pr-2">
-              🔮 Finalizar Compra - {productName}
+      <DialogContent className="w-[97vw] h-[97vh] mx-auto bg-mystic-blue/95 border-mystic-purple-light overflow-hidden p-0 max-w-none">
+        <DialogHeader className="p-2 sm:p-6 pb-1 sm:pb-4 sticky top-0 bg-mystic-blue/95 z-10 backdrop-blur-sm">
+          <div className="flex items-center justify-between gap-2">
+            <DialogTitle className="text-mystic-gold text-sm sm:text-xl font-['Arial_Black'] flex-1">
+              {isMobile ? (i18n.language === 'pt' ? '🔮 Finalizar Compra' : '🔮 Complete Purchase') : `🔮 ${i18n.language === 'pt' ? 'Finalizar Compra' : 'Complete Purchase'} - ${productName}`}
             </DialogTitle>
-            <button
-              onClick={onClose}
-              className="text-mystic-cream/60 hover:text-mystic-cream transition-colors p-1 sm:p-2 hover:bg-mystic-purple/20 rounded-full flex-shrink-0"
-            >
-              <X className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
+            <div className="flex items-center gap-1 flex-shrink-0">
+              <button
+                onClick={() => setIsMinimized(!isMinimized)}
+                className="text-mystic-cream/60 hover:text-mystic-cream transition-colors p-1 sm:p-2 hover:bg-mystic-purple/20 rounded-full"
+                title={isMinimized ? (i18n.language === 'pt' ? 'Expandir' : 'Expand') : (i18n.language === 'pt' ? 'Minimizar' : 'Minimize')}
+              >
+                {isMinimized ? <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5" /> : <Minimize2 className="w-4 h-4 sm:w-5 sm:h-5" />}
+              </button>
+              <button
+                onClick={onClose}
+                className="text-mystic-cream/60 hover:text-mystic-cream transition-colors p-1 sm:p-2 hover:bg-mystic-purple/20 rounded-full"
+              >
+                <X className="w-4 h-4 sm:w-6 sm:h-6" />
+              </button>
+            </div>
           </div>
         </DialogHeader>
         
-        <div className="flex-1 overflow-hidden">
-          {/* Resumo do Produto */}
-          <div className="px-3 sm:px-6 pb-2 sm:pb-4">
-            <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-4 bg-mystic-purple/20 p-3 sm:p-4 rounded-lg">
-              <img 
-                src={productImage} 
-                alt={productName}
-                className="w-12 sm:w-16 h-auto rounded-lg shadow-mystical flex-shrink-0"
-              />
-              <div className="flex-1 text-center sm:text-left">
-                <h3 className="text-sm sm:text-lg font-bold text-mystic-cream font-['Arial_Black']">
-                  {productName}
-                </h3>
-                <div className="space-y-1">
-                  <div className="text-xs sm:text-sm text-mystic-cream/60 line-through font-['Arial_Black']">
-                    De R$ 39,90
-                  </div>
-                  <div className="text-lg sm:text-2xl font-bold text-mystic-gold font-['Arial_Black']">
-                    Por R$ {productPrice.toFixed(2).replace(".", ",")}
-                  </div>
-                  <div className="text-xs text-green-400 font-bold font-['Arial_Black']">
-                    Economia de R$ 20,00!
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Iframe do Checkout */}
-          <div className="px-3 sm:px-6 pb-3 sm:pb-6 flex-1 min-h-0">
-            {isLoading ? (
-              <div className="text-center space-y-4 py-8 sm:py-12">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-mystic-gold/30 border-t-mystic-gold rounded-full animate-spin mx-auto"></div>
-                <div className="space-y-2">
-                  <h3 className="text-sm sm:text-lg font-bold text-mystic-cream font-['Arial_Black']">
-                    Carregando Checkout...
+        {!isMinimized && (
+          <ScrollArea className="flex-1">
+            {/* Resumo do Produto */}
+            <div className="px-2 sm:px-6 pb-2 sm:pb-4">
+              <div className="flex flex-row items-center gap-2 sm:gap-4 bg-mystic-purple/20 p-2 sm:p-4 rounded-lg">
+                <img 
+                  src={productImage} 
+                  alt={productName}
+                  className="hidden sm:block w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-lg shadow-mystical flex-shrink-0"
+                  onError={(e) => {
+                    console.error('Erro ao carregar imagem:', productImage);
+                    e.currentTarget.src = '/lovable-uploads/vovo-divina-nova.jpeg.png';
+                  }}
+                />
+                <div className="flex-1">
+                  <h3 className="text-xs sm:text-lg font-bold text-mystic-cream font-['Arial_Black'] mb-1">
+                    {productName}
                   </h3>
-                  <p className="text-mystic-cream/80 text-xs sm:text-sm">
-                    Preparando sua experiência de pagamento segura
-                  </p>
+                  <div className="space-y-0.5 sm:space-y-1">
+                    <div className="hidden sm:block text-xs sm:text-sm text-mystic-cream/60 line-through font-['Arial_Black']">
+                      {t('hero.price.from').replace('$29.90', `${currency} ${formatPrice(originalPrice)}`)}
+                    </div>
+                    <div className="text-base sm:text-2xl font-bold text-mystic-gold font-['Arial_Black']">
+                      {currency} {formatPrice(productPrice)}
+                    </div>
+                    <div className="hidden sm:block text-xs text-green-400 font-bold font-['Arial_Black']">
+                      {t('hero.price.discount')}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <div className="space-y-3 sm:space-y-4">
-                <div className="bg-mystic-purple/10 p-2 sm:p-3 rounded-lg text-center">
-                  <p className="text-xs sm:text-sm text-mystic-cream/80">
-                    Complete seu pagamento de forma segura abaixo
-                  </p>
-                </div>
-                
-                <div className="relative w-full h-[60vh] sm:h-[70vh] min-h-[400px] sm:min-h-[500px] bg-white rounded-lg overflow-hidden shadow-lg">
-                  <iframe
-                    src={disruptyUrl}
-                    className="w-full h-full border-0"
-                    title="Checkout Disrupty"
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
-                    onLoad={() => {
-                      console.log('Iframe do Disrupty carregado');
-                    }}
-                  />
-                </div>
-
-                {/* Botão de Fallback */}
-                <div className="text-center">
-                  <button
-                    onClick={openInNewTab}
-                    className="inline-flex items-center space-x-2 text-mystic-gold hover:text-mystic-cream transition-colors text-xs sm:text-sm underline"
-                  >
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                    <span>Abrir checkout em nova aba</span>
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Garantias */}
-          <div className="px-3 sm:px-6 pb-3 sm:pb-6">
-            <div className="text-center space-y-1 sm:space-y-2 bg-mystic-purple/10 p-2 sm:p-3 rounded-lg">
-              <div className="text-xs text-mystic-cream/60 space-y-0.5 sm:space-y-1">
-                <p className="text-xs">✅ Pagamento 100% seguro e criptografado</p>
-                <p className="text-xs">✅ Acesso imediato após confirmação</p>
-                <p className="text-xs">✅ Garantia de satisfação de 7 dias</p>
-                <p className="text-xs">✅ Suporte especializado</p>
               </div>
             </div>
-          </div>
-        </div>
+
+            {/* Iframe do Checkout */}
+            <div className="px-2 sm:px-6 pb-2 sm:pb-6">
+              {isLoading ? (
+                <div className="text-center space-y-3 py-6 sm:py-12">
+                  <div className="space-y-3">
+                    <Skeleton className="h-8 w-3/4 mx-auto bg-mystic-purple/20" />
+                    <Skeleton className="h-[350px] sm:h-[500px] w-full bg-mystic-purple/20 rounded-lg" />
+                    <Skeleton className="h-6 w-1/2 mx-auto bg-mystic-purple/20" />
+                  </div>
+                  <p className="text-mystic-gold text-xs sm:text-sm font-['Arial_Black'] animate-pulse">
+                    {i18n.language === 'pt' ? '🔮 Carregando checkout seguro...' : '🔮 Loading secure checkout...'}
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-2 sm:space-y-4">
+                  <div className="hidden sm:block bg-mystic-purple/10 p-2 sm:p-3 rounded-lg text-center">
+                    <p className="text-xs sm:text-sm text-mystic-cream/80">
+                      {i18n.language === 'pt' ? 'Complete seu pagamento de forma segura abaixo' : 'Complete your payment securely below'}
+                    </p>
+                  </div>
+                  
+                  <div className="relative w-full h-[70vh] bg-white rounded-lg overflow-hidden shadow-lg">
+                    <iframe
+                      src={disruptyUrl}
+                      className="w-full h-full border-0"
+                      title="Checkout Disrupty"
+                      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
+                      onLoad={() => {
+                        console.log('Iframe do Disrupty carregado');
+                      }}
+                    />
+                  </div>
+
+                  {/* Indicador de Scroll */}
+                  <div className="text-center animate-bounce">
+                    <ChevronDown className="w-4 h-4 text-mystic-gold/60 mx-auto" />
+                    <p className="text-xs text-mystic-cream/40">
+                      {i18n.language === 'pt' ? 'Role para ver mais' : 'Scroll to see more'}
+                    </p>
+                  </div>
+
+                  {/* Botão de Fallback */}
+                  <div className="text-center">
+                    <button
+                      onClick={openInNewTab}
+                      className="inline-flex items-center gap-2 text-mystic-gold hover:text-mystic-cream transition-colors text-xs sm:text-sm underline"
+                    >
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span>{i18n.language === 'pt' ? 'Abrir checkout em nova aba' : 'Open checkout in new tab'}</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Garantias - Oculto em mobile */}
+            <div className="hidden md:block px-2 sm:px-6 pb-2 sm:pb-6">
+              <div className="text-center space-y-1 bg-mystic-purple/10 p-2 sm:p-3 rounded-lg">
+                <div className="text-xs text-mystic-cream/60 space-y-0.5">
+                  <p>✅ {t('guarantees.secure')}</p>
+                  <p>✅ {t('guarantees.immediate')}</p>
+                  <p>✅ {t('guarantees.satisfaction')}</p>
+                  <p>✅ {t('guarantees.support')}</p>
+                </div>
+              </div>
+            </div>
+          </ScrollArea>
+        )}
       </DialogContent>
     </Dialog>
   );
