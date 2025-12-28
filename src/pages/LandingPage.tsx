@@ -112,7 +112,7 @@ const LandingPage = () => {
                 {" "}e tenha clareza nas decisões.
               </h1>
 
-              <p className="text-lg sm:text-xl text-gray-200 leading-relaxed font-['Poppins'] max-w-2xl mx-auto lg:mx-0">
+              <p className="text-lg sm:text-xl text-gray-200 leading-relaxed font-['Poppins'] max-w-2xl mx-auto lg:mx-0 hyphens-auto text-justify sm:text-left">
                 O guia completo da <span className="text-pink-300 font-semibold">Vovó Divina</span> que já ajudou mais de{" "}
                 <span className="text-yellow-400 font-bold border-b border-yellow-400/50">29 mil pessoas</span>{" "}
                 a desvendarem os segredos do tarot.
@@ -142,7 +142,14 @@ const LandingPage = () => {
             </div>
 
             {/* Imagem Principal */}
-            <div className="flex-1 flex justify-center w-full max-w-[320px] sm:max-w-md lg:max-w-none order-1 lg:order-2">
+            <div className="flex-1 flex flex-col items-center justify-center w-full max-w-[320px] sm:max-w-md lg:max-w-none order-1 lg:order-2">
+              {/* Texto de Desconto - Pedido do Usuário */}
+              <div className="mb-4 text-center">
+                <p className="text-red-500 font-bold text-lg sm:text-xl uppercase tracking-wider drop-shadow-sm animate-pulse">
+                  Desconto apenas para os meus seguidores fiéis
+                </p>
+              </div>
+
               <div className="relative group perspective-1000">
                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 to-pink-600 rounded-xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                 <img
