@@ -317,7 +317,7 @@ const LandingPagePT = () => {
           <div className="relative inline-block mb-8">
             <div className="absolute inset-0 bg-yellow-400 blur-xl opacity-20" />
             <img
-              src="/lovable-uploads/vovo-divina-v2.png"
+              src="/lovable-uploads/vovo-divina-v3.png"
               alt="Vovó Divina"
               className="relative w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-full border-4 border-yellow-400 shadow-2xl mx-auto"
             />
