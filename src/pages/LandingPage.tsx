@@ -6,7 +6,8 @@ const LandingPage = () => {
   const { i18n } = useTranslation();
 
   // Render language-specific landing page
-  if (i18n.language === 'pt') {
+  // Render language-specific landing page
+  if (i18n.language.startsWith('pt')) {
     return <LandingPagePT />;
   }
 
