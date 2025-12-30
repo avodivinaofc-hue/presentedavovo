@@ -42,14 +42,19 @@ const LandingPagePT = () => {
       // Simular processamento
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Sucesso - abrir checkout
+      // URL do checkout Kirvano
+      const checkoutUrl = 'https://pay.kirvano.com/cf0d2343-a74c-49c9-bf63-235f4aee2fe2';
+
+      // Sucesso - abrir checkout em nova aba
       toast({
-        title: "Sucesso! ",
-        description: "Abrindo checkout para finalizar sua compra..."
+        title: "Sucesso! ✨",
+        description: "Abrindo checkout seguro em nova janela..."
       });
 
-      console.log("Abrindo checkout...");
-      setShowCheckout(true);
+      console.log("Abrindo checkout Kirvano...");
+
+      // Abrir checkout em nova aba (contorna restrição CSP do Kirvano)
+      window.open(checkoutUrl, '_blank');
 
     } catch (error) {
       console.error('Unexpected error:', error);

@@ -1,11 +1,10 @@
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { useTranslation } from "react-i18next";
 import "./i18n/config";
 
 // Lazy load pages
@@ -18,7 +17,7 @@ const RefundPage = lazy(() => import("./pages/RefundPage"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="animate-pulse text-primary text-xl">Loading...</div>
+    <div className="animate-pulse text-primary text-xl">Carregando...</div>
   </div>
 );
 
@@ -33,23 +32,6 @@ const queryClient = new QueryClient({
   },
 });
 
-const LanguageRoute = ({ children }: { children: React.ReactNode }) => {
-  const { lang } = useParams<{ lang: string }>();
-  const { i18n } = useTranslation();
-
-  useEffect(() => {
-    if (lang && ['en', 'pt', 'es'].includes(lang) && i18n.language !== lang) {
-      i18n.changeLanguage(lang);
-    }
-  }, [lang, i18n]);
-
-  return <>{children}</>;
-};
-
-const RootRedirect = () => {
-  return <Navigate to="/en/" replace />;
-};
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
@@ -59,11 +41,10 @@ const App = () => (
         <BrowserRouter>
           <Suspense fallback={<PageLoader />}>
             <Routes>
-              <Route path="/" element={<RootRedirect />} />
-              <Route path="/:lang/" element={<LanguageRoute><LandingPage /></LanguageRoute>} />
-              <Route path="/:lang/terms" element={<LanguageRoute><TermsPage /></LanguageRoute>} />
-              <Route path="/:lang/privacy" element={<LanguageRoute><PrivacyPage /></LanguageRoute>} />
-              <Route path="/:lang/refund" element={<LanguageRoute><RefundPage /></LanguageRoute>} />
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/termos" element={<TermsPage />} />
+              <Route path="/privacidade" element={<PrivacyPage />} />
+              <Route path="/reembolso" element={<RefundPage />} />
               <Route path="/ebook" element={<EbookPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

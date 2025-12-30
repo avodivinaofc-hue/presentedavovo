@@ -28,39 +28,34 @@ export const CheckoutModal = ({
   customerEmail,
   productImage
 }: CheckoutModalProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
-  
-  // Construir URL do checkout baseado no idioma
-  const disruptyUrl = i18n.language === 'pt' 
-    ? 'https://global.disruptybr.com.br/mmbk5'
-    : 'https://global.ironpayapp.com.br/1pipf99pmd';
-  
-  // Determinar moeda e formato baseado no idioma
-  const currency = i18n.language === 'pt' ? 'R$' : '$';
+
+  // URL do checkout Kirvano
+  const checkoutUrl = 'https://pay.kirvano.com/cf0d2343-a74c-49c9-bf63-235f4aee2fe2';
+
+  // Moeda e formato em português
+  const currency = 'R$';
   const formatPrice = (price: number) => {
-    if (i18n.language === 'pt') {
-      return price.toFixed(2).replace(".", ",");
-    }
-    return price.toFixed(2);
+    return price.toFixed(2).replace(".", ",");
   };
-  
-  // Calcular preço original baseado no desconto (assumindo 80% OFF para EN, 67% OFF para PT)
-  const discountPercent = i18n.language === 'pt' ? 0.67 : 0.80;
+
+  // Calcular preço original baseado no desconto (75% OFF)
+  const discountPercent = 0.75;
   const originalPrice = productPrice / (1 - discountPercent);
 
   // Toast quando modal abre
   useEffect(() => {
     if (isOpen) {
       toast({
-        title: i18n.language === 'pt' ? '🔮 Checkout Seguro' : '🔮 Secure Checkout',
-        description: i18n.language === 'pt' ? 'Carregando sua experiência de pagamento...' : 'Loading your payment experience...',
+        title: '🔮 Checkout Seguro',
+        description: 'Carregando sua experiência de pagamento...',
         duration: 2000,
       });
     }
-  }, [isOpen, i18n.language]);
+  }, [isOpen]);
 
   // Simular carregamento do iframe
   useEffect(() => {
@@ -73,17 +68,17 @@ export const CheckoutModal = ({
     }
   }, [isOpen]);
 
-  // Detectar quando o pagamento é concluído (você pode integrar com webhooks do Disrupty)
+  // Detectar quando o pagamento é concluído
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       // Verificar se a mensagem é do checkout indicando pagamento concluído
-      if (event.origin === "https://global.ironpayapp.com.br" && 
-          event.data && 
-          event.data.type === "payment_completed") {
-        
+      if (event.origin === "https://pay.kirvano.com" &&
+        event.data &&
+        event.data.type === "payment_completed") {
+
         toast({
-          title: i18n.language === 'pt' ? 'Pagamento realizado com sucesso! 🎉' : 'Payment completed successfully! 🎉',
-          description: i18n.language === 'pt' ? 'Redirecionando para o e-book...' : 'Redirecting to your e-book...',
+          title: 'Pagamento realizado com sucesso! 🎉',
+          description: 'Redirecionando para o e-book...',
         });
 
         // Redirecionar após 2 segundos
@@ -99,7 +94,7 @@ export const CheckoutModal = ({
 
   // Abrir checkout em nova aba como fallback
   const openInNewTab = () => {
-    window.open(disruptyUrl, '_blank');
+    window.open(checkoutUrl, '_blank');
   };
 
   return (
@@ -108,13 +103,13 @@ export const CheckoutModal = ({
         <DialogHeader className="p-2 sm:p-6 pb-1 sm:pb-4 sticky top-0 bg-mystic-blue/95 z-10 backdrop-blur-sm">
           <div className="flex items-center justify-between gap-2">
             <DialogTitle className="text-mystic-gold text-sm sm:text-xl font-['Arial_Black'] flex-1">
-              {isMobile ? (i18n.language === 'pt' ? '🔮 Finalizar Compra' : '🔮 Complete Purchase') : `🔮 ${i18n.language === 'pt' ? 'Finalizar Compra' : 'Complete Purchase'} - ${productName}`}
+              {isMobile ? '🔮 Finalizar Compra' : `🔮 Finalizar Compra - ${productName}`}
             </DialogTitle>
             <div className="flex items-center gap-1 flex-shrink-0">
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
                 className="text-mystic-cream/60 hover:text-mystic-cream transition-colors p-1 sm:p-2 hover:bg-mystic-purple/20 rounded-full"
-                title={isMinimized ? (i18n.language === 'pt' ? 'Expandir' : 'Expand') : (i18n.language === 'pt' ? 'Minimizar' : 'Minimize')}
+                title={isMinimized ? 'Expandir' : 'Minimizar'}
               >
                 {isMinimized ? <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5" /> : <Minimize2 className="w-4 h-4 sm:w-5 sm:h-5" />}
               </button>
@@ -127,14 +122,14 @@ export const CheckoutModal = ({
             </div>
           </div>
         </DialogHeader>
-        
+
         {!isMinimized && (
           <ScrollArea className="flex-1">
             {/* Resumo do Produto */}
             <div className="px-2 sm:px-6 pb-2 sm:pb-4">
               <div className="flex flex-row items-center gap-2 sm:gap-4 bg-mystic-purple/20 p-2 sm:p-4 rounded-lg">
-                <img 
-                  src={productImage} 
+                <img
+                  src={productImage}
                   alt={productName}
                   className="hidden sm:block w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-lg shadow-mystical flex-shrink-0"
                   onError={(e) => {
@@ -171,25 +166,25 @@ export const CheckoutModal = ({
                     <Skeleton className="h-6 w-1/2 mx-auto bg-mystic-purple/20" />
                   </div>
                   <p className="text-mystic-gold text-xs sm:text-sm font-['Arial_Black'] animate-pulse">
-                    {i18n.language === 'pt' ? '🔮 Carregando checkout seguro...' : '🔮 Loading secure checkout...'}
+                    🔮 Carregando checkout seguro...
                   </p>
                 </div>
               ) : (
                 <div className="space-y-2 sm:space-y-4">
                   <div className="hidden sm:block bg-mystic-purple/10 p-2 sm:p-3 rounded-lg text-center">
                     <p className="text-xs sm:text-sm text-mystic-cream/80">
-                      {i18n.language === 'pt' ? 'Complete seu pagamento de forma segura abaixo' : 'Complete your payment securely below'}
+                      Complete seu pagamento de forma segura abaixo
                     </p>
                   </div>
-                  
+
                   <div className="relative w-full h-[70vh] bg-white rounded-lg overflow-hidden shadow-lg">
                     <iframe
-                      src={disruptyUrl}
+                      src={checkoutUrl}
                       className="w-full h-full border-0"
-                      title="Checkout Disrupty"
+                      title="Checkout Kirvano"
                       sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
                       onLoad={() => {
-                        console.log('Iframe do Disrupty carregado');
+                        console.log('Iframe do Kirvano carregado');
                       }}
                     />
                   </div>
@@ -198,7 +193,7 @@ export const CheckoutModal = ({
                   <div className="text-center animate-bounce">
                     <ChevronDown className="w-4 h-4 text-mystic-gold/60 mx-auto" />
                     <p className="text-xs text-mystic-cream/40">
-                      {i18n.language === 'pt' ? 'Role para ver mais' : 'Scroll to see more'}
+                      Role para ver mais
                     </p>
                   </div>
 
@@ -209,7 +204,7 @@ export const CheckoutModal = ({
                       className="inline-flex items-center gap-2 text-mystic-gold hover:text-mystic-cream transition-colors text-xs sm:text-sm underline"
                     >
                       <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span>{i18n.language === 'pt' ? 'Abrir checkout em nova aba' : 'Open checkout in new tab'}</span>
+                      <span>Abrir checkout em nova aba</span>
                     </button>
                   </div>
                 </div>
@@ -230,6 +225,6 @@ export const CheckoutModal = ({
           </ScrollArea>
         )}
       </DialogContent>
-    </Dialog>
+    </Dialog >
   );
 };
