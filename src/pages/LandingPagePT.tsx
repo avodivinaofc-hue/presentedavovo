@@ -17,7 +17,6 @@ const LandingPagePT = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
-  const [orderBump, setOrderBump] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -424,33 +423,6 @@ const LandingPagePT = () => {
                       placeholder="exemplo@email.com"
                       disabled={isLoading}
                     />
-                  </div>
-                </div>
-
-                {/* Order Bump Moderno */}
-                <div className="bg-amber-900/20 p-4 rounded-xl border border-amber-500/20 hover:border-amber-500/40 transition-colors cursor-pointer" onClick={() => setOrderBump(!orderBump)}>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1">
-                      <input
-                        type="checkbox"
-                        id="order-bump"
-                        checked={orderBump}
-                        onChange={(e) => setOrderBump(e.target.checked)}
-                        className="w-5 h-5 accent-yellow-400 cursor-pointer"
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="order-bump" className="text-white font-bold text-base cursor-pointer block mb-1">
-                        Quero acesso à Plataforma de Tiragens
-                      </label>
-                      <p className="text-gray-400 text-sm leading-snug">
-                        Receba +10 consultas personalizadas com nosso time.
-                      </p>
-                      <div className="mt-2 text-sm font-semibold">
-                        <span className="text-yellow-400">Por apenas +R$ 24,90</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
