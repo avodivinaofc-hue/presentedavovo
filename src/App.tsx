@@ -10,6 +10,7 @@ import "./i18n/config";
 // Lazy load pages
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const EbookPage = lazy(() => import("./pages/EbookPage"));
+const DigitalBookPage = lazy(() => import("./pages/DigitalBookPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
@@ -46,6 +47,7 @@ const App = () => (
               <Route path="/privacidade" element={<PrivacyPage />} />
               <Route path="/reembolso" element={<RefundPage />} />
               <Route path="/ebook" element={<EbookPage />} />
+              <Route path="/digital" element={<DigitalBookPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
