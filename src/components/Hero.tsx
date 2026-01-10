@@ -26,7 +26,7 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
 
                 {/* Subheadline with high breathing room */}
                 <p className="text-lg md:text-xl text-authentic-gray font-light leading-loose max-w-xl mx-auto">
-                    Algo dentro de você está pedindo uma resposta agora.
+                    Um guia espiritual simbólico para te ajudar a tomar decisões, fortalecer sua fé e enxergar caminhos com mais clareza.
                 </p>
 
                 {/* Image - Abstract/Atmospheric */}
@@ -42,7 +42,7 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
                 {/* Deep Emotional Text */}
                 <div className="space-y-6 pt-8">
                     <p className="text-xl font-serif text-authentic-text/90 italic">
-                        "Quando o coração está inquieto, o oráculo se manifesta."
+                        "Quando o coração está inquieto, o oráculo traz luz."
                     </p>
 
                     <div className="w-16 h-[1px] bg-authentic-gold/30 mx-auto" />
@@ -58,7 +58,7 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
                         onClick={onOpenCheckout}
                         className="btn-authentic"
                     >
-                        Avó, eu preciso da minha resposta
+                        Acessar meu guia
                     </button>
                 </div>
             </div>

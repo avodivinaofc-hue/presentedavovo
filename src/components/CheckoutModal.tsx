@@ -33,11 +33,11 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
                     <Sparkles className="w-10 h-10 text-authentic-gold mx-auto" />
 
                     <h3 className="text-2xl md:text-3xl font-serif text-authentic-text">
-                        Sua leitura está <span className="italic text-authentic-gold">pronta</span>
+                        Seu guia espiritual está <span className="italic text-authentic-gold">pronto</span>
                     </h3>
 
                     <p className="text-authentic-gray">
-                        Ao confirmar, você terá acesso imediato ao Oráculo Interior e sua leitura personalizada.
+                        Ao confirmar, você terá acesso imediato ao Oráculo Interior e seu conteúdo espiritual guiado.
                     </p>
 
                     {/* Price */}
@@ -51,7 +51,7 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
                         onClick={handleCheckout}
                         className="btn-authentic w-full"
                     >
-                        Abrir minha leitura
+                        Acessar meu guia
                     </button>
 
                     <p className="text-xs text-authentic-gray/40">

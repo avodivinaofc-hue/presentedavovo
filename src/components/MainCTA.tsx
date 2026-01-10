@@ -17,12 +17,12 @@ export default function MainCTA({ onOpenCheckout }: MainCTAProps) {
                     onClick={onOpenCheckout}
                     className="btn-authentic w-full md:w-auto min-w-[300px] group"
                 >
-                    <span className="mr-4">Receber minha leitura agora</span>
+                    <span className="mr-4">Acessar meu guia</span>
                     <ArrowRight className="w-4 h-4 text-authentic-gold/50 group-hover:translate-x-1 transition-transform" />
                 </button>
 
                 <p className="text-authentic-gray/40 text-xs tracking-[0.2em] uppercase">
-                    Acesso imediato • Leitura Secreta
+                    Acesso imediato • Guia Espiritual
                 </p>
             </div>
         </section>

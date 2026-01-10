@@ -8,11 +8,11 @@ export default function WhatIsOracle() {
                 <div className="text-center space-y-4">
                     <h2 className="text-3xl md:text-4xl text-authentic-text">
                         O Oráculo Interior não prevê.<br />
-                        <span className="italic text-authentic-gold">Ele revela.</span>
+                        <span className="italic text-authentic-gold">Ele traz clareza.</span>
                     </h2>
 
                     <p className="text-authentic-gray font-light max-w-md mx-auto">
-                        Este não é um jogo de cartas. Não é superstição.
+                        Reflexões e rituais para seu momento. Não é um jogo de cartas. Não é superstição.
                     </p>
                 </div>
 
