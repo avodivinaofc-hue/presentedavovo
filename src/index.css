@@ -2,136 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+    /* Authentic Palette */
+    --bg-primary: 11 11 15;
+    /* #0B0B0F - Deep Black */
+    --bg-secondary: 42 14 63;
+    /* #2A0E3F - Spiritual Purple */
+    --accent-gold: 201 164 76;
+    /* #C9A44C - Ritual Gold */
+    --text-primary: 243 239 232;
+    /* #F3EFE8 - Off-white Warm */
+    --text-secondary: 182 177 169;
+    /* #B6B1A9 - Warm Gray */
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-    background-color: #0a050e;
-    color: #eaddcf;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Cinzel', serif;
-    font-weight: 500;
-    line-height: 1.3;
-}
-
-/* Animations */
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
+@layer base {
+    body {
+        @apply bg-[#0B0B0F] text-[#F3EFE8] font-sans antialiased selection:bg-[#2A0E3F] selection:text-[#C9A44C];
+        background-image: url('/authentic_hero_background.png');
+        background-blend-mode: soft-light;
+        background-attachment: fixed;
+        background-size: cover;
     }
 
-    50% {
-        transform: translateY(-8px);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-serif tracking-wide;
     }
 }
 
-@keyframes pulse-glow {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+@layer components {
+    .btn-authentic {
+        @apply inline-flex items-center justify-center px-8 py-4 bg-[#2A0E3F] text-[#C9A44C] font-serif font-medium tracking-widest text-lg transition-all duration-500 hover:bg-[#2A0E3F]/80 hover:text-[#F3EFE8] border border-white/5 hover:border-[#C9A44C]/30;
     }
 
-    50% {
-        box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
-    }
-}
-
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+    .text-ritual {
+        @apply font-serif text-[#C9A44C];
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .card-authentic {
+        @apply p-8 border border-white/5 bg-[#0B0B0F]/50 backdrop-blur-sm;
+    }
+
+    .quote-authentic {
+        @apply font-serif italic text-xl leading-relaxed text-[#F3EFE8]/90;
     }
 }
 
-.animate-float {
-    animation: float 6s ease-in-out infinite;
+/* Custom Scrollbar for "Closed System" feel */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
+::-webkit-scrollbar-track {
+    background: #0B0B0F;
 }
 
-.animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
-}
-
-/* Custom Button */
-.btn-sacred {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem 2.5rem;
-    background: linear-gradient(135deg, #d4af37 0%, #e8c868 50%, #d4af37 100%);
-    color: #0a050e;
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-    font-size: 1.125rem;
-    border-radius: 9999px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.btn-sacred:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-}
-
-/* Divider */
-.mystic-divider {
-    width: 100%;
-    max-width: 200px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%);
-    margin: 2rem auto;
-}
-
-/* Modal Overlay */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    padding: 1rem;
-}
-
-.modal-content {
-    background: linear-gradient(180deg, #150d1a 0%, #0a050e 100%);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 1.5rem;
-    padding: 2.5rem;
-    max-width: 480px;
-    width: 100%;
-    text-align: center;
-    position: relative;
+::-webkit-scrollbar-thumb {
+    background: #2A0E3F;
+    border-radius: 4px;
 }

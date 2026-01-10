@@ -1,4 +1,4 @@
-import { Sparkles } from 'lucide-react'
+import { Moon } from 'lucide-react'
 
 interface HeroProps {
     onOpenCheckout: () => void
@@ -6,53 +6,59 @@ interface HeroProps {
 
 export default function Hero({ onOpenCheckout }: HeroProps) {
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 relative overflow-hidden">
-            {/* Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-mystic/10 rounded-full blur-[150px] pointer-events-none" />
+        <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 py-24 relative overflow-hidden">
 
-            <div className="relative z-10 max-w-3xl mx-auto space-y-8 animate-fade-in-up">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5">
-                    <Sparkles className="w-4 h-4 text-gold" />
-                    <span className="text-gold text-sm tracking-widest uppercase">Mensagem do Universo</span>
+            {/* Cinematic Lighting Effect */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-[50vh] bg-authentic-purple/20 blur-[120px] pointer-events-none -z-10" />
+
+            <div className="relative z-10 max-w-2xl mx-auto space-y-12 fade-in">
+
+                {/* Symbol */}
+                <div className="flex justify-center opacity-80">
+                    <Moon className="w-8 h-8 text-authentic-gold stroke-1" />
                 </div>
 
                 {/* Headline */}
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight text-authentic-text tracking-normal">
                     Se você chegou até aqui,<br />
-                    <span className="text-gold">não foi por acaso.</span>
+                    <span className="italic text-authentic-gold/90">não foi por acaso.</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-parchment/90 font-light">
+                {/* Subheadline with high breathing room */}
+                <p className="text-lg md:text-xl text-authentic-gray font-light leading-loose max-w-xl mx-auto">
                     Algo dentro de você está pedindo uma resposta agora.
                 </p>
 
-                {/* Divider */}
-                <div className="mystic-divider" />
+                {/* Image - Abstract/Atmospheric */}
+                <div className="relative w-full max-w-md mx-auto aspect-[4/5] overflow-hidden rounded-sm border border-authentic-gold/10 opacity-90 grayscale-[20%] sepia-[10%]">
+                    <div className="absolute inset-0 bg-gradient-to-t from-authentic-black via-transparent to-transparent z-10" />
+                    <img
+                        src="/authentic_hero_hands.png"
+                        alt="Mãos antigas sobre o altar"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
 
-                {/* Subheadline */}
-                <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto leading-relaxed">
-                    Quando o coração está inquieto, quando o amor confunde, quando a mente não encontra paz…<br />
-                    <em className="text-gold/80">o Oráculo Interior se manifesta.</em>
-                </p>
-
-                {/* Emotional Text */}
-                <div className="pt-4 space-y-2">
-                    <p className="text-lg text-parchment/80">
-                        Eu sou a <strong className="text-gold font-serif">Avó Divina</strong>.
+                {/* Deep Emotional Text */}
+                <div className="space-y-6 pt-8">
+                    <p className="text-xl font-serif text-authentic-text/90 italic">
+                        "Quando o coração está inquieto, o oráculo se manifesta."
                     </p>
-                    <p className="text-parchment/60">
-                        Não apareço para todos — apenas para quem realmente precisa ouvir a verdade.
+
+                    <div className="w-16 h-[1px] bg-authentic-gold/30 mx-auto" />
+
+                    <p className="text-authentic-gray text-sm tracking-widest uppercase">
+                        Eu sou a Avó Divina
                     </p>
                 </div>
 
-                {/* CTA */}
+                {/* CTA - Minimalist */}
                 <div className="pt-8">
                     <button
                         onClick={onOpenCheckout}
-                        className="btn-sacred animate-pulse-glow"
+                        className="btn-authentic"
                     >
-                        Avó, eu preciso da minha resposta agora
+                        Avó, eu preciso da minha resposta
                     </button>
                 </div>
             </div>

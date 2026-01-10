@@ -7,17 +7,19 @@ export default {
     theme: {
         extend: {
             colors: {
-                'void': '#0a050e',
-                'void-light': '#150d1a',
-                'gold': '#d4af37',
-                'gold-light': '#e8c868',
-                'parchment': '#eaddcf',
-                'mystic': '#9d4edd',
+                'authentic-black': '#0B0B0F',
+                'authentic-purple': '#2A0E3F',
+                'authentic-gold': '#C9A44C',
+                'authentic-text': '#F3EFE8',
+                'authentic-gray': '#B6B1A9',
             },
             fontFamily: {
-                'serif': ['Cinzel', 'serif'],
-                'sans': ['Lato', 'sans-serif'],
+                serif: ['Playfair Display', 'serif'],
+                sans: ['Inter', 'sans-serif'],
             },
+            backgroundImage: {
+                'ritual-gradient': 'radial-gradient(circle at center, rgba(42, 14, 63, 0.4) 0%, rgba(11, 11, 15, 0) 70%)',
+            }
         },
     },
     plugins: [],

@@ -2,10 +2,8 @@ import { useState } from 'react'
 import Hero from './components/Hero'
 import EmotionalValidation from './components/EmotionalValidation'
 import WhatIsOracle from './components/WhatIsOracle'
-import WhoIsGrandmother from './components/WhoIsGrandmother'
-import WhatYouReceive from './components/WhatYouReceive'
+import AuthenticSocialProof from './components/AuthenticSocialProof'
 import MainCTA from './components/MainCTA'
-import EmotionalSecurity from './components/EmotionalSecurity'
 import CheckoutModal from './components/CheckoutModal'
 
 function App() {
@@ -15,17 +13,17 @@ function App() {
     const closeCheckout = () => setIsModalOpen(false)
 
     return (
-        <div className="min-h-screen bg-void">
+        <div className="min-h-screen bg-authentic-black selection:bg-authentic-purple selection:text-authentic-gold">
             <Hero onOpenCheckout={openCheckout} />
             <EmotionalValidation />
             <WhatIsOracle />
-            <WhoIsGrandmother />
-            <WhatYouReceive />
+            <AuthenticSocialProof />
             <MainCTA onOpenCheckout={openCheckout} />
-            <EmotionalSecurity />
 
-            <footer className="py-8 text-center text-parchment/40 text-sm border-t border-white/5">
-                <p>© {new Date().getFullYear()} Avó Divina. Todos os direitos reservados.</p>
+            <footer className="py-12 text-center border-t border-white/5 mx-6">
+                <p className="text-authentic-gray/30 text-xs tracking-widest uppercase font-serif">
+                    © {new Date().getFullYear()} Avó Divina • Oráculo Interior
+                </p>
             </footer>
 
             {isModalOpen && <CheckoutModal onClose={closeCheckout} />}

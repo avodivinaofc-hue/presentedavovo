@@ -1,49 +1,51 @@
-import { Eye, Lock, Compass } from 'lucide-react'
+import { Eye, Key, Compass } from 'lucide-react'
 
 export default function WhatIsOracle() {
     return (
-        <section className="py-24 px-6">
-            <div className="max-w-3xl mx-auto text-center space-y-12">
-                {/* Title */}
-                <h2 className="text-3xl md:text-4xl font-serif">
-                    O Oráculo Interior não prevê.<br />
-                    <span className="text-gold">Ele revela.</span>
-                </h2>
+        <section className="py-24 px-6 bg-authentic-purple/5">
+            <div className="max-w-2xl mx-auto space-y-16">
 
-                {/* Text */}
-                <div className="space-y-6 text-lg text-parchment/70 leading-relaxed max-w-2xl mx-auto">
-                    <p>
-                        Este não é um jogo de cartas.<br />
-                        Não é superstição.
-                    </p>
+                <div className="text-center space-y-4">
+                    <h2 className="text-3xl md:text-4xl text-authentic-text">
+                        O Oráculo Interior não prevê.<br />
+                        <span className="italic text-authentic-gold">Ele revela.</span>
+                    </h2>
 
-                    <p>
-                        É um método de leitura espiritual que revela:
+                    <p className="text-authentic-gray font-light max-w-md mx-auto">
+                        Este não é um jogo de cartas. Não é superstição.
                     </p>
                 </div>
 
-                {/* Reveals */}
-                <div className="grid md:grid-cols-3 gap-6 pt-4">
-                    <div className="p-6 rounded-2xl bg-void-light/50 border border-white/5 hover:border-gold/20 transition-all duration-300">
-                        <Lock className="w-8 h-8 text-mystic mx-auto mb-4" />
-                        <p className="text-parchment/90">O que está <strong className="text-gold">bloqueando</strong> seu caminho</p>
+                <div className="space-y-12 pl-4 border-l border-authentic-gold/10">
+
+                    <div className="relative pl-8 group">
+                        <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-authentic-black border border-authentic-gold/50 group-hover:bg-authentic-gold transition-colors duration-500" />
+                        <h3 className="text-xl font-serif text-authentic-text mb-2">O que bloqueia seu caminho</h3>
+                        <p className="text-authentic-gray font-light">
+                            Padrões invisíveis que repetem ciclos de dor.
+                        </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-void-light/50 border border-white/5 hover:border-gold/20 transition-all duration-300">
-                        <Compass className="w-8 h-8 text-mystic mx-auto mb-4" />
-                        <p className="text-parchment/90">O que precisa ser <strong className="text-gold">feito agora</strong></p>
+                    <div className="relative pl-8 group">
+                        <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-authentic-black border border-authentic-gold/50 group-hover:bg-authentic-gold transition-colors duration-500" />
+                        <h3 className="text-xl font-serif text-authentic-text mb-2">O que precisa ser feito agora</h3>
+                        <p className="text-authentic-gray font-light">
+                            Uma ação concreta para destrancar sua energia.
+                        </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-void-light/50 border border-white/5 hover:border-gold/20 transition-all duration-300">
-                        <Eye className="w-8 h-8 text-mystic mx-auto mb-4" />
-                        <p className="text-parchment/90">O que o destino está tentando <strong className="text-gold">te mostrar</strong></p>
+                    <div className="relative pl-8 group">
+                        <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-authentic-black border border-authentic-gold/50 group-hover:bg-authentic-gold transition-colors duration-500" />
+                        <h3 className="text-xl font-serif text-authentic-text mb-2">O que o destino tenta mostrar</h3>
+                        <p className="text-authentic-gray font-light">
+                            Mensagens que sua intuição grita mas você ignora.
+                        </p>
                     </div>
+
                 </div>
 
-                {/* Closing */}
-                <p className="text-lg text-parchment/60 italic pt-4">
-                    Muitas pessoas chegam aqui perdidas.<br />
-                    Saem com clareza.
+                <p className="text-center text-authentic-text/60 italic font-serif pt-8">
+                    "Muitas pessoas chegam aqui perdidas. Saem com clareza."
                 </p>
             </div>
         </section>
