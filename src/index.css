@@ -2,7 +2,144 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design System Variables - Boho-Modern / Warm-Earthy Theme */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+
+/* Design System Variables - Mystic Soul Theme */
+:root {
+  /* Core Palette - Deep Purple, Soft Gold, Black */
+  /* Background: #0a050e (Deep Void) */
+  --background: 270 50% 4%;
+  /* Foreground: #eaddcf (Soft Parchment) */
+  --foreground: 30 30% 86%;
+
+  --card: 270 50% 6%;
+  --card-foreground: 30 30% 86%;
+
+  --popover: 270 50% 6%;
+  --popover-foreground: 30 30% 86%;
+
+  /* Primary: #9d4edd (Mystic Violet) */
+  --primary: 273 67% 59%;
+  --primary-foreground: 270 40% 98%;
+
+  /* Secondary: #d4af37 (Metallic Gold) */
+  --secondary: 46 65% 52%;
+  --secondary-foreground: 270 50% 4%;
+
+  --muted: 270 30% 12%;
+  --muted-foreground: 270 20% 60%;
+
+  --accent: 46 65% 52%;
+  --accent-foreground: 270 50% 4%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 270 30% 12%;
+  --input: 270 30% 12%;
+  --ring: 46 65% 52%;
+
+  --radius: 0.5rem;
+
+  /* Custom Colors */
+  --gold-light: 46 75% 70%;
+  --gold-dark: 46 55% 42%;
+
+  /* Gradients */
+  --gradient-mystic: linear-gradient(135deg, hsl(270 50% 4%) 0%, hsl(270 40% 8%) 100%);
+  --gradient-gold: linear-gradient(135deg, hsl(46 65% 52%) 0%, hsl(46 75% 70%) 50%, hsl(46 65% 52%) 100%);
+  --gradient-void: linear-gradient(to bottom, transparent 0%, hsl(270 50% 4%) 100%);
+
+  /* Animations */
+  --transition-slow: 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  @apply bg-background text-foreground antialiased font-sans;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  /* Fallback or subtle noise */
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif tracking-wide;
+}
+
+/* Custom Utilities */
+.text-gold {
+  color: hsl(var(--secondary));
+}
+
+.text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-texture-tarot {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(circle at 50% 50%, rgba(157, 78, 221, 0.05) 0%, transparent 50%);
+}
+
+.card-mystic {
+  @apply bg-card border border-white/5 rounded-xl shadow-2xl backdrop-blur-sm;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary-mystic {
+  @apply relative overflow-hidden rounded-full bg-secondary text-secondary-foreground px-8 py-4 font-serif font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(212, 175, 55, 0.4)];
+}
+
+.btn-primary-mystic::after {
+  content: '';
+  @apply absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300;
+}
+
+.btn-primary-mystic:hover::after {
+  @apply opacity-100;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
 :root {
   /* Core Colors - Based on specified HEX palette */
   /* Background: #FAF6F2 (Cream) = hsl(30, 40%, 97%) */
@@ -13,29 +150,29 @@
   --card-foreground: 0 0% 7%;
   --popover: 30 40% 98%;
   --popover-foreground: 0 0% 7%;
-  
+
   /* Primary - Deep Plum #4A1F4E = hsl(296, 43%, 21%) */
   --primary: 296 43% 21%;
   --primary-foreground: 30 40% 97%;
   --primary-light: 296 35% 35%;
   --primary-dark: 296 50% 15%;
-  
+
   /* Secondary - Muted Wine #7A3B6E = hsl(310, 35%, 36%) */
   --secondary: 310 35% 36%;
   --secondary-foreground: 30 40% 97%;
-  
+
   /* Accent - Warm Gold #C89B4B = hsl(40, 52%, 54%) */
   --accent: 40 52% 54%;
   --accent-foreground: 0 0% 7%;
-  
+
   /* Muted - #6B6B6B = hsl(0, 0%, 42%) */
   --muted: 30 20% 92%;
   --muted-foreground: 0 0% 42%;
-  
+
   /* Destructive */
   --destructive: 0 65% 50%;
   --destructive-foreground: 0 0% 100%;
-  
+
   /* Borders and inputs */
   --border: 30 15% 90%;
   --input: 30 20% 95%;
@@ -88,7 +225,8 @@
 }
 
 /* Dark Theme - For Dark Sections */
-.theme-dark, .section-dark {
+.theme-dark,
+.section-dark {
   --background: 0 0% 6%;
   --foreground: 30 20% 96%;
   --card: 0 0% 10%;
@@ -118,7 +256,12 @@ body {
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Poppins', 'Montserrat', sans-serif;
   line-height: 1.2;
   font-weight: 700;
@@ -234,6 +377,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -241,8 +385,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-fade-in-up {
@@ -292,11 +441,11 @@ h1, h2, h3, h4, h5, h6 {
   --mystic-dark: 0 0% 0%;
   --mystic-darker: 0 0% 5%;
   --mystic-gold: 45 100% 60%;
-  
+
   --gradient-primary: linear-gradient(135deg, hsl(300, 100%, 50%) 0%, hsl(320, 100%, 60%) 50%, hsl(0, 100%, 50%) 100%);
   --gradient-intense: linear-gradient(135deg, hsl(280, 100%, 50%) 0%, hsl(320, 100%, 60%) 100%);
   --gradient-fire: linear-gradient(135deg, hsl(0, 100%, 50%) 0%, hsl(340, 100%, 60%) 100%);
-  
+
   --shadow-purple-glow: 0 0 40px rgba(255, 0, 255, 0.6);
   --shadow-red-glow: 0 0 40px rgba(255, 0, 0, 0.6);
   --shadow-magenta-glow: 0 0 40px rgba(255, 0, 200, 0.6);
@@ -311,9 +460,17 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-magenta-glow);
 }
 
-.mystic-theme .glow-purple { box-shadow: var(--shadow-purple-glow); }
-.mystic-theme .glow-red { box-shadow: var(--shadow-red-glow); }
-.mystic-theme .glow-magenta { box-shadow: var(--shadow-magenta-glow); }
+.mystic-theme .glow-purple {
+  box-shadow: var(--shadow-purple-glow);
+}
+
+.mystic-theme .glow-red {
+  box-shadow: var(--shadow-red-glow);
+}
+
+.mystic-theme .glow-magenta {
+  box-shadow: var(--shadow-magenta-glow);
+}
 
 .mystic-theme .text-gradient-primary,
 .mystic-theme .text-gradient-intense {
@@ -323,11 +480,21 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
-.mystic-theme .bg-gradient-fire { background: var(--gradient-fire); }
-.mystic-theme .bg-gradient-intense { background: var(--gradient-intense); }
+.mystic-theme .bg-gradient-fire {
+  background: var(--gradient-fire);
+}
 
-.mystic-theme .bg-mystic-dark { background-color: hsl(var(--mystic-dark)); }
-.mystic-theme .bg-mystic-darker { background-color: hsl(var(--mystic-darker)); }
+.mystic-theme .bg-gradient-intense {
+  background: var(--gradient-intense);
+}
+
+.mystic-theme .bg-mystic-dark {
+  background-color: hsl(var(--mystic-dark));
+}
+
+.mystic-theme .bg-mystic-darker {
+  background-color: hsl(var(--mystic-darker));
+}
 
 /* ================================================
    CRYSTAL TEMPLE DESIGN SYSTEM
@@ -339,33 +506,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .crystal-temple {
   /* Core Palette - "Amanhecer da Alma" */
-  --crystal-bg: 252 18% 14%;         /* #1E1B2E Deep Lavender Mist */
-  --crystal-bg-dark: 252 20% 10%;    /* Darker variant */
-  --crystal-text: 260 40% 92%;       /* #E0D8F0 Lilás Pálido */
-  --crystal-text-muted: 260 20% 70%; /* Muted text */
-  --crystal-glow: 262 73% 76%;       /* #A78BFA Violeta Ametista */
+  --crystal-bg: 252 18% 14%;
+  /* #1E1B2E Deep Lavender Mist */
+  --crystal-bg-dark: 252 20% 10%;
+  /* Darker variant */
+  --crystal-text: 260 40% 92%;
+  /* #E0D8F0 Lilás Pálido */
+  --crystal-text-muted: 260 20% 70%;
+  /* Muted text */
+  --crystal-glow: 262 73% 76%;
+  /* #A78BFA Violeta Ametista */
   --crystal-glow-intense: 262 100% 85%;
-  --crystal-pearl: 300 100% 98%;     /* #FDF4FF Pérola */
-  --crystal-serenity: 220 80% 70%;   /* Blue Serenity */
-  
+  --crystal-pearl: 300 100% 98%;
+  /* #FDF4FF Pérola */
+  --crystal-serenity: 220 80% 70%;
+  /* Blue Serenity */
+
   /* Gradients */
   --crystal-progress: linear-gradient(90deg, #60A5FA, #A78BFA);
   --crystal-glow-gradient: linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(253, 244, 255, 0.1));
   --crystal-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  
+
   /* Typography */
   --font-heading: 'Marcellus', serif;
   --font-body: 'Quicksand', sans-serif;
-  
+
   /* Shadows & Glows */
   --crystal-shadow: 0 8px 32px rgba(167, 139, 250, 0.15);
   --crystal-glow-shadow: 0 0 40px rgba(167, 139, 250, 0.3);
   --crystal-inner-glow: inset 0 0 30px rgba(167, 139, 250, 0.1);
-  
+
   /* Transitions */
   --crystal-transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
   --crystal-transition-slow: 800ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Apply theme */
   background-color: hsl(var(--crystal-bg));
   color: hsl(var(--crystal-text));
@@ -422,13 +596,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Breathing Circle Animation */
 @keyframes breatheIn {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.3); opacity: 1; }
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
 }
 
 @keyframes breatheOut {
-  0% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.6; }
+  0% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
 }
 
 .crystal-breathing-circle {
@@ -437,7 +625,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(167, 139, 250, 0.4) 0%, rgba(167, 139, 250, 0.1) 70%, transparent 100%);
   border: 2px solid rgba(167, 139, 250, 0.5);
-  box-shadow: 
+  box-shadow:
     0 0 30px rgba(167, 139, 250, 0.3),
     inset 0 0 20px rgba(167, 139, 250, 0.2);
 }
@@ -499,17 +687,34 @@ h1, h2, h3, h4, h5, h6 {
 .crystal-journal-input:focus {
   outline: none;
   border-color: rgba(167, 139, 250, 0.5);
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(167, 139, 250, 0.2),
     inset 0 0 10px rgba(167, 139, 250, 0.05);
 }
 
 /* Crystal Particles Background */
 @keyframes crystalFloat {
-  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
-  25% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
-  50% { transform: translateY(-10px) translateX(-5px); opacity: 0.4; }
-  75% { transform: translateY(-25px) translateX(5px); opacity: 0.5; }
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-5px);
+    opacity: 0.4;
+  }
+
+  75% {
+    transform: translateY(-25px) translateX(5px);
+    opacity: 0.5;
+  }
 }
 
 .crystal-particle {

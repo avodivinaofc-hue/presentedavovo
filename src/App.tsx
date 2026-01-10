@@ -1,60 +1,40 @@
-import { Suspense, lazy } from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import "./i18n/config";
 
-// Lazy load pages
-const LandingPage = lazy(() => import("./pages/LandingPage"));
-const EbookPage = lazy(() => import("./pages/EbookPage"));
-const DigitalBookPage = lazy(() => import("./pages/DigitalBookPage"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const TermsPage = lazy(() => import("./pages/TermsPage"));
-const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
-const RefundPage = lazy(() => import("./pages/RefundPage"));
+import { useState } from "react";
+import HeroEmotional from "./components/HeroEmotional";
+import SoulValidation from "./components/SoulValidation";
+import GrandmotherAuthority from "./components/GrandmotherAuthority";
+import OracleExplanation from "./components/OracleExplanation";
+import SacredOffer from "./components/SacredOffer";
+import { CheckoutModal } from "./components/CheckoutModal";
 
-const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="animate-pulse text-primary text-xl">Carregando...</div>
-  </div>
-);
+function App() {
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000,
-      gcTime: 10 * 60 * 1000,
-      retry: 1,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
+  const handleOpenCheckout = () => {
+    setIsCheckoutOpen(true);
+  };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/termos" element={<TermsPage />} />
-              <Route path="/privacidade" element={<PrivacyPage />} />
-              <Route path="/reembolso" element={<RefundPage />} />
-              <Route path="/ebook" element={<EbookPage />} />
-              <Route path="/digital" element={<DigitalBookPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+  return (
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-secondary/30">
+
+      <main className="relative">
+        <HeroEmotional onOpenCheckout={handleOpenCheckout} />
+        <SoulValidation />
+        <GrandmotherAuthority />
+        <OracleExplanation />
+        <SacredOffer onOpenCheckout={handleOpenCheckout} />
+      </main>
+
+      <footer className="py-8 text-center text-muted-foreground/40 text-xs border-t border-white/5 bg-black">
+        <p>© {new Date().getFullYear()} Avó Divina. Todos os direitos reservados.</p>
+      </footer>
+
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+      />
+    </div>
+  );
+}
 
 export default App;
