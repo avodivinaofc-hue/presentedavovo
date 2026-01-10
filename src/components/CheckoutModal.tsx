@@ -5,7 +5,7 @@ interface CheckoutModalProps {
 }
 
 export default function CheckoutModal({ onClose }: CheckoutModalProps) {
-    const CHECKOUT_URL = "https://pay.kirvano.com/c939b46e-a635-499c-b875-f268a489cc49"
+    const CHECKOUT_URL = "https://pay.kirvano.com/cf0d2343-a74c-49c9-bf63-235f4aee2fe2"
 
     const handleCheckout = () => {
         window.open(CHECKOUT_URL, '_blank')
