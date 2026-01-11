@@ -26,7 +26,7 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
 
                 {/* Subheadline with high breathing room */}
                 <p className="text-lg md:text-xl text-authentic-gray font-light leading-loose max-w-xl mx-auto">
-                    Um guia espiritual simbólico para te ajudar a tomar decisões, fortalecer sua fé e enxergar caminhos com mais clareza.
+                    Um guia espiritual para te ajudar a tomar decisões, fortalecer sua fé e enxergar caminhos com mais clareza.
                 </p>
 
                 {/* Image - Abstract/Atmospheric */}
