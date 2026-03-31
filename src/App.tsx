@@ -15,7 +15,6 @@ import EmotionalValidationUS from './components/us/EmotionalValidationUS'
 import WhatIsOracleUS from './components/us/WhatIsOracleUS'
 import AuthenticSocialProofUS from './components/us/AuthenticSocialProofUS'
 import MainCTAUS from './components/us/MainCTAUS'
-import CheckoutModalUS from './components/us/CheckoutModalUS'
 import CongratulationsUS from './components/us/CongratulationsUS'
 
 // Brazilian Version
@@ -46,26 +45,19 @@ function BrazilianVersion() {
 
 // US Version
 function USVersion() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
-
-    const openCheckout = () => setIsModalOpen(true)
-    const closeCheckout = () => setIsModalOpen(false)
-
     return (
         <div className="min-h-screen bg-authentic-black selection:bg-authentic-purple selection:text-authentic-gold">
-            <HeroUS onOpenCheckout={openCheckout} />
+            <HeroUS />
             <EmotionalValidationUS />
             <WhatIsOracleUS />
             <AuthenticSocialProofUS />
-            <MainCTAUS onOpenCheckout={openCheckout} />
+            <MainCTAUS />
 
             <footer className="py-12 text-center border-t border-white/5 mx-6">
                 <p className="text-authentic-gray/30 text-xs tracking-widest uppercase font-serif">
                     © {new Date().getFullYear()} Divine Grandmother • Inner Oracle
                 </p>
             </footer>
-
-            {isModalOpen && <CheckoutModalUS onClose={closeCheckout} />}
         </div>
     )
 }

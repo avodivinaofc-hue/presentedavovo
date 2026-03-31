@@ -1,10 +1,11 @@
 import { Moon } from 'lucide-react'
 
-interface HeroUSProps {
-    onOpenCheckout: () => void
-}
+const CHECKOUT_URL = "https://buy.stripe.com/cNifZgfSA8bmezPfUE9fW05"
 
-export default function HeroUS({ onOpenCheckout }: HeroUSProps) {
+export default function HeroUS() {
+    const handleCheckout = () => {
+        window.open(CHECKOUT_URL, '_blank')
+    }
     return (
         <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 py-24 relative overflow-hidden">
 
@@ -55,7 +56,7 @@ export default function HeroUS({ onOpenCheckout }: HeroUSProps) {
                 {/* CTA - Minimalist */}
                 <div className="pt-8">
                     <button
-                        onClick={onOpenCheckout}
+                        onClick={handleCheckout}
                         className="btn-authentic"
                     >
                         Access my guide
