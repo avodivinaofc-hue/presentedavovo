@@ -16,6 +16,7 @@ import WhatIsOracleUS from './components/us/WhatIsOracleUS'
 import AuthenticSocialProofUS from './components/us/AuthenticSocialProofUS'
 import MainCTAUS from './components/us/MainCTAUS'
 import CheckoutModalUS from './components/us/CheckoutModalUS'
+import CongratulationsUS from './components/us/CongratulationsUS'
 
 // Brazilian Version
 function BrazilianVersion() {
@@ -75,6 +76,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<BrazilianVersion />} />
                 <Route path="/us" element={<USVersion />} />
+                <Route path="/us/congratulations" element={<CongratulationsUS />} />
             </Routes>
         </BrowserRouter>
     )
