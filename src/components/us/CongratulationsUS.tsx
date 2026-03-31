@@ -132,13 +132,17 @@ export default function CongratulationsUS() {
           {/* Video VSL Section */}
           <div className="mb-12">
             <div className="relative w-full aspect-video bg-[#2A0E3F]/20 rounded-sm overflow-hidden border border-[#C9A44C]/20">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&controls=1&showinfo=0&autoplay=0"
-                title="The Divine Sanctuary VSL"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <video
+                className="w-full h-full object-cover"
+                src="/vsl-video.mp4"
+                controls
+                controlsList="nodownload noplaybackrate"
+                disablePictureInPicture
+                playsInline
+                poster="/authentic_hero_hands.png"
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
             <p className="text-center text-sm text-[#B6B1A9]/60 mt-3 italic">
               Watch this urgent message from The Divine Grandmother
