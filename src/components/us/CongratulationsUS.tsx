@@ -37,7 +37,7 @@ export default function CongratulationsUS() {
   }, [])
 
   const handleUpgrade = () => {
-    window.open('https://buy.stripe.com/28EbJ00XG9fqbnD0ZK9fW06', '_blank')
+    window.open('https://buy.stripe.com/fZu4gy7m48bm9fv7o89fW07', '_blank')
   }
 
   const handleNoThanks = () => {
